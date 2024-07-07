@@ -32,15 +32,15 @@ class swiftnewzcom extends plugin_base {
 			)
 		),
 		'article' => array(
-			'headline' => '/<span class="post-title" itemprop="headline">(.*)<\/span>/Uis',
-			'content' => '/<div class="entry-content[^<]*>(.*)<div class="post-share[^<]*>/Uis',
-			'article_date' => '/<div class="post-meta single-post-meta">\s*<span class="time"><time class="post-published[^"]*"\s*datetime="([^"]*)"/Uis'
+			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
+			'content' => '/<div class="entry-content entry clearfix">(.*)<div class="auto-inserted-ad">/Uis',
+			'article_date' => '/datePublished":"(.*)"/Uis'
 		)
 	);
 
 	protected function process_list1_link($link, $referer_link, $logic) {
-		$temp_link ='';
-		if(preg_match_all('/<loc>(https:\/\/www\.swiftnewz\.com\/post-sitemap\d+\.xml)<\/loc>/Uis', $link, $matches)){
+		$temp_link =''; // https://swiftnewz.com/wp-sitemap-posts-post-53.xml
+		if(preg_match_all('/<loc>(https:\/\/swiftnewz\.com\/wp-sitemap-posts-post-\d+\.xml)<\/loc>/Uis', $link, $matches)){
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>' , '' , $temp_link);
 			$temp_link = str_replace('</loc>' , '' , $temp_link);
