@@ -1,5 +1,7 @@
 <?php
 
+// crawler.class.php  // 
+
 $r1 = '<div class="card">\s*<!--.*?-->\s*<a href="([^"]*)"';
 
 // <div class="card">
