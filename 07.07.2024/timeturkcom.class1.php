@@ -16,16 +16,18 @@ class timeturkcom extends plugin_base {
 	protected $logic = array(
 		'list1' => array(
 			0 => array(
-				'type' => 'list1',
-				'regexp'=> '/<div class="pagination-card">\s*<a href="([^"]*)" title=/Uis',
+				'type' => 'list2',
+                'regexp'=> '/<div class="card">\s*<!--.*?-->\s*<a href="([^"]*)"/Uis',
 				'append_domain' => false,
 				'process_link' => 'process_article_link'
-			),
-			1 => array(
-				'type' => 'article',
-				'regexp'=> '/<div class="card">\s*<!--.*?-->\s*<a href="([^"]*)"/Uis',
-				'append_domain' => false,
 			)
+		),
+        'list2' => array(
+			0 => array(
+				'type' => 'article',
+                'regexp'=> '/<div class="pagination-card">\s*<a href="([^"]*)" title=/Uis',
+				'append_domain' => false,
+			),
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
