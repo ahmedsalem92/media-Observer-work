@@ -16,17 +16,17 @@ class timeturkcom extends plugin_base
     protected $site_timezone = 'Asia/Amman';
     protected $logic = array(
         'list1' => array(
-            0 => array(
-                'type' => 'list1',
+			0 => array(
+				'type' => 'list1',
                 'regexp' => '/<div class="pagination-card">\s*<a href="([^"]*)" title=/Uis',
-                'append_domain' => false
-            ),
-            1 => array(
-                'type' => 'article',
+				'append_domain' => false
+			),
+			1 => array(
+				'type' => 'article',
                 'regexp' => '/<div class="card">\s*<!--.*?-->\s*<a href="([^"]*)"/Uis',
-                'append_domain' => false
-            ),
-        ),
+				'append_domain' => false
+			),
+		),
         'article' => array(
             'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
             'content' => '/<\/h1>(.*)<div class="col-12 col-lg-4 col-xl-3 d-none d-lg-block ">/Uis',
