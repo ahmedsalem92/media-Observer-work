@@ -14,6 +14,10 @@ $r1 = '<div class="card">\s*<!--.*?-->\s*<a href="([^"]*)"';
 $h1 = '<h1[^<]*>(.*)<\/h1>';
 // select headline
 
+// 'regexp'=> '/<\/div>\s*<div>\s*<div class="pagination-card">\s*<a href="([^"]*)" title=/Uis',
+// 'regexp'=> '/<div class="col-12 col-md-6 col-lg-4 col-xl-3">\s*<div class="card">\s*<!-- <a .*<a href="(.*)"/Uis',
+
+
 
 // (#390)
 // --------------------------

@@ -23,13 +23,13 @@ class dubaistandardcom extends plugin_base
 			),
 			1 => array(
 				'type' => 'article',
-				'regexp' => '/<div class="td-module-thumb"><a href="(.*)"/Uis',
+				'regexp' => '/<div class="tdb_module_loop [^<]*>.*<div class="td-module-thumb"><a href="(.*)"/Uis',
 				'append_domain' => false
 			)
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/<div class="td-post-content">(.*)(?:<div class="td-a-rec td-a-rec-id-content_bottom  ">|<footer>)/Uis',
+			'content' => '/<div class="td-main-content-wrap[^<]*>(.*)<div class="td_block_wrap tdb_single_next_prev/Uis',
 			'author' => false,
 			'article_date' => '/<meta property="article:published_time" content="([^"]*)"/Uis',
 		)

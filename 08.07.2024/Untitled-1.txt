@@ -1,0 +1,15 @@
+  Found 14 sections:
+    1. https://www.timeturk.com/dunya = DÜNYA
+    2. https://www.timeturk.com/gundem = GÜNDEM
+    3. https://www.timeturk.com/politika = POLİTİKA
+    4. https://www.timeturk.com/ekonomi = EKONOMİ
+    5. https://www.timeturk.com/ceviri = ÇEVİRİ HABER
+    6. https://www.timeturk.com/spor = SPOR
+    7. https://www.timeturk.com/saglik = SAĞLIK
+    8. https://www.timeturk.com/teknoloji = TEKNOLOJİ
+    9. https://www.timeturk.com/kultur = KÜLTÜR
+    10. https://www.timeturk.com/yasam = YAŞAM
+    11. https://www.timeturk.com/egitim = EĞİTİM
+    12. https://www.timeturk.com/roportaj = RÖPORTAJ
+    13. https://www.timeturk.com/dizi-film = DİZİ - FİLM
+    14. https://www.timeturk.com/otomotiv = OTOMOTİV
