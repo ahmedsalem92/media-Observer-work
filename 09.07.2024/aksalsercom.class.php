@@ -13,42 +13,13 @@ class aksalsercom extends plugin_base {
 
 	// DEFINITIONS
 	protected $site_timezone = 'Asia/Amman';
-	private $exclude_sections = array(
-		'https://www.aksalser.com/news/terms-and-privacy/',
-		'https://www.aksalser.com/news/about-us/',
-		'https://www.aksalser.com/news/contact-us/'
-	);
-	protected $sections = array(
-		'list1' => array(
-			0 => array(
-				'type' => 'section',
-				'regexp' => array (
-					'/<ul id="menu-[^<]*>(.*)<ul class="components">/Uis',
-					'/(<a.*<\/a>)/Uis'//the whole link
-				),
-			),
 
-		),
-		'section' => array(
-			'link' => '/href="([^"]*)"/Uis',//link of section
-			'name' => '/<a[^<]*>(.*)<\/a>/Uis',//name of section
-			'append_domain' => true,//
-			'process_link' => 'filter_sections'
-		)
-	);
 	protected $logic = array(
 		'list1' => array(
 			0 => array(
-				'type' => 'list1',
-				'regexp' => '/<li class="the-next-page"><a href="(.*)"/Uis',
-				'append_domain' => false,
-				'process_link' => 'process_next_link'
-
-			),
-			1 => array(
 				'type' => 'article',
-				'regexp' => '/<h2 class=[^<]*><a href="(.*)">/Uis',
-				'append_domain' => false
+				'regexp' => '/<link>(.*)<\/link>/Uis',
+				'append_domain' => false,
 			)
 		),
 		'article' => array(
@@ -100,16 +71,7 @@ class aksalsercom extends plugin_base {
 		$this->logic = $this->logic_no_next;
 
 	}
-	protected function filter_sections($section_link, $section_name, $referer_link, $logic) {
 
-		// exclude these sections
-		if (in_array(trim($section_link), $this->exclude_sections)) {
-			return '';
-		}
-
-		return $section_link;
-
-	}
 	protected function process_content($content, $article_data){
 		$content = preg_replace('/(<div class="entry-content entry clearfix">\s*<div[^<]*>\s*<\/div>\s*<div[^<]*>\s*<div[^<]*>.*<a[^<]*>.*<\/a><\/div>\s*<\/div>\s*<di[^<]*>\s*<div[^<]*>\s*<ins[^<]*><\/ins>\s*<s[^<]*>\s*\(ad.*<\/script>\s*<\/div>)/Uis', 'no content', $content);
 		$content = preg_replace('/(<\/p><div class="stream-item stream-item-in-post stream-item-in-post-3"><div class="news-sig">.*<\/div>)/Uis', '', $content);
