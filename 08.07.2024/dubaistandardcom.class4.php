@@ -29,7 +29,7 @@ class dubaistandardcom extends plugin_base
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/<div class="td-main-content-wrap[^<]*>(.*)<div class="td_block_wrap tdb_single_next_prev/Uis',
+			'content' => '/<div class="td-main-content-wrap[^<]*>.*<div class="tdb-block-inner[^<]*>.*<div id="[^<]*" class="tdc-row[^<]*>.*<!-- .\/block -->(.*)<div class="td_block_wrap tdb_single_next_prev/Uis',
 			'author' => false,
 			'article_date' => '/<meta property="article:published_time" content="([^"]*)"/Uis',
 		)

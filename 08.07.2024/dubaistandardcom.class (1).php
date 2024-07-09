@@ -54,6 +54,7 @@ class dubaistandardcom extends plugin_base {
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
 
+		return date('Y-m-d H:i:s');
 		return $article_date;
 	}
 
