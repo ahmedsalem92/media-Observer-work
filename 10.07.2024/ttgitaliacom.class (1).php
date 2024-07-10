@@ -16,26 +16,19 @@ class ttgitaliacom extends plugin_base {
 	protected $logic = array(
 		'list1' => array(
 			0 => array(
-				'type' => 'list2',
-				'regexp' => '/<loc>(.*)<\/loc>/Uis',
-				'append_domain' => false,
-			),
-		),
-		'list2' => array(
-			0 => array(
 				'type' => 'article',
-				'regexp' => '/<article.*>.*<a href="(.*)"/Uis',
-				'append_domain' => true,
-			)
+				'regexp'=> '/<loc>(.*)<\/loc>/Uis',
+				'append_domain' =>	true,
+				'process_link' => 'process_article_link'
+				)
 		),
 		'article' => array(
-			'headline' => '/(?:<h1 class="headline[^>]*>|<div class="headline"> <h2><span .*>)(.*)(?:<\/h1>|<\/span>)/Uis',
-			'content' => '/(?:<div class="article-content">|<div class="paragraph texto".*>)(.*)(?:<div class="share-buttons">|<div id="" class="portlet-boundary)/Uis',
-			'author' => false,
-			'article_date' => '/<li class="date">(.*) <\/li>/Uis'
+			'headline' => '/<h1 class="headline[^>]*>(.*)<\/h1>/Uis',
+			'content' => '/<div class="article-content">(.*)<div class="share-buttons">/Uis',
+			'author' => '/<h1 class="headline has-image-right" >.*<div class="category">\s*<a.*>(.*)<\/a>/Uis',
+			'article_date' => '/<div class="date" style="margin-left:10px;">(.*)<\/div>/Uis'
 		)
 	);
-
 
 	protected function process_content($content, $article_data) {
 
@@ -70,8 +63,6 @@ class ttgitaliacom extends plugin_base {
 			);
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
-
-		return date('Y-m-d H:i:s');
 		return $article_date;
 	}
 
