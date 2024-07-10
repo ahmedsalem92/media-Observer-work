@@ -29,8 +29,8 @@ class ttgitaliacom extends plugin_base {
 			)
 		),
 		'article' => array(
-			'headline' => '/(?:<h1 class="headline[^>]*>|<div class="headline"> <h2><span .*>)(.*)(?:<\/h1>|<\/span>)/Uis',
-			'content' => '/(?:<div class="article-content">|<div class="paragraph texto".*>)(.*)(?:<div class="share-buttons">|<div id="" class="portlet-boundary)/Uis',
+			'headline' => '/(?:<h1><span class="priority-content".*>|<h1 class="headline[^>]*>|<div class="headline"> <h2><span .*>)(.*)(?:<\/span><\/h1>|<\/h1>|<\/span>)/Uis',
+			'content' => '/(?:<div class="paragraph texto".*>|<div class="article-content">|<div class="paragraph texto".*>)(.*)(?:<div id="" class="portlet-boundary|<div class="share-buttons">|<div id="" class="portlet-boundary)/Uis',
 			'author' => false,
 			'article_date' => '/<li class="date">(.*) <\/li>/Uis'
 		)
