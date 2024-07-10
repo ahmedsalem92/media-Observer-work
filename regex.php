@@ -18,7 +18,7 @@ $h1 = '<h1[^<]*>(.*)<\/h1>';
 // 'regexp'=> '/<\/div>\s*<div>\s*<div class="pagination-card">\s*<a href="([^"]*)" title=/Uis',
 // 'regexp'=> '/<div class="col-12 col-md-6 col-lg-4 col-xl-3">\s*<div class="card">\s*<!-- <a .*<a href="(.*)"/Uis',
 
-
+return date('Y-m-d H:i:s');
 
 // (#390)
 // --------------------------
