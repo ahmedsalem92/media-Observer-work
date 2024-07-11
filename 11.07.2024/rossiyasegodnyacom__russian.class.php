@@ -50,11 +50,10 @@ class rossiyasegodnyacom__russian extends plugin_base {
 	}
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
 	protected function process_date($article_date) {
-
-		//2018-05-21T08:20:26+00:00
-		if (preg_match('/(\d+?) (\W+?)/Uis', $article_date, $matches)) {
+		// 2018-05-21T08:20:26+00:00
+		if (preg_match('/(\d+) (\pL+)/u', $article_date, $matches)) {
 			$month = $this->convert($matches[2]);
-
+	
 			$article_date_obj = DateTime::createFromFormat(
 				'Y-m-d H:i:s',
 				date("Y") . '-' . $month . '-' . $matches[1] . ' 16:00:00',
@@ -62,13 +61,27 @@ class rossiyasegodnyacom__russian extends plugin_base {
 			);
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
-
+	
 		return $article_date;
 	}
-	function convert($string) {
-		$russian = array('январь', 'февраль', 'март', 'апреля', 'мая', 'июнь','июня', 'июль', 'август', 'сентябрь', 'октябрь' ,'ноябрь','декабрь');
-		$english = array('1', '2', '3', '4', '5', '6', '6', '7', '8', '9', '10' ,'11' ,'12');
-		$english_month = str_replace($russian, $english, $string);
-		return $english_month;
+	
+	// Function to convert month name to a numerical value
+	protected function convert($month_name) {
+		$months = [
+			'января' => '01',
+			'февраля' => '02',
+			'марта' => '03',
+			'апреля' => '04',
+			'мая' => '05',
+			'июня' => '06',
+			'июля' => '07',
+			'августа' => '08',
+			'сентября' => '09',
+			'октября' => '10',
+			'ноября' => '11',
+			'декабря' => '12'
+		];
+	
+		return $months[$month_name];
 	}
 }
