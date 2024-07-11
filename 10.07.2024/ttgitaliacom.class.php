@@ -26,6 +26,7 @@ class ttgitaliacom extends plugin_base {
 				'type' => 'article',
 				'regexp' => '/<article.*>.*<a href="(.*)"/Uis',
 				'append_domain' => true,
+				'process_link' => 'process_article_link'
 			)
 		),
 		'article' => array(
@@ -37,6 +38,15 @@ class ttgitaliacom extends plugin_base {
 	);
 
 
+	protected function process_article_link($link, $referer_link, $logic) {
+
+		if (strpos($link, '/autore/')) {
+			return false;
+		}
+		return $link;
+	}
+
+
 	protected function process_content($content, $article_data) {
 
 		$content = preg_replace('/(<div class="related-items box">.*<\/div>\s*<\/div>\s*<\/div>)/Uis', '', $content);
@@ -44,17 +54,6 @@ class ttgitaliacom extends plugin_base {
 		return $content;
 	}
 
-	protected function process_article_link($link, $referer_link, $logic) {
-
-		if (strpos($link, '174138_copia_di_la_gran_bretagna_nel_2022_') ||
-			strpos($link, '177028_copia_di_tre_nuove_strutture') ||
-			strpos($link, 'stories/spotlight/177200') ||
-			strpos($link, '/home/176958_internazionale_germania/')
-		) {
-			return false;
-		}
-		return $link;
-	}
 
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
 	protected function process_date($article_date) {
