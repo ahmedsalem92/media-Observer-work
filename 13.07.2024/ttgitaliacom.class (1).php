@@ -1,7 +1,6 @@
 <?php
 
-class ttgitaliacom extends plugin_base
-{
+class ttgitaliacom extends plugin_base {
 	// ANT settings
 	protected $ant_precision = 2;
 	protected $agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36';
@@ -83,7 +82,7 @@ class ttgitaliacom extends plugin_base
 			);
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
-		return date('Y-m-d H:i:s');
+
 		return $article_date;
 	}
 }
