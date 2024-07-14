@@ -1,0 +1,17 @@
+    1. https://www.ttgitalia.com/attualita = Attualità
+    2. https://www.ttgitalia.com/agenzie-viaggi = Agenzie viaggi
+    3. https://www.ttgitalia.com/tour-operator = Tour operator
+    4. https://www.ttgitalia.com/compagnie-aeree = Compagnie aeree
+    5. https://www.ttgitalia.com/hotel = Hotel
+    6. https://www.ttgitalia.com/notizie-estere = Esteri
+    7. https://www.ttgitalia.com/incoming = Incoming
+    8. https://www.ttgitalia.com/insider-people = Insider & People
+    9. https://www.ttgitalia.com/ttg-webinar = TTG Webinar
+    10. https://www.ttgitalia.com/vip-lounge = Vip Lounge
+    11. https://www.ttgitalia.com/ttg-luxury = TTG Luxury
+    12. https://www.ttgitalia.com/ttg-travel-experience = TTG Travel Experience
+    13. https://www.ttgitalia.com/lavoro-formazione = Lavoro & formazione
+    14. https://www.ttgitalia.com/agenti-segreti = Agenti Segreti
+    15. https://www.ttgitalia.com/normative-e-fisco = Normative e fisco
+    16. https://www.ttgitalia.com/tecnologia = Tech
+    17. https://www.ttgitalia.com/interviste = Interviste
