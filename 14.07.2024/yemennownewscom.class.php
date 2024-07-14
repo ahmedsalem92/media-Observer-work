@@ -60,6 +60,8 @@ class yemennownewscom extends plugin_base {
 	protected function process_content($content, $article_data)
 	{
 
+		$this->log('$content=> '.htmlentities($content));
+
 		$content = preg_replace('/<p>\s*(?:<strong[^>]*>|<span[^>]*>|<em>|<b>|&nbsp;)*+(?:أقرا|إقرا|اقرا|طالع|اقرأ|أقرأ|إقرأ|إقرأ|اقراء|يهمك|شاهدي|شاهد|أنظر|قـــــــد يهمك|قد يهمك|قد يهمّك)\s*(?:ايضًا|أيضًا|ايضا|أيضا|ايضآ|أيضاً|أيضَا|أيض&#1611;ا|ايضاً|أىضاً|المزيد|أيض|أيضأ)\s*:.*<\/p>\s*<p>\s*<\/p>\s*<p>\s*<\/p><p>/Uis', '', $content);
 		$content = preg_replace('/(<p>\s*(?:<strong[^>]*>|<span[^>]*>|<em>|<b>|&nbsp;)*+(?:أقرا|إقرا|اقرا|طالع|اقرأ|أقرأ|إقرأ|إقرأ|اقراء|يهمك|شاهدي|شاهد|أنظر|قـــــــد يهمك|قد يهمك|قد يهمّك)\s*(?:ايضًا|أيضًا|ايضا|أيضا|ايضآ|أيضاً|أيضَا|أيض&#1611;ا|ايضاً|أىضاً|المزيد|أيض|أيضأ)\s*.*<\/p>\s*<p>\s*<\/p>\s*<p>.*<\/p><p>)/Uis', '', $content);
 		$content = preg_replace('/(<p>اخبار ذات صلة<\/p>\s*<p>.*\/p>)/Uis', '', $content);
