@@ -8,8 +8,7 @@ class jebalalbalqacom extends plugin_base {
 	// CRAWL settings
 	protected $stop_on_article_found = true;
 	protected $stop_date_override = false;
-	protected $stop_on_date = false;
-	protected $use_headless = true;
+	protected $stop_on_date = true;
 
 
 
@@ -46,19 +45,25 @@ class jebalalbalqacom extends plugin_base {
 		),
 		'article' => array(
 			'headline' => '/<span id="ctl00_ContentPlaceHolder1_ctl00_fvwItemDetail_lblItemTitle" class="ItemTitle">(.*)<\/span>/Uis',
-			'content' => '/<span id="ctl00_ContentPlaceHolder1_ctl00_fvwItemDetail_lblItemDetail" class="ItemDetail">(.*)<div class="HSpaceLine1">/Uis',
+			'content' => '/<div style="direction: rtl;">(.*)<\/span><\/div><\/div>/Uis',
 			'author' => false,
-			'article_date' => '/(?:class="DateTime">|<div class="PageTitle">.*class="DateTime">)(.*)<\/span>/Uis'
+			'article_date' => '/<div class="PageTitle">.*class="DateTime">(.*)<\/span>/Uis'
 		)
 
 	);
-	
 
-	public function prepare_home($section_id)
-	{
+	/*protected function process_home_link($link, $referer_link, $logic) {
+		return 'https://www.jebalalbalqa.com/' . $link;
+	}*/
+
+
+	public function prepare_home($section_id) {
 
 		$this->logic = $this->logic_home;
+
 	}
+
+
 
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
@@ -67,6 +72,9 @@ class jebalalbalqacom extends plugin_base {
 		$link =  str_replace('#038;', '', $link);
 		return $link;
 	}
+
+
+
 
 
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
@@ -88,10 +96,5 @@ class jebalalbalqacom extends plugin_base {
 		return $article_date;
 	}
 
-	public function pre_get_page(&$page)
-	{   //
 
-		$this->ant->set_wait_for_load(true); //headless
-
-	}
 }

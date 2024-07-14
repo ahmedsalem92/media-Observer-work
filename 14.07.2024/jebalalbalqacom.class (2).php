@@ -41,24 +41,27 @@ class jebalalbalqacom extends plugin_base {
 				'type' => 'article',
 				'regexp' => '/<a href=\'([^<]*)\' class=\'Item\'>/Uis',
 				'append_domain' => true,
-				'ignore_terminal_stop' => true
+				'process_link' => 'prepare_home'
 			)
 		),
 		'article' => array(
-			'headline' => '/<span id="ctl00_ContentPlaceHolder1_ctl00_fvwItemDetail_lblItemTitle" class="ItemTitle">(.*)<\/span>/Uis',
-			'content' => '/<span id="ctl00_ContentPlaceHolder1_ctl00_fvwItemDetail_lblItemDetail" class="ItemDetail">(.*)<div class="HSpaceLine1">/Uis',
+			'headline' => '/<body[^>]*>.*(?:<h1 class="xn-hedline">|<div class="headline-col "><h1>)(.*)<\/h/Uis',
+			'content' => '/(<div class="entry-content">.*)(?:<\/main|<ul class="sidebar|>\s*Continued…\.|>\s*#\s*#\s*#\s*<\/)/Uis',
 			'author' => false,
-			'article_date' => '/(?:class="DateTime">|<div class="PageTitle">.*class="DateTime">)(.*)<\/span>/Uis'
+			'article_date' => '/(?:<meta property="article:published_time" content="|<span itemprop="datePublished dateModified">|<div title="[^<]*>)([^"]*)(?:"|<\/span>|<\/div>)|"date":"([^"]*)","(?:feedCode|fileName|headline)|,"feedCode":"[^"]*","date":"([^"]*)"/Uis'
 		)
 
 	);
-	
 
-	public function prepare_home($section_id)
-	{
+	protected function process_home_link($link, $referer_link, $logic) {
+		return 'https://www.jebalalbalqa.com/' . $link;
+	}
 
+	public function prepare_home($section_id) {
 		$this->logic = $this->logic_home;
 	}
+
+
 
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
@@ -67,6 +70,9 @@ class jebalalbalqacom extends plugin_base {
 		$link =  str_replace('#038;', '', $link);
 		return $link;
 	}
+
+
+
 
 
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
