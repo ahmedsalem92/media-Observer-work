@@ -38,15 +38,8 @@ class theinteriorjournalcom extends plugin_base {
 	protected $logic_press = array(
 		'list1' => array(
 			0 => array(
-				'type' => 'list1',
-				'regexp' => '/<loc>(.*)<\/loc>/Uis',
-				'append_domain' => false,
-				'process_link' => 'process_list_press_link'
-
-			),
-			1 => array(
 				'type' => 'article',
-				'regexp' => '/<loc>(.*)<\/loc>/Uis',
+				'regexp' => '/<div class="headline-entry article">.*<a href="(.*)"/Uis',
 				'append_domain' => false,
 				'process_link' => 'process_press_link'
 			)
@@ -77,10 +70,9 @@ class theinteriorjournalcom extends plugin_base {
 	protected function process_press_link($link, $referer_link, $logic) {
 		return 'https://smb.theinteriorjournal.com' . $link;
 	}
+
 	public function prepare_press($section_id) {
-
 		$this->logic = $this->logic_press;
-
 	}
 
 
