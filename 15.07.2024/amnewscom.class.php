@@ -8,29 +8,32 @@ class amnewscom extends plugin_base {
 
 	// CRAWL settings
 	protected $stop_on_article_found = false;
-	protected $stop_date_override = true;
+	protected $stop_date_override = false;
+	protected $stop_on_date = false;
 
 	// DEFINITIONS
 	protected $site_timezone = 'Asia/Amman';
 	protected $logic = array(
 		'list1' => array(
 			0 => array(
-				'type' => 'list1',
+				'type' => 'list2',
 				'regexp' => '/^(.*)$/Uis',
 				'append_domain' => true,
-				'process_link' => 'process_list_press_link'
-			),
-			1 => array(
+				'process_link' => 'process_list1_link'
+			)
+		),
+		'list2' => array(
+			0 => array(
 				'type' => 'article',
-				'regexp' => '/<div class="headline-col "><a href="([^<]*)"/Uis',
-				'append_domain' => true,
-				'process_link' => 'process_article2_link'
+				'regexp' => '/<loc>(.*)<\/loc>/Uis',
+				'append_domain' => false,
+				'process_link' => 'process_article_link'
 			)
 		),
 		'article' => array(
-			'headline' => '/(?:<div class="headline-entry article"><div class="headline-col "><h1>|<div class="headline-entry article"><div>.*<div class="headline-col "><h1>)(.*)<\/h[^<]*>/Uis',
-			'content' => '/(?:<div class="p402_premium">|<div class="entry-content">|<div class="xn-content">)(.*)(?:<p id="PURL">|<div id="sup_nav" class="sup_nav single">|<div id="comments">|<\/main>|<p dir="ltr">###<\/p>)/Uis',
-			'article_date' => '/"createdAt":"(.*)"/Uis'
+			'headline' => '/(?:<h2 class="headline">|<div class="headline-entry article"><div class="headline-col "><h1>|<div class="headline-entry article"><div>.*<div class="headline-col "><h1>)(.*)(?:<\/h2>|<\/h[^<]*>)/Uis',
+			'content' => '/(?:<div class="gallery_group">|<div class="p402_premium">|<div class="entry-content">|<div class="xn-content">)(.*)(?:<div class="table-responsive">|<p id="PURL">|<div id="sup_nav" class="sup_nav single">|<div id="comments">|<\/main>|<p dir="ltr">###<\/p>)/Uis',
+			'article_date' => '/(?:"datePublished":"|"createdAt":")(.*)"/Uis'
 		)
 	);
 
@@ -63,7 +66,7 @@ class amnewscom extends plugin_base {
 
 	protected function process_list1_link($link, $referer_link, $logic) {
 
-		$temp_link ='';
+		$temp_link =''; // https://www.amnews.com/wp-sitemap-posts-post-15.xml
 		if(preg_match_all('/<loc>(https:\/\/www\.amnews\.com\/wp-sitemap-posts-post-\d*?\.xml)<\/loc>/Uis', $link, $matches)){
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>' , '' , $temp_link);
