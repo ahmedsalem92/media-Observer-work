@@ -37,22 +37,21 @@ class alshbabnewscom extends plugin_base
 		'list1' => array(
 			0 => array(
 				'type' => 'list1',
-				'regexp' => '/<a class="nex" href="([^"]*)" class="next ">/Uis',
+				'regexp' => '/<a class="next page-numbers" href="(.*)"/Uis',
 				'append_domain' => false,
 				'process_link' => 'next_page_link'
 			),
 			1 => array(
 				'type' => 'article',
 				'regexp' => array(
-					'/<div class="col-sm-8">(.*)<div class="cs-main-sidebar cs-sticky-sidebar col-sm-4">/Uis',
-					'/<h3 class="post-title"><a href="([^"]*)"/Uis'
+					'/<article.*<a href="(.*)"/Uis'
 				),
-				'append_domain' => true
+				'append_domain' => false
 			)
 		),
 		'article' => array(
-			'headline' => '/<div class="single-post-title">\s*<h1>(.*)<\/h1>/Uis',
-			'content' => '/<div class="single-post-text">(.*)(?:<div class="block-title">|<div class="single-post-tags">)/Uis',
+			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
+			'content' => '/<div class="markdown prose.*>(.*)<\/div>/Uis',
 			'author' => false,
 			'article_date' => '/<meta property="article:published_time" content="([^"]*)"/Uis'
 		)
@@ -85,7 +84,6 @@ class alshbabnewscom extends plugin_base
 
 		$this->logic = $this->logic_home;
 	}
-
 
 
 	protected function next_page_link($link, $referer_link)
