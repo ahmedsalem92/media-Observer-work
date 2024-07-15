@@ -31,7 +31,7 @@ class yenihaberdencom extends plugin_base {
 		),
 		'article' => array(
 			'headline' => '/<h1 class="content-title[^>]*>(.*)<\/h1>/Uis',
-			'content' => '/<\/h1>(.*)<div class="col-12 col-lg-4">/Uis',
+			'content' => '/<\/h1>(.*)(?:<\/article>|<div class="col-12 col-lg-4">)/Uis',
 			'author' => '/<meta itemprop="author" content="(.*)"/Uis',
 			'article_date' => '/(?:<div class="content-date">\s*<time class="p1" datetime="|<div class="date-info">.*<time datetime="|"datePublished":\s*")([^"]*)"/Uis'
 		)
