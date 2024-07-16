@@ -21,7 +21,7 @@ class alshbabnewscom extends plugin_base {
 			0 => array(
 				'type' => 'section',
 				'regexp' => array(
-					'/<ul.*class="main-header-menu.*">(.*)<\/ul>/Uis',
+					'/<ul.*class="main-header-menu.*">(.*)<li id="menu-item-235"/Uis',
 					'/(<a.*<\/a>)/Uis'
 				)
 			)
@@ -50,7 +50,7 @@ class alshbabnewscom extends plugin_base {
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/<div class="markdown prose.*>(.*)<\/div>/Uis',
+			'content' => '/(?:<div class="entry-content.*>|<div class="markdown prose.*>)(.*)(?:<\/div><!-- .entry-content .clear -->|<\/div><!-- .entry-content .clear -->)/Uis',
 			'author' => false,
 			'article_date' => '/<meta property="article:published_time" content="([^"]*)"/Uis'
 		)
@@ -89,7 +89,7 @@ class alshbabnewscom extends plugin_base {
 	protected function next_page_link($link, $referer_link)
 	{
 
-		return $this->settings['site_section_link'] . $link;
+		return $link;
 	}
 
 	protected function process_content($content, $article_data)
@@ -124,7 +124,6 @@ class alshbabnewscom extends plugin_base {
 			);
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
-
 		return $article_date;
 	}
 }
