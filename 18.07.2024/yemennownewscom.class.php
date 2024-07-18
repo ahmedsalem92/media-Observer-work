@@ -77,7 +77,23 @@ class yemennownewscom extends plugin_base {
 		$content = preg_replace('/(<p>\s*المحتويات\s*<\/p>)/Uis', '', $content);
 		$content = preg_replace('/(<p>\s*المصدر\s*<\/p>)/Uis', '', $content);
 		$content = preg_replace('/تعليقات الفيس بوك/Uis', '', $content);
+		$content = preg_replace('/السابق/Uis', '', $content);
+		$content = preg_replace('/التالى/Uis', '', $content);
+		$content = preg_replace('/-/Uis', '', $content);
+		$content = preg_replace('/اخبار وتقارير/Uis', '', $content);
+		$content = preg_replace('/نافذة اليمن _ عدن/Uis', '', $content);
+		$content = preg_replace('/<p>(.*)<p>-<\/p>/Uis', '', $content);
+		$content = preg_replace('/مشاركة/Uis', '', $content);
+		$content = preg_replace('/المصدر: RT/Uis', '', $content);
+		$content = preg_replace('/مرتبط/Uis', '', $content);
+		$content = preg_replace('/نسخ الرابط/Uis', '', $content);
+		$content = preg_replace('/تم نسخ الرابط/Uis', '', $content);
+		$content = preg_replace('/يمن إيكو|أخبار:/Uis', '', $content);
+		$content = preg_replace('/â€œ/Uis', '', $content);
+		$content = preg_replace('/â€‌/Uis', '', $content);
 
+		$content = preg_replace('/<p>(.*الحديدة، نيوزيمن:)<\/p>/Uis', '', $content);
+		$content = preg_replace('/<div id="response" data-content-found="true">(.*)_ عدن<\/p>/Uis', '', $content);
 		$content = preg_replace('/(<ins.*<\/ins>)/Uis', '', $content);
 		$content = preg_replace('/(<script.*<\/script>)/Uis', '', $content);
 		$content = preg_replace('/(<style.*<\/style>)/Uis', '', $content);
