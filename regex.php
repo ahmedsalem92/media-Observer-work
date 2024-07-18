@@ -20,6 +20,20 @@ $h1 = '<h1[^<]*>(.*)<\/h1>';
 
 return date('Y-m-d H:i:s');
 
+// توقف عند ال 40 في ال next page
+
+// protected $next_page = 1;
+
+// protected function process_next_link($link, $referer_link, $logic)
+// {
+//     $this->next_page = $this->next_page + 1;
+//     if ($this->page_count < 41) {
+//         return 'https://yemennownews.com/?page=' . $this->next_page;
+//     } else {
+//         return false;
+//     }
+// }
+
 // (#390)
 // --------------------------
 // found already processed article ()... skipping it...
