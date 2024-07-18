@@ -4,7 +4,7 @@ class amnewscom extends plugin_base {
 
 	// ANT settings
 	protected $ant_precision = 2;
-	protected $agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36';
+	protected $agent = 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)';
 
 	// CRAWL settings
 	protected $stop_on_article_found = false;
@@ -32,30 +32,8 @@ class amnewscom extends plugin_base {
 		),
 		'article' => array(
 			'headline' => '/(?:<h2 class="headline">|<div class="headline-entry article"><div class="headline-col "><h1>|<div class="headline-entry article"><div>.*<div class="headline-col "><h1>)(.*)(?:<\/h2>|<\/h[^<]*>)/Uis',
-			'content' => '/(?:<div class="gallery_group">|<div class="p402_premium">|<div class="entry-content">|<div class="xn-content">)(.*)(?:<div class="share_buttons_group">|<div class="table-responsive">|<p id="PURL">|<div id="sup_nav" class="sup_nav single">|<\/main>|<p dir="ltr">###<\/p>)/Uis',
+			'content' => '/(?:<div class="gallery_group">|<div class="p402_premium">|<div class="entry-content">|<div class="xn-content">)(.*)(?:<div class="table-responsive">|<p id="PURL">|<div id="sup_nav" class="sup_nav single">|<div id="comments">|<\/main>|<p dir="ltr">###<\/p>)/Uis',
 			'article_date' => '/(?:"datePublished":"|"createdAt":")(.*)"/Uis'
-		)
-	);
-
-	protected $logic_press = array(
-		'list1' => array(
-			0 => array(
-				'type' => 'list1',
-				'regexp' => '/^(.*)$/Uis',
-				'append_domain' => true,
-				'process_link' => 'process_list_press_link'
-			),
-			1 => array(
-				'type' => 'article',
-				'regexp' => '/<div class="headline-col "><a href="([^<]*)"/Uis',
-				'append_domain' => true,
-				'process_link' => 'process_article2_link'
-			)
-		),
-		'article' => array(
-			'headline' => '/(?:<div class="headline-entry article"><div class="headline-col "><h1>|<div class="headline-entry article"><div>.*<div class="headline-col "><h1>)(.*)<\/h[^<]*>/Uis',
-			'content' => '/(?:<div class="p402_premium">|<div class="entry-content">|<div class="xn-content">)(.*)(?:<p id="PURL">|<div id="sup_nav" class="sup_nav single">|<div id="comments">|<\/main>|<p dir="ltr">###<\/p>)/Uis',
-			'article_date' => '/"createdAt":"(.*)"/Uis'
 		)
 	);
 
@@ -116,12 +94,6 @@ class amnewscom extends plugin_base {
 		return $temp_link;
 	}
 
-	public function prepare_press($section_id) {
-
-		$this->logic = $this->logic_press;
-
-	}
-
 
 
 	public function prepare_sitemap($section_id) {
@@ -129,8 +101,6 @@ class amnewscom extends plugin_base {
 		$this->logic = $this->logic_sitemap;
 
 	}
-
-
 	protected function process_content($content, $article_data){
 
 		$content = preg_replace('/(<div class="xn-newslines">.*<\/div>)/Uis', '', $content);
@@ -138,13 +108,10 @@ class amnewscom extends plugin_base {
 		$content = preg_replace('/(Sign up for.*<\/label>)/Uis', '', $content);
 		$content = preg_replace('/(<h3 class="section">.*<\/h3>)/Uis', '', $content);
 		$content = preg_replace('/(Original Press Release)/Uis', '', $content);
-		$content = preg_replace('/<div id="slide_count">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/content =/Uis', '', $content);
-		$content = preg_replace('/<span class="legendSpanClass">(.*)<\/span>/Uis', '', $content);
+
 
 		return $content;
 	}
-
 
 
 	protected function process_article2_link($link, $referer_link, $logic) {
