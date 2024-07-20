@@ -81,14 +81,44 @@ class arqamtmcom extends plugin_base
 		$content = preg_replace('/(إضغط هنا)/Uis', '', $content);
 		$content = preg_replace('/عبر هذا الرابط/Uis', '', $content);
 		$content = preg_replace('/(أخبار ذات صلة)/Uis', '', $content);
+		$content = preg_replace('/على الرابط التالي:/Uis', '', $content);
+		$content = preg_replace('/<p>(من \(<a.*<\/a>)/Uis', '', $content);
+		$content = preg_replace('/(<a.*<\/a>)/Uis', '', $content);
+		$content = preg_replace('/هنا/Uis', '', $content);
 		$content = preg_replace('/اقرا ايضا: /Uis', '', $content);
 		$content = preg_replace('/إحجز تذكرتك من هنا"/Uis', '', $content);
 		$content = preg_replace('/<p>(اقرأ ايضا:.*)<\/p>/Uis', '', $content);
+		$content = preg_replace('/✅/Uis', '', $content);
 		$content = preg_replace('/<p>(اقرا ايضا:.*)<\/p>/Uis', '', $content);
 		$content = preg_replace('/<blockquote.*>(.*)<\/blockquote>/Uis', '', $content);
 		$content = preg_replace('/<span>(.*)<\/span>/Uis', '', $content);
 		$content = preg_replace('/<div class="article-writer".*>(.*)<\/div>/Uis', '', $content);
+		$content = preg_replace('/ستحب قراءة:/Uis', '', $content);
+		$content = preg_replace('/-/Uis', '', $content);
+		$content = preg_replace('/اقرأ أيضا../Uis', '', $content);
+		$content = preg_replace('/✍️ وللتقديم في وظائف/Uis', '', $content);
+		$content = preg_replace('/يمكنك زيارة هذا الرابط/Uis', '', $content);
+		
+		
+		
+
+		
+		
+		
+		
+		$content = preg_replace('/واس/Uis', '', $content);
+		
+		
 		return $content;
+	}
+
+	protected function process_headline($headline, $article_data){
+		
+		$headline = preg_replace('/(بادر بالتقديم)/Uis', '', $headline);
+		$headline = preg_replace('/بالصور../Uis', '', $headline);
+
+		
+		return $headline;
 	}
 
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
