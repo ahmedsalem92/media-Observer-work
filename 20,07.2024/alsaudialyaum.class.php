@@ -84,9 +84,10 @@ class arqamtmcom extends plugin_base
 		$content = preg_replace('/اقرا ايضا: /Uis', '', $content);
 		$content = preg_replace('/إحجز تذكرتك من هنا"/Uis', '', $content);
 		$content = preg_replace('/<p>(اقرأ ايضا:.*)<\/p>/Uis', '', $content);
+		$content = preg_replace('/<p>(اقرا ايضا:.*)<\/p>/Uis', '', $content);
+		$content = preg_replace('/<blockquote.*>(.*)<\/blockquote>/Uis', '', $content);
+		$content = preg_replace('/<span>(.*)<\/span>/Uis', '', $content);
 		$content = preg_replace('/<div class="article-writer".*>(.*)<\/div>/Uis', '', $content);
-
-
 		return $content;
 	}
 
