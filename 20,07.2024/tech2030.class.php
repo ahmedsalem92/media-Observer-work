@@ -47,6 +47,7 @@ class ttgmena extends plugin_base
 		$content = preg_replace('/(<div class="form-button.*<\/div>)/Uis', '', $content);
 		$content = preg_replace('/(<div class="newsletter.*<\/div>)/Uis', '', $content);
 		$content = preg_replace('/(<div class="newsletter-subscribe">.*<\/div>)/Uis', '', $content);
+		$content = preg_replace('/(<a.*>.*<\/a>)/Uis', 'no content', $content);
 		$content = preg_replace('/(<iframe.*<\/iframe>)/Uis', 'VIDEO', $content);
 		return $content;
 	}
@@ -97,7 +98,6 @@ class ttgmena extends plugin_base
 		if (strpos($this->settings['site_section_link'], '/columns')) {
 			return date('Y-m-d H:i:s', time());
 		}
-
 		return $article_date;
 	}
 }
