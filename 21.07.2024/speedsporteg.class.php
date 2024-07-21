@@ -20,48 +20,22 @@ class ttgmena extends plugin_base
 		'list1' => array(
 			0 => array(
 				'type' => 'list1',
-				'regexp' => '/<div class="pages-nav"><a data-url="(.*)"/Uis',
-				'append_domain' => true,
-				'process_link' => 'process_list1_link',
+				'regexp' => '/<span class="last-page first-last-pages">.*<a href="(.*)"/Uis',
+				'append_domain' => true
 			),
 			1 => array(
 				'type' => 'article',
-				'regexp' => '/<a class="post-title the-subtitle" href="(.*)"/Uis',
-				'append_domain' => true,
-				'process_link' => 'process_article_link',
+				'regexp' => '/<div class="block-post-overlay">.*<a.*href="(.*)"/Uis',
+				'append_domain' => true
 			)
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/<div class="entry-content entry clearfix">(.*)(?:للمزيد من المعلومات|<span class="s20">|<div id="post-extra-info">)/Uis',
+			'content' => '/<div class="entry-content entry clearfix">(.*)<div class="post-bottom-meta post-bottom-tags post-tags-modern">/Uis',
 			'author' => false,
 			'article_date' => '/published_time" content="(.*)"/Uis'
 		)
 	);
-
-	protected function process_list1_link($link, $referer_link, $logic)
-	{
-
-		$link =  str_replace('&', '&#038;', $link);
-
-		return $link;
-	}
-
-	protected function process_article_link($link, $referer_link, $logic)
-	{
-		if (isset($logic['list1']) && is_array($logic['list1'])) {
-			foreach ($logic['list1'] as $item) {
-				if (isset($item['type']) && $item['type'] === 'list1') {
-					$logic['article']['process_link'] = $item['process_link'];
-					break;
-				}
-			}
-		}
-
-		$link = str_replace('&', '&#038;', $link);
-
-		return $link;
-	}
 
 
 	protected function process_content($content, $article_data)
@@ -71,6 +45,7 @@ class ttgmena extends plugin_base
 		$content = preg_replace('/(<div class="form-button.*<\/div>)/Uis', '', $content);
 		$content = preg_replace('/(<div class="newsletter.*<\/div>)/Uis', '', $content);
 		$content = preg_replace('/(<div class="newsletter-subscribe">.*<\/div>)/Uis', '', $content);
+		$content = preg_replace('/(<a.*>.*<\/a>)/Uis', 'no content', $content);
 		$content = preg_replace('/(<iframe.*<\/iframe>)/Uis', 'VIDEO', $content);
 		return $content;
 	}
@@ -121,7 +96,6 @@ class ttgmena extends plugin_base
 		if (strpos($this->settings['site_section_link'], '/columns')) {
 			return date('Y-m-d H:i:s', time());
 		}
-
 		return $article_date;
 	}
 }
