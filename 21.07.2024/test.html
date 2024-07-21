@@ -1,808 +1,2327 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html dir="rtl" lang="ar-YE">
 
 <head>
-    <title>
-        الصفحة الرئيسية | جبال البلقاء الاخباري
-    </title>
-    <link id="ctl00_Theme" href="Theme/Style.css" rel="stylesheet" type="text/css" />
-    <link rel="alternate" type="application/rss+xml" href="feed/rss.aspx" title="" />
-
-
-
-    <script type="text/javascript" language="javascript">
-
-        function clickButton(e, txtID, ddlID) {
-            var evt = e ? e : window.event;
-            if (evt.keyCode == 13) {
-                var txt = document.getElementById(txtID);
-                var ddl = document.getElementById(ddlID);
-                if (txt.value != "" && txt.value != "بحث")
-                    window.location = "page.aspx?pg=12&md=search&kw=" + txt.value;
-                return false;
-            }
-        }
-
-        function OnMouseClick(txtID, ddlID) {
-            var txt = document.getElementById(txtID);
-            var ddl = document.getElementById(ddlID);
-
-            if (txt.value != "" && txt.value != "بحث")
-                window.location = "page.aspx?pg=12&md=search&kw=" + txt.value
-            return false;
-        }
-
-    </script>
-    <link href="Theme/IE.css" rel="stylesheet" type="text/css" media="all" />
-    <meta name="description" content="جبال البلقاء الاخباري" />
+    <title>اخبار اليمن الان</title>
+    <meta http-equiv="cache-control" content="no-cache">
+    <META http-equiv=Content-Type content="text/html; charset=utf-8">
+    <meta name="description"
+        content="اخر اخبار اليمن الان تابع أخبار المشهد اليمني اليوم من مختلف مصادر صحافة اليمن، انباء يمنية عاجلة في المحافظات اليمنيه الشمالية والجنوبية، اليمن الآن مباشر 24 ساعة." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://yemennownews.com/favicon.ico" />
     <meta name="keywords"
-        content="جبال البلقاء الاخباري , اخبار , اردن , السلط , البلقاء ,صوت المواطن ,اخبار البلقاء ,اخبار السلط ,جبال البلقاء" />
-    <meta name="copyrights" content="2023 © جميع الحقوق محفوظة - موقع جبال البلقاء الاخباري" />
-    <meta name="author" content="جبال البلقاء الاخباري" />
-    <meta name="email" content="info@jebalalbalqa.com" />
-    <style type="text/css">
-        .ctl00_TopHMenu_0 {
-            background-color: white;
-            visibility: hidden;
-            display: none;
-            position: absolute;
-            left: 0px;
-            top: 0px;
+        content="اخبار اليمن، اليمن الان، اخبار اليمن الان، اليمن اليوم، اليمن، اليمن 24 ساعة، المشهد اليمني، صحافة نت، مصادر اليمن" />
+    <meta property="og:image" content="https://yemennownews.com/public/assets/images/yemennow.png" />
+    <meta http-equiv="refresh" content="300">
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3552415697417386"></script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            background-repeat: repeat-x;
+            direction: rtl;
+            font-family: Arial;
+            margin-top: 4px;
         }
 
-        .ctl00_TopHMenu_1 {
+        a:link {
             text-decoration: none;
         }
 
-        .ctl00_TopHMenu_2 {}
-
-        .ctl00_TopHMenu_3 {
-            border-style: none;
-        }
-
-        .ctl00_TopHMenu_4 {}
-
-        .ctl00_TopHMenu_5 {
-            border-style: none;
-        }
-
-        .ctl00_TopHMenu_6 {}
-
-        .ctl00_TopHMenu_7 {}
-
-        .ctl00_TopHMenu_8 {}
-
-        .ctl00_TopHMenu_9 {
-            border-style: none;
-        }
-
-        .ctl00_TopHMenu_10 {}
-
-        .ctl00_HMenu_0 {
-            background-color: white;
-            visibility: hidden;
-            display: none;
-            position: absolute;
-            left: 0px;
-            top: 0px;
-        }
-
-        .ctl00_HMenu_1 {
+        a:visited {
             text-decoration: none;
         }
 
-        .ctl00_HMenu_2 {}
-
-        .ctl00_HMenu_3 {
-            border-style: none;
+        a:hover {
+            text-decoration: none;
         }
 
-        .ctl00_HMenu_4 {}
-
-        .ctl00_HMenu_5 {
-            border-style: none;
+        a:active {
+            text-decoration: none;
         }
 
-        .ctl00_HMenu_6 {}
-
-        .ctl00_HMenu_7 {}
-
-        .ctl00_HMenu_8 {}
-
-        .ctl00_HMenu_9 {
-            border-style: none;
+        .header {
+            width: 982px;
+            height: 122px;
+            background-color: #eeeeee;
+            background-repeat: repeat-x;
         }
 
-        .ctl00_HMenu_10 {}
+        .header .logo {
+            height: 120px;
+            border: 0px;
+
+        }
+
+        .link_header {
+            background-image: url('../images/yemennow_22.jpg');
+            background-repeat: repeat-x;
+            height: 21px;
+            font-family: tahoma;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            width: 124px;
+        }
+
+        .link_header a {
+            color: #FFFFFF;
+        }
+
+        .link_body {
+            background-color: #cccecd;
+            text-align: center;
+            padding: 3px 0 3px 0;
+        }
+
+        .link_body img {
+            border: 0px;
+        }
+
+        .link_body a {
+            border: 0px;
+        }
+
+        .link_spr {
+            background-image: url('../images/yemennow_26.jpg');
+            background-repeat: repeat-x;
+            height: 22px;
+        }
+
+        .main_news {
+            border: solid 1px #cccccc;
+            padding: 7px 4px 0 0;
+            margin: 0 0 20px 0;
+            overflow: hidden;
+        }
+
+        .main_news img {
+            float: left;
+            width: 167px;
+            height: 122px;
+            margin: 0 0 0 20px;
+            position: relative;
+            top: -30px;
+            background-image: url(//yemennownews.com/public/assets/images/yemennow.png);
+            background-repeat: round;
+        }
+
+        .main_news p {
+            color: #d13f3f;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .main_news a {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .more_news {
+            border: solid 1px #cccccc;
+            margin: 0 0 20px 0;
+        }
+
+        .more_news_header {
+            background-color: #eeeeee;
+            background-repeat: repeat-x;
+            height: 25px;
+            font-weight: bold;
+            font-size: 15px;
+            color: #5f7c8a;
+            padding: 5px 0 0 0;
+        }
+
+        .more_news_header a {
+            color: #5f7c8a;
+        }
+
+        .more_news_header img {
+            float: right;
+            height: 25px;
+            width: 33px;
+        }
+
+        .more_news_item {
+            padding: 8px 4px 8px 4px;
+            border: solid #cccccc;
+            border-width: 0 0 1px 0;
+            overflow: hidden;
+            color: #7f7f7f;
+        }
+
+        .more_news_item img {
+            height: 99px;
+            width: 136px;
+            float: left;
+            margin: 0 0 0 30px;
+            top: -38px;
+            position: relative;
+            background-image: url(//yemennownews.com/public/assets/images/yemennow.png);
+            background-repeat: round;
+        }
+
+        /*div.more_news_item:nth-child(2) { 
+display: none; 
+}*/
+        .more_news_item a {
+            color: #d13f3f;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .more_news_item p {
+            color: #fff;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .source_name {
+            font-family: tahoma;
+            font-size: 11px;
+            color: #fff703;
+            font-weight: normal;
+        }
+
+        .source_name2 {
+            font-family: tahoma;
+            font-size: 11px;
+            color: #2d2d2d;
+            font-weight: normal;
+        }
+
+        .more_news ul {
+            color: #ee1b2a;
+            font-weight: bold;
+            list-style-type: none;
+            padding: 0 10px 0 0;
+            margin: 0px;
+        }
+
+        .more_news ul li {
+            background-color: #727272;
+            /*	margin:0 0 10px 8px; */
+            padding: 8px 15px 5px 5px;
+        }
+
+        .more_news ul li a {
+            color: #ffffff;
+        }
+
+        .odd_block {
+            background-color: #fbfbfb;
+            border: solid 1px #cccccc;
+            /*	background-image:url('../images/dot.png');
+	background-repeat:no-repeat;
+	background-position:right top;*/
+        }
+
+        .even_block {
+            /*	background-image:url('../images/dot.png');
+	background-repeat:no-repeat;
+	background-position:right top;*/
+        }
+
+        .more_news ul li span {
+            font-family: tahoma;
+            font-size: 10px;
+            font-weight: normal;
+            color: #fff703;
+        }
+
+        .footer {
+            background-color: #eeeeee;
+            height: 190px;
+            padding: 0 0 0 0;
+            text-align: center;
+            font-family: tahoma;
+            font-size: 11px;
+        }
+
+        .footer a {
+            color: #696969;
+        }
+
+        .prv_page {
+            background-image: url("../images/prv_page.jpg");
+            background-repeat: no-repeat;
+            width: 36px;
+            height: 36px;
+            float: right;
+            margin: 0 0 0 7px;
+        }
+
+        .nxt_page {
+            background-image: url("../images/nxt_page.jpg");
+            background-repeat: no-repeat;
+            width: 36px;
+            height: 36px;
+            float: right;
+            margin: 0 0 0 7px;
+        }
+
+        .page {
+            float: right;
+            height: 22px;
+            padding: 12px 0 0 0;
+            margin: 0 0 0 7px;
+            min-width: 30px;
+            border: solid 1px #cccccc;
+            border-radius: 5px;
+            text-align: center;
+            color: #707070;
+            background-color: #eeeeee;
+            background-repeat: repeat-x;
+        }
+
+        .selected_page {
+            float: right;
+            height: 23px;
+            padding: 12px 0 0 0;
+            min-width: 30px;
+            margin: 0 0 0 7px;
+            border: solid #cccccc;
+            border-width: 1px 1px 0 1px;
+            border-radius: 5px;
+            text-align: center;
+            color: #707070;
+            background-color: #eeeeee;
+            background-repeat: repeat-x;
+        }
+
+        .pages {
+            height: 36px;
+            margin: 0 130px 10px 0;
+            font-family: tahoma;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .index_header {
+            background-color: #eeeeee;
+            height: 30px;
+            background-repeat: repeat-x;
+            color: #5f7c8a;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .index_name {
+            border-width: 0 1px 0 1px;
+            padding: 0 5px 0 0;
+            height: 22px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .index_name h3 {
+            margin: 7px 0 0 0;
+        }
+
+        .index_name a {
+            font-size: 15px;
+            color: #000000;
+        }
+
+        .index_name a:hover {
+            color: #000000;
+        }
+
+        .index_num {
+            text-align: center;
+            border-width: 0 0 0 1px;
+            font-size: 12px;
+        }
+
+        .send_wecome {
+            background: none repeat scroll 0 0 #aaaaaa;
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            height: 102px;
+            line-height: 102px;
+            text-align: right;
+            text-indent: 30px;
+            width: 520px;
+            margin-top: 3px;
+        }
+
+        .contact_form {
+            font-size: 14px;
+            margin-top: 7px;
+            padding: 20px 10px 20px 0;
+            width: 510px;
+        }
+
+        .contact_form .field_name {
+            font-family: tahoma;
+            font-size: 12px;
+            height: 32px;
+            line-height: 32px;
+            min-width: 120px;
+            padding: 0 0 0 10px;
+        }
+
+
+        .contact_form input[type="text"] {
+            border: 1px solid #e1e1e1;
+            float: right;
+            height: 30px;
+            margin-bottom: 20px;
+            padding: 0 10px;
+            width: 488px;
+        }
+
+        .contact_form textarea {
+            border: 1px solid #e1e1e1;
+            float: right;
+            height: 190px;
+            margin-bottom: 10px;
+            padding: 10px;
+            resize: none;
+            width: 488px;
+        }
+
+        .contact_form .contact_submit,
+        .comments_form input[type="submit"] {
+            background: url("../images/bt_bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+            border: 0 none;
+            color: #404041;
+            cursor: pointer;
+            float: left;
+            font-family: arial;
+            font-size: 24px;
+            height: 40px;
+
+            width: 110px;
+        }
+
+        .adsRight {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+        }
+
+        .adsLeft {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+        }
+
+        .contact {
+            min-height: 650px;
+            margin: 20px 0px;
+        }
+
+        .contact form {
+            margin-top: 50px;
+        }
+
+        .contact h3 {
+            text-align: center;
+            color: #8324e4;
+            font-size: 30px;
+        }
+
+        .contact form input,
+        .contact form textarea {
+            width: 84%;
+            position: relative;
+            right: 7%;
+            border: 1px solid #8324e4;
+            height: 35px;
+            padding-right: 5px;
+            border-radius: 5px;
+            margin: 10px 0px;
+        }
+
+        .contact form textarea {
+            height: 150px;
+        }
+
+        .contact form input[type="submit"] {
+            background-color: #8324e4;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .width_728 {
+            width: 728px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .adsHeader {
+            position: absolute;
+            top: 10px;
+            left: 0px;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .adsRight,
+            .adsLeft {
+                display: none;
+            }
+
+            .width_728 {
+                max-width: 100%;
+            }
+
+            .hidden_mob {
+                display: none;
+            }
+
+            /*	.adsHeader {
+	    position: initial;
+	}*/
+
+        }
+
+        .more_news ul li.even_block:nth-of-type(2n+1) {
+            background-color: #363f45;
+        }
+
+        .newColor:nth-of-type(2n+1) {
+            background-color: #eeeeee;
+        }
     </style>
+
+    <script async src="//get.optad360.io/sf/38d5decd-26d3-4823-b3a4-681f9f72ffa6/plugin.min.js"></script>
+
+
 </head>
 
 <body>
-    <form name="aspnetForm" method="post" action="./page.aspx?pg=1&amp;md=search&amp;kw=" id="aspnetForm">
-        <div>
-            <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-            <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
-                value="/wEPDwUKLTIxNDM0NjY3Mg9kFgJmD2QWAgIDD2QWDgIDDxQrAA0PFgIeC18hRGF0YUJvdW5kZ2RkZGRkZGRkZBAWABYAZGQQFgAWAGQUKwAFBQ8wOjAsMDoxLDA6MiwwOjMUKwACFhIeBVZhbHVlZR4JRGF0YUJvdW5kZx4EVGV4dAUQ2KfZhNix2KbZitiz2YrYqR4LTmF2aWdhdGVVcmwFDGRlZmF1bHQuYXNweB4HRW5hYmxlZGceClNlbGVjdGFibGVnHgZUYXJnZXQFB19wYXJlbnQeEVNlcGFyYXRvckltYWdlVXJsBR9UaGVtZS9Ub3BITWVudUl0ZW1TZXBlcmF0b3IuanBnHghEYXRhUGF0aAUgLypbcG9zaXRpb24oKT0xXS8qW3Bvc2l0aW9uKCk9MV1kFCsAAhYSHwFlHwJnHwMFC9mF2YYg2YbYrdmGHwQFHHBhZ2UuYXNweD9wZz00Jm1kPXBhZ2VkZXRhaWwfBWcfBmcfBwUHX3BhcmVudB8IBR9UaGVtZS9Ub3BITWVudUl0ZW1TZXBlcmF0b3IuanBnHwkFIC8qW3Bvc2l0aW9uKCk9MV0vKltwb3NpdGlvbigpPTJdZBQrAAIWEh8BZR8CZx8DBQ/Yp9iq2LXZhCDYqNmG2KcfBAUbcGFnZS5hc3B4P3BnPTUmbWQ9Y29udGFjdHVzHwVnHwZnHwcFB19wYXJlbnQfCAUfVGhlbWUvVG9wSE1lbnVJdGVtU2VwZXJhdG9yLmpwZx8JBSAvKltwb3NpdGlvbigpPTFdLypbcG9zaXRpb24oKT0zXWQUKwACFhAfAwUP2KfYsdiz2YQg2K7YqNixHwEFATAfBAUbcGFnZS5hc3B4P3BnPTIwJm1kPXNlbmRuZXdzHwVnHwZnHwkFIC8qW3Bvc2l0aW9uKCk9MV0vKltwb3NpdGlvbigpPTRdHwJnHwcFB19wYXJlbnRkZAIHDw9kFgIeCm9ua2V5cHJlc3MFMnJldHVybiBjbGlja0J1dHRvbihldmVudCwnY3RsMDBfdHh0V29yZFNlYXJjaCcsJycpZAIJDw9kFgQfCgUycmV0dXJuIGNsaWNrQnV0dG9uKGV2ZW50LCdjdGwwMF90eHRXb3JkU2VhcmNoJywnJykeB29uQ2xpY2sFLXJldHVybiBPbk1vdXNlQ2xpY2soJ2N0bDAwX3R4dFdvcmRTZWFyY2gnLCcnKWQCCw8PFgIfAwUg2KfZhNij2K3YryAsIDIxINiq2YXZiNiyIDIwMjQg2YVkZAIPDxQrAA0PFgIfAGdkZGRkZGRkZGQQFgAWAGRkEBYAFgBkFCsACgUjMDowLDA6MSwwOjIsMDozLDA6NCwwOjUsMDo2LDA6NywwOjgUKwACFhAfAwUZ2KfYrtio2KfYsSDYp9mE2KjZhNmC2KfYoR8BZR8EBRtwYWdlLmFzcHg/cGc9NyZzaT0xJm1kPW5ld3MfBWcfBmcfCQUgLypbcG9zaXRpb24oKT0xXS8qW3Bvc2l0aW9uKCk9MV0fAmcfCAUcVGhlbWUvSE1lbnVJdGVtU2VwZXJhdG9yLmpwZ2QUKwACFhAfAwUR2YbYqNi2INin2YTZiNi32YYfAWUfBAUbcGFnZS5hc3B4P3BnPTcmc2k9MiZtZD1uZXdzHwVnHwZnHwkFIC8qW3Bvc2l0aW9uKCk9MV0vKltwb3NpdGlvbigpPTJdHwJnHwgFHFRoZW1lL0hNZW51SXRlbVNlcGVyYXRvci5qcGdkFCsAAhYQHwMFEtio2LHZhNmF2KfZhtmK2KfYqh8BZR8EBRtwYWdlLmFzcHg/cGc9NyZzaT0zJm1kPW5ld3MfBWcfBmcfCQUgLypbcG9zaXRpb24oKT0xXS8qW3Bvc2l0aW9uKCk9M10fAmcfCAUcVGhlbWUvSE1lbnVJdGVtU2VwZXJhdG9yLmpwZ2QUKwACFhAfAwUT2LHYrNin2YQg2KfZhNmI2LfZhh8BZR8EBRtwYWdlLmFzcHg/cGc9NyZzaT01Jm1kPW5ld3MfBWcfBmcfCQUgLypbcG9zaXRpb24oKT0xXS8qW3Bvc2l0aW9uKCk9NF0fAmcfCAUcVGhlbWUvSE1lbnVJdGVtU2VwZXJhdG9yLmpwZ2QUKwACFhAfAwUZ2KfYrtio2KfYsSDYp9mE2YXYrNiq2YXYuR8BZR8EBRtwYWdlLmFzcHg/cGc9NyZzaT03Jm1kPW5ld3MfBWcfBmcfCQUgLypbcG9zaXRpb24oKT0xXS8qW3Bvc2l0aW9uKCk9NV0fAmcfCAUcVGhlbWUvSE1lbnVJdGVtU2VwZXJhdG9yLmpwZ2QUKwACFhAfAwUR2LnYsdio2Yog2K/ZiNmE2YofAWUfBAUbcGFnZS5hc3B4P3BnPTcmc2k9OCZtZD1uZXdzHwVnHwZnHwkFIC8qW3Bvc2l0aW9uKCk9MV0vKltwb3NpdGlvbigpPTZdHwJnHwgFHFRoZW1lL0hNZW51SXRlbVNlcGVyYXRvci5qcGdkFCsAAhYQHwMFGdin2K7YqNin2LEg2KfZhNix2YrYp9i22KkfAWUfBAUbcGFnZS5hc3B4P3BnPTcmc2k9OSZtZD1uZXdzHwVnHwZnHwkFIC8qW3Bvc2l0aW9uKCk9MV0vKltwb3NpdGlvbigpPTddHwJnHwgFHFRoZW1lL0hNZW51SXRlbVNlcGVyYXRvci5qcGdkFCsAAhYQHwMFF9mF2YbZiNi52KfYqiDZiNmB2YbZiNmGHwFlHwQFHHBhZ2UuYXNweD9wZz03JnNpPTEwJm1kPW5ld3MfBWcfBmcfCQUgLypbcG9zaXRpb24oKT0xXS8qW3Bvc2l0aW9uKCk9OF0fAmcfCAUcVGhlbWUvSE1lbnVJdGVtU2VwZXJhdG9yLmpwZ2QUKwACFg4fAwUX2YjYp9it2Kkg2KfZhNin2YrZhdin2YYfAQUBMB8EBRxwYWdlLmFzcHg/cGc9NyZzaT0xNCZtZD1uZXdzHwVnHwZnHwkFIC8qW3Bvc2l0aW9uKCk9MV0vKltwb3NpdGlvbigpPTldHwJnZGQCFw9kFgQCAQ8PFgIfAwUd2KfZhNi12YHYrdipINin2YTYsdim2YrYs9mK2KlkZAIDD2QWAgIBD2QWAgIBD2QWAmYPZBYCAgEPPCsAEQMADxYEHwBnHgtfIUl0ZW1Db3VudAKemQRkARAWABYAFgAMFCsAABYCZg9kFiJmDw8WAh4HVmlzaWJsZWhkZAIBD2QWAmYPZBYEAgEPDxYCHwMFKtin2YTYo9it2K8gLCAyMSDYqtmF2YjYsiAsIDIwMjQgOjogNDo1MyDZhWRkAgMPDxYEHwQFKnBhZ2UuYXNweD9wZz0xJnNpPTcmbmk9Njk2ODYmbWQ9bmV3c2RldGFpbB8DBVrYp9mE2YEg2YXYqNix2YjZiNmI2YMg2YTYudi32YjZgdipINin2YTYp9iz2KrYp9iwINin2YTYr9mD2KrZiNixINi42KfZgdixINin2YTYtdix2KfZitix2KlkZAICD2QWAmYPZBYEAgEPDxYCHwMFKtin2YTYo9it2K8gLCAyMSDYqtmF2YjYsiAsIDIwMjQgOjogMjowOSDZhWRkAgMPDxYEHwQFKnBhZ2UuYXNweD9wZz0xJnNpPTImbmk9Njk2ODUmbWQ9bmV3c2RldGFpbB8DBVTYp9mE2KPYsdiv2YYgLi4g2KfZhNi52KvZiNixINi52YTZiSDYrNir2Kkg2LPYqNi52YrZhtmKINmB2Yog2KfZhNi32LHZitmCINin2YTYudin2YVkZAIDD2QWAmYPZBYEAgEPDxYCHwMFKtin2YTYo9it2K8gLCAyMSDYqtmF2YjYsiAsIDIwMjQgOjogMTozMSDZhWRkAgMPDxYEHwQFKnBhZ2UuYXNweD9wZz0xJnNpPTImbmk9Njk2ODQmbWQ9bmV3c2RldGFpbB8DBVPYp9mE2KPYsdiv2YYuLiDYqtmB2KfYtdmK2YQg2LXYp9iv2YXYqSDYqNis2LHZitmF2KkgKNin2YTYqNmK2KfYr9ixKSDYp9mE2KPYs9ix2YrYqWRkAgQPZBYCZg9kFgQCAQ8PFgIfAwUq2KfZhNij2K3YryAsIDIxINiq2YXZiNiyICwgMjAyNCA6OiAxOjEwINmFZGQCAw8PFgQfBAUqcGFnZS5hc3B4P3BnPTEmc2k9OCZuaT02OTY4MyZtZD1uZXdzZGV0YWlsHwMFb9il2LnZhNin2YUg2LnYqNix2Yog2YrYsti52YUg2KrZhNmC2YrZhyDYqtij2YPZitiv2KfYqiDYqNin2LrYqtmK2KfZhCDZhdit2YXYryDYp9mE2LbZitmBINmC2KfYptivINin2YTZgtiz2KfZhWRkAgUPZBYCZg9kFgQCAQ8PFgIfAwUq2KfZhNij2K3YryAsIDIxINiq2YXZiNiyICwgMjAyNCA6OiAxOjAwINmFZGQCAw8PFgQfBAUqcGFnZS5hc3B4P3BnPTEmc2k9OSZuaT02OTY4MiZtZD1uZXdzZGV0YWlsHwMFRtix2YrYp9mEINmF2K/YsdmK2K8g2KPZgtmI2Ykg2LnZhNin2YXYqSDYqtis2KfYsdmK2Kkg2YHZiiDYp9mE2LnYp9mE2YVkZAIGD2QWAmYPZBYEAgEPDxYCHwMFK9in2YTYo9it2K8gLCAyMSDYqtmF2YjYsiAsIDIwMjQgOjogMTI6NTkg2YVkZAIDDw8WBB8EBStwYWdlLmFzcHg/cGc9MSZzaT0xMCZuaT02OTY4MSZtZD1uZXdzZGV0YWlsHwMFPNin2YTYs9is2YYg2YTZhNio2YTZiNi62LEg2KfZhNmF2LXYsdmK2Kkg2YbYp9iv2YrZhiDYt9in2LHZgmRkAgcPZBYCZg9kFgQCAQ8PFgIfAwUr2KfZhNij2K3YryAsIDIxINiq2YXZiNiyICwgMjAyNCA6OiAxMjo1NSDZhWRkAgMPDxYEHwQFKnBhZ2UuYXNweD9wZz0xJnNpPTImbmk9Njk2ODAmbWQ9bmV3c2RldGFpbB8DBW8xMCDYrNix2KfYptmFINmC2KrZhCDYo9iz2LHZitipINmB2Yog2KfZhNij2LHYr9mGINiu2YTYp9mEIDYg2KPYtNmH2LEgLi4g2YjYutin2YTYqNmK2Kkg2KfZhNi22K3Yp9mK2Kcg2YbYs9in2KFkZAIID2QWAmYPZBYEAgEPDxYCHwMFK9in2YTYo9it2K8gLCAyMSDYqtmF2YjYsiAsIDIwMjQgOjogMTI6NTMg2YVkZAIDDw8WBB8EBSpwYWdlLmFzcHg/cGc9MSZzaT0yJm5pPTY5Njc5Jm1kPW5ld3NkZXRhaWwfAwVv2K/Ysdin2KzYp9iqINiv2YHYuSDYsdio2KfYudmKINmE2KrYudiy2YrYsiDYp9mE2KPZhdmGINin2YTYqNmK2KbZiiDZiNin2YTYs9mK2KfYrdmKINmB2Yog2KfZhNin2LHYr9mGIC0g2LXZiNixZGQCCQ9kFgJmD2QWBAIBDw8WAh8DBSvYp9mE2KPYrdivICwgMjEg2KrZhdmI2LIgLCAyMDI0IDo6IDEyOjQxINmFZGQCAw8PFgQfBAUqcGFnZS5hc3B4P3BnPTEmc2k9OSZuaT02OTY3OCZtZD1uZXdzZGV0YWlsHwMFbdmF2YbYqtiu2Kgg2KfZhNmD2LHYqSDZitis2LHZiiDYqti52K/ZitmE2Kcg2LnZhNmJINio2LHZhtin2YXYrCDZhdio2KfYsdmK2KfYqtmHINin2YTZiNiv2YrYqSDZgdmKINiq2LHZg9mK2KdkZAIKD2QWAmYPZBYEAgEPDxYCHwMFK9in2YTYo9it2K8gLCAyMSDYqtmF2YjYsiAsIDIwMjQgOjogMTI6NDAg2YVkZAIDDw8WBB8EBSpwYWdlLmFzcHg/cGc9MSZzaT0yJm5pPTY5Njc3Jm1kPW5ld3NkZXRhaWwfAwWCAdin2LHYqtmB2KfYuSDZhdmI2KzZiNiv2KfYqiDYtdmG2K/ZiNmCINin2LPYqtir2YXYp9ixINij2YXZiNin2YQg2KfZhNi22YXYp9mGINin2YTYp9is2KrZhdin2LnZiiDYp9mE2YkgMTUuNSDZhdmE2YrYp9ixINiv2YrZhtin2LFkZAILD2QWAmYPZBYEAgEPDxYCHwMFK9in2YTYo9it2K8gLCAyMSDYqtmF2YjYsiAsIDIwMjQgOjogMTI6MTcg2YVkZAIDDw8WBB8EBStwYWdlLmFzcHg/cGc9MSZzaT0xMiZuaT02OTY3NiZtZD1uZXdzZGV0YWlsHwMFeSIi2KfZhNmF2YLYp9mI2YXZhyDZh9mKINmF2YYg2KrZgtix2LEg2KfZhNmK2YjZhSDYp9mE2KrYp9mE2Yog2KjYudivINin2YTYrdix2KggIiIgLi4uLi4uICDZhdmG2YjYsSDYp9it2YXYryDYp9mE2K/YqNin2LNkZAIMD2QWAmYPZBYEAgEPDxYCHwMFK9in2YTYo9it2K8gLCAyMSDYqtmF2YjYsiAsIDIwMjQgOjogMTI6MDIg2YVkZAIDDw8WBB8EBSpwYWdlLmFzcHg/cGc9MSZzaT0yJm5pPTY5Njc1Jm1kPW5ld3NkZXRhaWwfAwVs2KPZgtiv2YUg2YPZhtmK2LPYqSDZgdmKINin2YTYudin2YTZhSAuLiDZh9mEINiq2LbYsdix2Kog2YPZhtmK2LPYqSDYp9mE2LnZgtio2Kkg2KjYs9mC2YjYtyDYp9mE2LHYp9mB2LnYqdifZGQCDQ9kFgJmD2QWBAIBDw8WAh8DBSvYp9mE2KPYrdivICwgMjEg2KrZhdmI2LIgLCAyMDI0IDo6IDExOjA1INi1ZGQCAw8PFgQfBAUqcGFnZS5hc3B4P3BnPTEmc2k9MSZuaT02OTY3NCZtZD1uZXdzZGV0YWlsHwMFjAHYudmF2KfZhiDYp9mE2KPZh9mE2YrYqSDYqti02KfYsdmDINio2K3ZgdmEINil2LfZhNin2YIg2KPZiNmE2YXYqNmK2KfYryDYp9mE2YTYutipINin2YTYpdmG2KzZhNmK2LLZitipINin2YTYudin2YTZhdmKINmE2YTYrNin2YXYudin2KogMjAyNGRkAg4PZBYCZg9kFgQCAQ8PFgIfAwUr2KfZhNij2K3YryAsIDIxINiq2YXZiNiyICwgMjAyNCA6OiAxMTowMCDYtWRkAgMPDxYEHwQFKnBhZ2UuYXNweD9wZz0xJnNpPTImbmk9Njk2NzMmbWQ9bmV3c2RldGFpbB8DBUfYp9mK2YfYpyDYp9mE2KfYsdiv2YbZitmI2YYgLi4g2KfYrdiw2LHZiNinINio2LnZiNi22Kkg2KfZhNmD2YrZiNmE2YPYs2RkAg8PZBYCZg9kFgQCAQ8PFgIfAwUr2KfZhNij2K3YryAsIDIxINiq2YXZiNiyICwgMjAyNCA6OiAxMDo1OSDYtWRkAgMPDxYEHwQFKnBhZ2UuYXNweD9wZz0xJnNpPTgmbmk9Njk2NzImbWQ9bmV3c2RldGFpbB8DBWbYqNmE2YrZhtmD2YY6INil2YrYsdin2YYg2KrYs9iq2LfZiti5INil2YbYqtin2Kwg2LPZhNin2K0g2YbZiNmI2Yog2K7ZhNin2YQg2KPYs9io2YjYuSDYo9mIINin2KvZhtmK2YZkZAIQDw8WAh8NaGRkAhkPDxYCHwMFXjIwMjMgwqkg2KzZhdmK2Lkg2KfZhNit2YLZiNmCINmF2K3ZgdmI2LjYqSAtINmF2YjZgti5INis2KjYp9mEINin2YTYqNmE2YLYp9ihINin2YTYp9iu2KjYp9ix2YpkZBgCBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUPY3RsMDAkaW1iU2VhcmNoBShjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJGN0bDAwJGdydkl0ZW1zDzwrAAwBCALpI2QpZlDYHeSm9kYGm4EP+P+sZwr1aMf/mLonXpxCpzS49A==" />
-        </div>
-
-        <script type="text/javascript">
-            //<![CDATA[
-            var theForm = document.forms['aspnetForm'];
-            if (!theForm) {
-                theForm = document.aspnetForm;
-            }
-            function __doPostBack(eventTarget, eventArgument) {
-                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
-                    theForm.__EVENTTARGET.value = eventTarget;
-                    theForm.__EVENTARGUMENT.value = eventArgument;
-                    theForm.submit();
-                }
-            }
-            //]]>
-        </script>
 
 
-        <script
-            src="/WebResource.axd?d=2ApuGRpB3XYlGAS9nEzPagC9Ze4xm_JHCSE5iy47frkh4xJ_BCMWLcVXFtr_hOI8JtkOxzgIxjP4bB2VTdyaTC_HgSN04opGI9rBLjjj34c1&amp;t=638460058960000000"
-            type="text/javascript"></script>
+    <div style="max-width:100%;margin:0 auto 0 auto;position:relative;">
+        <table cellpadding="0" cellspacing="0" border="0" align="center">
+            <tr>
+                <td class="header" valign="top">
+                    <a href="https://yemennownews.com"><img
+                            src="https://yemennownews.com/public/uploads/settings/679121531216934.png" width="163"
+                            height="120" class="logo" alt="اخبار اليمن الان" /></a>
+    </div>
+    </td>
+    </tr>
+    <tr>
+        <td>
+            <div style="clear:both;"></div>
+            <table cellpadding="0" cellspacing="0" border="0" align="center">
+                <tr>
+                    <td class="width_728" valign="top">
 
 
-        <script
-            src="/ScriptResource.axd?d=xSf-OObfzECe70WoVvYVfQvXBrynD_LTTd7NmiAqN8cs5QpFMxzyFAxzDSC0rHGlm6fwDKGOM6A9omnZHRdz89GNXMXIOSkdJi8Pb4t22wfnasUm7P5ti3Uqvv61NRI0_NI64qAZNUvkIugbCOevRQ2&amp;t=15e8b38c"
-            type="text/javascript"></script>
-        <script
-            src="/ScriptResource.axd?d=bg20FNNvY_sSrlUdJkVrmLN1Q50Z20xrdtMS6dB1JSYPqatFBtwlAtD-XMx8KH36NSS399yzY0Vdk8p3Zj6VX0Wg7N7Eo_IVb9NlcZN0RYNDq_--hrXHKCzQxylOE0l5uwoDTy8DGRWww4jG7lZC7zutXXtLFxDILVpmkjxGh3w1&amp;t=74258c30"
-            type="text/javascript"></script>
-        <script
-            src="/ScriptResource.axd?d=jR7Bugi-oMeWUOfaDkxn1LA_4m9A7QqtRbguqp4dTtWXnwsunT_83i10GK0xqLIOl9OPmdrR6xpmYPLQVOY9JCj0yISNE8Q2hVs0K4Ah4VM-BbaFgfG8_cTPqac-B5arN8-Oo30EriXUg78BXUUu5jzvH302j7ARHSmIQGeIjosyL2zRBCLgLblLeE4lnzOS0&amp;t=74258c30"
-            type="text/javascript"></script>
-        <div>
+                        <div class="main_news" style="max-height: 200px;padding: 0;">
+                            <div class="more_news_header">
+                                <!--<img src="assets/images/yemennow_46.jpg" style="float:right;" /> -->
+                                <h1 style="font-size: 20px;margin: 0;"><a href="/">أخبار اليمن الان</a></h1>
+                            </div>
 
-            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="3989C74E" />
-            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION"
-                value="/wEdAA231HKBnF4jUzsMqn1kxJ+bkrUFzihXElFDws51Yo7pzCPKkfEAMGlNvhNi5KtJsnNfe3Tc0ZN6b84FgI4nvrccib5+FP77ciBsklX1B3xVrO/kNftPpGbDQ/17duRm5r2d9VxLd+4Q31Pmt3B41XLHdaL63zd3kK58zlEkbkRWqo5qS1FgOk67sR6J6AY5mbpCjar5jLOUFACWtnsmEJW6B6T6YG/csK7hTIvZjViWW+CbOR1RNYf+snkIp4AyRzZhDl2r6uP+MU9+6bFKw5Fzjmn0ni0BHE1ZP2jK3JasONrrl8AbdqQ5EkZ6aKnwyX8=" />
-        </div>
 
-        <div class="HSpaceLine"></div>
-        <div class="Wrapper">
-            <table class="Header" cellpadding="0" cellspacing="0">
-                <tr style="height: 33px">
-                    <td style="width: 479px; background-color: #e1e1e1">
-                        <a href="#ctl00_TopHMenu_SkipLink"><img alt="Skip Navigation Links"
-                                src="/WebResource.axd?d=d8pBHsbKgN7NhBJeubM5k6OEiTa8yFWiiRbHOeyVb4gejZ-gDJfjRrtDoel0IWx58TfBOG5dC0AIoCJcyo8kONE22JiGGIayel5eo5oh32M1&amp;t=638460058960000000"
-                                width="0" height="0" style="border-width:0px;" /></a>
-                        <table id="ctl00_TopHMenu" class="ctl00_TopHMenu_7 ctl00_TopHMenu_2" cellpadding="0"
-                            cellspacing="0" border="0">
-                            <tr>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_TopHMenun0">
-                                    <table class="TopHMenuItem ctl00_TopHMenu_4" cellpadding="0" cellspacing="0"
-                                        border="0" width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_TopHMenu_1 TopHMenuItem ctl00_TopHMenu_3"
-                                                    href="default.aspx" target="_parent"
-                                                    style="border-style:none;font-size:1em;">الرئيسية</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="width:3px;"></td>
-                                <td><img src="Theme/TopHMenuItemSeperator.jpg" alt="" /></td>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_TopHMenun1">
-                                    <table class="TopHMenuItem ctl00_TopHMenu_4" cellpadding="0" cellspacing="0"
-                                        border="0" width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_TopHMenu_1 TopHMenuItem ctl00_TopHMenu_3"
-                                                    href="page.aspx?pg=4&amp;md=pagedetail" target="_parent"
-                                                    style="border-style:none;font-size:1em;">من نحن</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="width:3px;"></td>
-                                <td><img src="Theme/TopHMenuItemSeperator.jpg" alt="" /></td>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_TopHMenun2">
-                                    <table class="TopHMenuItem ctl00_TopHMenu_4" cellpadding="0" cellspacing="0"
-                                        border="0" width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_TopHMenu_1 TopHMenuItem ctl00_TopHMenu_3"
-                                                    href="page.aspx?pg=5&amp;md=contactus" target="_parent"
-                                                    style="border-style:none;font-size:1em;">اتصل بنا</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="width:3px;"></td>
-                                <td><img src="Theme/TopHMenuItemSeperator.jpg" alt="" /></td>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_TopHMenun3">
-                                    <table class="TopHMenuItem ctl00_TopHMenu_4" cellpadding="0" cellspacing="0"
-                                        border="0" width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_TopHMenu_1 TopHMenuItem ctl00_TopHMenu_3"
-                                                    href="page.aspx?pg=20&amp;md=sendnews" target="_parent"
-                                                    style="border-style:none;font-size:1em;">ارسل خبر</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table><a id="ctl00_TopHMenu_SkipLink"></a>
+
+                            <img src="https://almethaqnews.com/user_images/news/20-07-24-834386388.jpg"
+                                style="float: right; top: 0px" width="167" height="122" />
+                            <h3 style="font-size: 20px; font-weight: bold; color: #000000; margin: 0;">
+                                <a href="https://yemennownews.com/article/2664372">مــهــم.. غارات جوية اسرائيلية تستهدف
+                                    مواقع الميليشيا في محافظة جديدة.. (بنود الخطة الإسرائيلية)</a>
+                            </h3>
+                            <div class="source_name2"><a
+                                    style="font-family: tahoma; font-size: 11px; color: #2d2d2d; font-weight: normal;"
+                                    href="https://yemennownews.com/source/132">الميثاق نيوز</a> | 1236 قراءة&nbsp;
+                                |2024/07/21 17:37 PM </div>
+                            <p>
+                                ان جيش الاحتلال الاسرائيلي عاود مساء اليوم الاحد استهداف مناطق جديدة شمال اليمن. </p>
+                        </div>
+                        <div>
+                        </div>
+
+
+                        <div class="more_news">
+                            <div class="more_news_header">
+                                <!--<img src="assets/images/yemennow_46.jpg" style="float:right;" /> -->
+                                <h2 style="font-size: 20px;margin: 0;"><a href="/">أهم أخبار اليمن الان</a></h2>
+                            </div>
+
+
+                            <div class="more_news_item">
+
+                                <a href="https://yemennownews.com/article/2664420"><img
+                                        src='https://www.yemen-window.com/UploadFiles/2024/Jul/21/2fd2bb14-c370-4444-aaea-e54e1c9f1896.jpg'
+                                        style="top: 0px" width="136" height="99"></a>
+                                <h3 style="color: #d13f3f; font-weight: bold; font-size: 20px; margin: 0;">
+                                    <a href="https://yemennownews.com/article/2664420">بعد أقل من 24 ساعة على الضربات
+                                        الإسرائيلية.. غارات أمريكية على حجة والحديدة</a>
+                                </h3>
+                                <p>
+                                <div class="source_name2"><a
+                                        style="font-family: tahoma; font-size: 11px; color: #2d2d2d; font-weight: normal;"
+                                        href="https://yemennownews.com/source/85">نافذة اليمن</a> | 178 قراءة &nbsp;|
+                                    2024/07/21 18:12 PM </div>
+                                نفذ طيران التحالف الأمريكي البريطاني مساء اليوم غارات جوية على محافظتي حجة والحديدة.
+                                وقالت وسائل إعلام تابعة لجماعة الحوثي ان القضف الأمريكي البريطاني </p>
+                            </div>
+                            <div class="more_news_item">
+
+                                <a href="https://yemennownews.com/article/2664382"><img
+                                        src='https://almahriah.net/ups/news/Almahriah2024-05-31-12-38-25-963791.jpg'
+                                        style="top: 0px" width="136" height="99"></a>
+                                <h3 style="color: #d13f3f; font-weight: bold; font-size: 20px; margin: 0;">
+                                    <a href="https://yemennownews.com/article/2664382">العدوان الأمريكي البريطاني يستهدف
+                                        محافظتي حجة والحديدة</a>
+                                </h3>
+                                <p>
+                                <div class="source_name2"><a
+                                        style="font-family: tahoma; font-size: 11px; color: #2d2d2d; font-weight: normal;"
+                                        href="https://yemennownews.com/source/155">قناة المهرية</a> | 115 قراءة &nbsp;|
+                                    2024/07/21 17:42 PM </div>
+                                شنّ طيران العدوان الأمريكي البريطاني اليوم الأحد، ست غارات على </p>
+                            </div>
+                            <div class="more_news_item">
+
+                                <a href="https://yemennownews.com/article/2664378"><img
+                                        src='https://media.almashhad-alyemeni.com/img/24/07/21/286702_W.jpg'
+                                        style="top: 0px" width="136" height="99"></a>
+                                <h3 style="color: #d13f3f; font-weight: bold; font-size: 20px; margin: 0;">
+                                    <a href="https://yemennownews.com/article/2664378">عاجل: بعد الضربات الإسرائيلية على
+                                        ميناء الحديدة.. غارات عنيفة تستهدف الآن محافظتين باليمن</a>
+                                </h3>
+                                <p>
+                                <div class="source_name2"><a
+                                        style="font-family: tahoma; font-size: 11px; color: #2d2d2d; font-weight: normal;"
+                                        href="https://yemennownews.com/source/16">المشهد اليمني</a> | 782 قراءة &nbsp;|
+                                    2024/07/21 17:39 PM </div>
+
+                                أفادت وسائل إعلام تابعة للمليشيات الحوثية، بأن سلسلة من الغارات، استهدفت مواقع بمحافظتين
+                                يمنيتين، وذلك عقب أقل من 24 ساعة، على الضربات الاسرائيلية على ميناء الحديدة. وقال إعلام
+                                الحوثيين، إن الطيران الأمريكي البريطاني، استهدف بغارتين، منطقة بحيص في مديرية ميدي بحجة،
+                                غربي اليمن. كما...
+
+                                </p>
+                            </div>
+                            <div class="more_news_item">
+
+                                <a href="https://yemennownews.com/article/2664489"><img
+                                        src='https://cratersky.net/photos/072024/669d31bd3308d.jpeg' style="top: 0px"
+                                        width="136" height="99"></a>
+                                <h3 style="color: #d13f3f; font-weight: bold; font-size: 20px; margin: 0;">
+                                    <a href="https://yemennownews.com/article/2664489">بن سلمان يعلق على خطاب زعيم
+                                        الحوثيين الأخير بشأن القصف الإسرائيلي</a>
+                                </h3>
+                                <p>
+                                <div class="source_name2"><a
+                                        style="font-family: tahoma; font-size: 11px; color: #2d2d2d; font-weight: normal;"
+                                        href="https://yemennownews.com/source/82">كريتر سكاي</a> | 225 قراءة &nbsp;|
+                                    2024/07/21 19:07 PM </div>
+
+                                علق الصحفي خالد سلمان على خطاب زعيم مليشيا الحوثي الذي ألقاه اليوموقال خالد سلمان في
+                                منشور عبر حائط صفحته الرسمية بمنصة إكس:‏عبدالملك الحوثي بدم بارد ، وبمنتهى أناقته أطل
+                                على اليمنيين، &nbsp;ليعلن إن...
+                                </p>
+                            </div>
+                            <div class="more_news_item">
+
+                                <a href="https://yemennownews.com/article/2664419"><img
+                                        src='https://www.aden-tm.net/UploadFiles/2024/Jul/21/9b1f7974-d781-49cc-84ea-ce88ae71bc68.jpg'
+                                        style="top: 0px" width="136" height="99"></a>
+                                <h3 style="color: #d13f3f; font-weight: bold; font-size: 20px; margin: 0;">
+                                    <a href="https://yemennownews.com/article/2664419">تدمير ميناء الحديدة .. هل سيعود
+                                        بالنفع على ميناء عدن؟ </a>
+                                </h3>
+                                <p>
+                                <div class="source_name2"><a
+                                        style="font-family: tahoma; font-size: 11px; color: #2d2d2d; font-weight: normal;"
+                                        href="https://yemennownews.com/source/212">عدن تايم</a> | 244 قراءة &nbsp;|
+                                    2024/07/21 18:11 PM </div>
+                                يُفترض أن يكون تدمير ميناء الحديدة، الذي تسيطر عليه ميليشيا الحوثي، فرصة لتعزيز وتطوير
+                                ميناء عدن. و يرى مراقبون أن هذه الفرصة يمكن أن تكون نقلة نوعية </p>
+                            </div>
+                            <div class="more_news_item">
+
+                                <a href="https://yemennownews.com/article/2664383"><img
+                                        src='https://asifanews.com/wp-content/uploads/2024/07/IMG_٢٠٢٤٠٧٢١_١٧٣٤٣١.jpg'
+                                        style="top: 0px" width="136" height="99"></a>
+                                <h3 style="color: #d13f3f; font-weight: bold; font-size: 20px; margin: 0;">
+                                    <a href="https://yemennownews.com/article/2664383">أول تصريح لزعيم مليشيا الحوثي بعد
+                                        الهجوم الإسرائيلي على الحُديدة.. ماذا قال؟</a>
+                                </h3>
+                                <p>
+                                <div class="source_name2"><a
+                                        style="font-family: tahoma; font-size: 11px; color: #2d2d2d; font-weight: normal;"
+                                        href="https://yemennownews.com/source/230">العاصفة نيوز</a> | 500 قراءة &nbsp;|
+                                    2024/07/21 17:42 PM </div>
+
+                                في أول تصريح له عقب الهجوم الإسرائيلي على ميناء الحديدة . أدلى عبدالملك الحوثي، زعيم
+                                مليشيا الحوثي ، اليوم الأحد، بخطاب بعد الهجوم الذي شنته مقاتلات إسرائيلية على ميناء
+                                الحديدة غرب اليمن، السبت، إثر هجوم حوثي بمسيرة على تل أبيب. &#160; وقال عبدالملك الحوثي:
+                                &#8220;الخطر والتهديد سيستمر في تل أبيب، والمعادلة الجديدة تدل بكل وضوح &#8230;
+                                العاصفة نيوز: ال </p>
+                            </div>
+                            <div class="more_news_item">
+
+                                <a href="https://yemennownews.com/article/2664398"><img
+                                        src='https://yemeneco.org/wp-content/uploads/2024/05/صورة-العملات-1024x576-1.jpg'
+                                        style="top: 0px" width="136" height="99"></a>
+                                <h3 style="color: #d13f3f; font-weight: bold; font-size: 20px; margin: 0;">
+                                    <a href="https://yemennownews.com/article/2664398">أسعار صرف العملات مقابل الريال في
+                                        صنعاء وعدن: الأحد 21 يوليو 2024م</a>
+                                </h3>
+                                <p>
+                                <div class="source_name2"><a
+                                        style="font-family: tahoma; font-size: 11px; color: #2d2d2d; font-weight: normal;"
+                                        href="https://yemennownews.com/source/222">يمن إيكو</a> | 454 قراءة &nbsp;|
+                                    2024/07/21 17:54 PM </div>
+                                The post أسعار صرف العملات مقابل الريال في صنعاء وعدن: الأحد 21 يوليو 2024م appeared
+                                first on يمن ايكو.
+                                The post أسعار صرف العملات مقابل الريال في صنعاء وعدن: الأحد 21 يوليو 2024م appeared
+                                first on يمن ايكو.
+                                </p>
+                            </div>
+                            <div class="more_news_item">
+
+                                <a href="https://yemennownews.com/article/2664432"><img
+                                        src='https://i0.wp.com/www.adentodey.net/wp-content/uploads/2024/07/FB_IMG_17215738323646976.jpg'
+                                        style="top: 0px" width="136" height="99"></a>
+                                <h3 style="color: #d13f3f; font-weight: bold; font-size: 20px; margin: 0;">
+                                    <a href="https://yemennownews.com/article/2664432">إنهيار العملة المحلية امام
+                                        العملات الاجنبية الى مستوى متدني جدا” ووصوله لهذا المستوى المخيف</a>
+                                </h3>
+                                <p>
+                                <div class="source_name2"><a
+                                        style="font-family: tahoma; font-size: 11px; color: #2d2d2d; font-weight: normal;"
+                                        href="https://yemennownews.com/source/227">عدن توداي</a> | 208 قراءة &nbsp;|
+                                    2024/07/21 18:21 PM </div>
+                                عدن توداي/خاص: يواصل الريال اليمني انهيارة بشكل مستمر أمام العملات الأجنبية والعربية في
+                                العاصمة عدن والمناطق المحررة، بينما يستقر نسبياً في صنعاء المحتلة من مليشيات الحوثي.
+                                بيان بأسعار الصرف خلال التعاملات الصباحية لهذا اليوم الاحد والتي جاءت كالتالي. عدن:
+                                الريال السعودي: شراء: 492 بيع: 496 الدولار الأمريكي:- شراء:1882 بيع: 1903 صنعاء:- الريال
+                                السعودي:- </p>
+                            </div>
+                            <div class="more_news_item">
+
+                                <a href="https://yemennownews.com/article/2664370"><img
+                                        src='https://bawabatii.net/user_images/news/21-07-24-412694213.jpg'
+                                        style="top: 0px" width="136" height="99"></a>
+                                <h3 style="color: #d13f3f; font-weight: bold; font-size: 20px; margin: 0;">
+                                    <a href="https://yemennownews.com/article/2664370">أخطر ثلاثة تصريحات لقادة إسرائيل
+                                        بعد العدوان على الحديدة.. ماذا قالوا؟</a>
+                                </h3>
+                                <p>
+                                <div class="source_name2"><a
+                                        style="font-family: tahoma; font-size: 11px; color: #2d2d2d; font-weight: normal;"
+                                        href="https://yemennownews.com/source/32">بوابتي</a> | 404 قراءة &nbsp;|
+                                    2024/07/21 17:36 PM </div>
+                                أخطر ثلاثة تصريحات لقادة إسرائيل بعد العدوان على الحديدة.. ماذا قالوا؟
+                                </p>
+                            </div>
+                            <div class="more_news_item">
+
+                                <a href="https://yemennownews.com/article/2664481"><img
+                                        src='https://watanalghad.com/user_images/news/21-07-24-633904698.jpg'
+                                        style="top: 0px" width="136" height="99"></a>
+                                <h3 style="color: #d13f3f; font-weight: bold; font-size: 20px; margin: 0;">
+                                    <a href="https://yemennownews.com/article/2664481">السعودية تمنع استخراج تأشيرة
+                                        الزيارة العائلية إلا بعد تحقيق هذا الشرط الذي يعجز عنه معظم المغتربين</a>
+                                </h3>
+                                <p>
+                                <div class="source_name2"><a
+                                        style="font-family: tahoma; font-size: 11px; color: #2d2d2d; font-weight: normal;"
+                                        href="https://yemennownews.com/source/148">وطن الغد</a> | 115 قراءة &nbsp;|
+                                    2024/07/21 18:57 PM </div>
+                                وضعت وزارة الخارجية السعودية عدداً من الشروط التي يجب توفرها في المقيم أو الوافد إذا
+                                أراد استخراج </p>
+                            </div>
+                        </div>
+
+
+                        <div class="more_news">
+                            <div class="more_news_header">
+                                <!-- <img src="assets/images/yemennow_46.jpg" style="float:right;" />-->
+                                <h2 style="font-size: 18px;display: initial; "> آخر اخبار المشهد اليمني اليوم من جميع
+                                    المصادر</h2>
+                            </div>
+                            <ul>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664523">
+                                            قائد خفر السواحل في حضرموت يشيد بجهود تأمين الشواطئ في موسم نجم البلدة</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/27">الوطن العدنية</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:35 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664522">البنوك الستة المشمولة بعقوبة
+                                            البنك المركزي تتلقى رسالة رسالة صادمة بشأن هذا الأمر !</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/133">نيوز لاين</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:35 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664521">قال بأنها ستكون مواجهة بلا
+                                            سقف محدد : زعيم الحوثيين «سعيد» بالمواجهة مع إسرائيل... ويتعهد باستمرار
+                                            التصعيد</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/181">الأمة برس</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:34 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664520">المهرة…اجتماع يناقش امكانية
+                                            فتح تخصص الكيمياء والتاريخ بكلية التربية</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/228">شروين المهرة</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:33 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664519">مرض مجهول يغزو مدينة عدن
+                                            وإسهالات مائية حاده تفتك بحياة المواطنين في المدينة وسط غياب تام لوزارة
+                                            الصحة</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/210">سبأ بوست</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:33 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664518">ارتفاع حصيلة ضحايا الغارات
+                                            الإسرائيلية على الحديدة في اليمن</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/133">نيوز لاين</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:32 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664517">رسميًا “الموارد البشرية” تكشف
+                                            عن موعد صرف الضمان الاجتماعي لشهر أغسطس 2024</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/208">أحداث الخليج</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:32 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664516">طوابير وازدحام أمام محطات
+                                            البنزين في صنعاء</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/97">العاصمة أونلاين</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:31 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664515">الكويت تبدي قلقها البالغ من
+                                            انعكاس الهجمات الإسرائيلية غير المسبوقة على الوضع باليمن</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/155">قناة المهرية</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:30 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664514">اليمن: ارتفاع حالات النزوح
+                                            الداخلي إلى أعلى مستوى لها منذ نحو تسعة أشهر</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/190">يمن فيوتشر</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:30 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664513"> ناطق الإصلاح: اليمنيون لن
+                                            يقبلوا بأي اعتداء إسرائيلي على أراضيهم </a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/97">العاصمة أونلاين</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:29 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664512">لماذا ينتشر فيروس «كورونا»
+                                            هذا الصيف؟</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/224">العين الثالثة</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:28 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664511">عبدالملك الحوثي في خطاب ناري:
+                                            المعركة مع إسرائيل ابتدأت</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/16">المشهد اليمني</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:27 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664510">“اعرف الآن” .. شروط الإقامة
+                                            الذهبية بالسعودية 2024 وأهم المستندات والوثائق المطلوبة للتقديم</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/208">أحداث الخليج</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:27 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664509">13 يمنياً وسعودي في قبضة
+                                            الامن السعودي.. ماذا فعلوا؟</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/120">يني يمن</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:27 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664508"> مع بدء العام الدراسي..
+                                            تربويون يطالبون بإنقاذ التعليم من الانهيار في صنعاء</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/97">العاصمة أونلاين</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:25 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664507">محافظ شبوة يعود من إجازة
+                                            مرضية استمرت أشهرا قضاها في الامارات</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/220">يمن ديلي نيوز</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:25 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664506">الحكومة الكويتية تتحدث عن
+                                            انعكاس الهجمات الإسرائيلية على اليمن وما سيتمخض عنه من تدهور أمني في
+                                            المنطقة</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/231">بران برس</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:24 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664505">اليمن: محللون يقولون ان
+                                            الضربة الإسرائيلية على الحديدة ستقوّي عزيمة الحوثيين</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/190">يمن فيوتشر</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:23 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664504">زوجات المغتربين في ورطة كبيرة
+                                            ...السعودية تصحوا على أمر ملكي بتعديل شامل لأسعار الإقامات والزيارات
+                                            والتأشيرات (تعرف على الأسعار الجديدة)!</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/208">أحداث الخليج</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:22 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664503">عاجل:الاعلان عن نتائج طلاب
+                                            المرحلة الاساسية</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/82">كريتر سكاي</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:22 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664502">بتمويل من الاتحاد الأوروبي ..
+                                            مدير عام حوطة لحج سامي الجبلي بمعية المستشار لؤي الصبيحي يدشنان أعمال افتتاح
+                                            مشروع إعادة تأهيل سوق السمك بالمديرية</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/205">سما نيوز</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:21 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664501">زعيم الحوثيين “سعيد” بالهجوم
+                                            الإسرائيلي على الحديدة واليمنيون: “منحته ما يريد”</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/231">بران برس</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:20 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664500">اجتماع في تعز يشدد الرقابة
+                                            على المنشآت الصحية والطبية</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/211">وكالة 2 ديسمبر</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:19 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664499">الحكومة اليمنية الشرعية تدين
+                                            العدوان الاسرائيلي على مدينة الحديدة</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/181">الأمة برس</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:18 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664498">نفذته “البادية” بتمويل من
+                                            فاعل خير : إفتتاح مشروع مياه حي الطميسي بأبين</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/227">عدن توداي</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:17 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664497"> مصادر تؤكد وفاة مختطفة في
+                                            السجن المركزي بصنعاء جراء تعذيب الحوثيين</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/97">العاصمة أونلاين</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:17 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664496">تنفيذية انتقالي العاصمة عدن
+                                            تعقد اجتماعها الدوري الثاني لشهر يوليو </a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/213">سما عدن</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:16 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664495">إنطلاق المؤتمر العلمي الطبي
+                                            الأول بجامعة تعز بمشاركة 500 طبيباً وباحثاً</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/44">المنارة نت</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:13 PM </span>
+                                    </div>
+                                </li>
+                                <li class="even_block">
+                                    <h3 style="font-size: 18px; color: #ffffff; margin: 0;">
+                                        <a href="https://yemennownews.com/article/2664494">مدير عام مديرية خور مكسر يكرم
+                                            فريق حي السلام المتوج ببطولة الهوكي الرمضانية</a>
+                                    </h3>
+                                    <div class="source_name"><a
+                                            style="font-family: tahoma; font-size: 10px; font-weight: normal; color: #fff703;"
+                                            href="https://yemennownews.com/source/213">سما عدن</a>
+                                        <span>
+                                            &nbsp;|&nbsp;
+                                            2024/07/21 19:12 PM </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="pages">
+
+
+                            <a href="">
+                                <div class="selected_page">الصفحه السابقه</div>
+                            </a>
+
+                            <a href="https://yemennownews.com?page=2">
+                                <div class="selected_page">الصفحه التاليه</div>
+                            </a>
+
+
 
                     </td>
-                    <td style="width: 230px; background-color: #e1e1e1">
-                        <table cellpadding="0" cellspacing="0"
-                            style="padding-right: 20px; background-color: #ffffff; border: solid 1px #757575; width: 220px; height: 25px">
+                    <td width="4"></td>
+                    <td width="250" valign="top">
+
+                        <table cellpadding="0" cellspacing="0" border="1"
+                            style="margin:2px 0 5px 0;border-collapse:collapse;border:#cccccc;">
+                            <tr class="index_header">
+                                <td width="300">المصادر</td>
+
+                            </tr>
+
+
+
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/208">أحداث
+                                            الخليج</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/207">أخبار العصر</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/30">أنباء عدن</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/195">إيجاز برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/14">ابابيل نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/162">احداث نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/100">اقليم تهامة</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/181">الأمة برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/91">الأنباء
+                                            اونلاين</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/183">الأول برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/102">الإصلاح نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/139">الاتحاد نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/42">الاحرار نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/225">البلاد الآن</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/92">البلاد نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/157">التغيير برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/116">الجند بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/223">الجنوب
+                                            اليمني</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/172">الحدث الان</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/62">الحدث اليوم</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/192">الحدث
+                                            اونلاين</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/95">الحرف 28</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/29">الحكمة نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/74">الحياة
+                                            اليمنية</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/202">الخبر 21</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/193">الخبر الان</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/111">الخبر
+                                            اليمني</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/121">الخبر بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/226">السلام نيوز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/168">الشاهد برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/143">الشرعية برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/15">الصحوة نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/18">الضالع نيوز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/230">العاصفة
+                                            نيوز</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/97">العاصمة
+                                            أونلاين</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/179">العرب 365</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/189">العربي نيوز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/147">العرش نيوز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/224">العين
+                                            الثالثة</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/149">المجلة
+                                            الطبية</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/158">المرسى
+                                            الاخباري</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/188">المرصد بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/173">المشهد الآن</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/126">المشهد
+                                            الخليجي</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/163">المشهد
+                                            الدولي</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/67">المشهد
+                                            العربي</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/16">المشهد
+                                            اليمني</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/19">المصدر
+                                            اونلاين</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/44">المنارة نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/87">المندب نيوز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/122">المهرة
+                                            أونلاين</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/186">المهرة بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/17">الموقع بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/132">الميثاق
+                                            نيوز</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/94">الميدان
+                                            اليمني</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/28">الميناء نيوز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/176">الناقد برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/180">النبأ
+                                            اليمني</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/27">الوطن
+                                            العدنية</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/113">الوطن توداي</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/187">اليمن
+                                            الاتحادي</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/75">اليمن السعيد</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/174">اليمن مباشر</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/218">اليوم السابع
+                                            اليمني</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/86">اليوم برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/231">بران برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/32">بوابتي</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/145">بيس
+                                            هورايزونس</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/156">تهامة 24</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/47">تهامة برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/229">جنوب العرب</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/76">جهينة يمن</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/184">حدث الساعة</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/204">حرف بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/206">خبابير نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/203">خطوط برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/124">خليجي نيوز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/154">ديبريفر</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/109">ذمار
+                                            أونلاين</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/131">رأي اليمن</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/210">سبأ بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/21">سبأ نت</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/117">سبتمبر نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/98">سقطرى بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/56">سما برس</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/213">سما عدن</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/205">سما نيوز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/170">سياج بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/160">شبكة العين
+                                            أونلاين</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/114">شبكة اليمن
+                                            الاخبارية</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/165">شبكة سما
+                                            الإخبارية</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/228">شروين
+                                            المهرة</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/214">شمسان بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/217">صحيفة ١٧
+                                            يوليو</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/201">صحيفة شمسان
+                                            نت</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/146">صنعاء
+                                            اونلاين</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/83">صوت الحرية</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/215">عدن
+                                            أوبزيرفر</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/142">عدن الحدث</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/23">عدن الغد</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/212">عدن تايم</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/227">عدن توداي</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/200">عدن حرة</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/49">عدن نيوز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/115">عناوين بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/219">فجر اليوم</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/178">قبائل اليمن</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/175">قشن برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/155">قناة
+                                            المهرية</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/152">قناة اليمن
+                                            الفضائية</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/50">قناة بلقيس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/82">كريتر سكاي</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/196">لحج لايت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/197">مأرب 360</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/8">مأرب برس</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/221">مساحة نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/112">مسند
+                                            للأنباء</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/22">مندب برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/171">موقع اخبار
+                                            اليمن</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/232">موقع الجنوب
+                                            اليمني</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/169">موقع حيروت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/199">ميون</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/209">ناس تايمز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/77">نبأ اليمن</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/137">نبض الشارع</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/133">نيوز لاين</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/96">نيوز يمن</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/33">هنا عدن</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/194">وصل برس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/148">وطن الغد</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/198">وطن نيوز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/211">وكالة 2
+                                            ديسمبر</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/216">وكالة المخا
+                                            الإخبارية</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/185">وكالة خبر</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/99">وكالة عدن
+                                            الاخبارية</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/182">وكالة يمن
+                                            للأنباء</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/222">يمن إيكو</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/90">يمن اتحادي</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/88">يمن الغد</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/9">يمن برس</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/123">يمن تايم</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/119">يمن تليجراف</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/65">يمن توك</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/136">يمن دايز</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/220">يمن ديلي
+                                            نيوز</a></h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/58">يمن سكاي</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/25">يمن شباب نت</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/36">يمن فويس</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/190">يمن فيوتشر</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/39">يمن مونيتور</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/159">يمني بوست</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+                            <tr class="newColor">
+                                <td class="index_name">
+                                    <h4 style="margin: 0;"><a href="https://yemennownews.com/source/120">يني يمن</a>
+                                    </h4>
+                                </td>
+
+                            </tr>
+
                             <tr>
-                                <td>
-                                    <input name="ctl00$txtWordSearch" type="text" value="بحث" id="ctl00_txtWordSearch"
-                                        onFocus="if(this.value == &#39;بحث&#39;) {this.value=&#39;&#39;}"
-                                        onBlur="if(this.value == &#39;&#39;) {this.value=&#39;بحث&#39;;}"
-                                        onkeypress="return clickButton(event,&#39;ctl00_txtWordSearch&#39;,&#39;&#39;)"
-                                        style="color:#666666;border-style:None;font-size:9pt;width:120px;" />
-                                </td>
-                                <td>
-                                    <input type="image" name="ctl00$imbSearch" id="ctl00_imbSearch"
-                                        onkeypress="return clickButton(event,&#39;ctl00_txtWordSearch&#39;,&#39;&#39;)"
-                                        src="Theme/SearchButtonBG.jpg"
-                                        onclick="return OnMouseClick(&#39;ctl00_txtWordSearch&#39;,&#39;&#39;);"
-                                        style="border-width:0px;" />
-                                </td>
+                                <td colspan="3" style="border-width:0px 1px 1px 1px;"></td>
                             </tr>
                         </table>
                     </td>
-                    <td align="center"
-                        style="width: 271px; background: #e1e1e1 url(Theme/TopHMenuBG1.jpg) repeat-x top; text-align: right">
-                        &nbsp;&nbsp;&nbsp;<a href="feed/rss.aspx"><img
-                                src="Theme/RSS.gif" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span id="ctl00_lblDate" class="DateTime">الأحد , 21 تموز 2024 م</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="background-color: #e1e1e1; height: 4px"></td>
-                </tr>
-                <tr>
-                    <td colspan="1" style="padding: 20px">
-                        <a href='default.aspx'>
-                            <img src="Theme/Logo.png" /></a>
-                    </td>
-                    <td colspan="2">
 
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="background-color: #e1e1e1; height: 4px"></td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="HMenu">
-                        <a href="#ctl00_HMenu_SkipLink"><img alt="Skip Navigation Links"
-                                src="/WebResource.axd?d=d8pBHsbKgN7NhBJeubM5k6OEiTa8yFWiiRbHOeyVb4gejZ-gDJfjRrtDoel0IWx58TfBOG5dC0AIoCJcyo8kONE22JiGGIayel5eo5oh32M1&amp;t=638460058960000000"
-                                width="0" height="0" style="border-width:0px;" /></a>
-                        <table id="ctl00_HMenu" class="ctl00_HMenu_7 ctl00_HMenu_2" cellpadding="0" cellspacing="0"
-                            border="0">
-                            <tr>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_HMenun0">
-                                    <table class="HMenuItem ctl00_HMenu_4" cellpadding="0" cellspacing="0" border="0"
-                                        width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_HMenu_1 HMenuItem ctl00_HMenu_3"
-                                                    href="page.aspx?pg=7&amp;si=1&amp;md=news"
-                                                    style="border-style:none;font-size:1em;">اخبار البلقاء</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="width:3px;"></td>
-                                <td><img src="Theme/HMenuItemSeperator.jpg" alt="" /></td>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_HMenun1">
-                                    <table class="HMenuItem ctl00_HMenu_4" cellpadding="0" cellspacing="0" border="0"
-                                        width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_HMenu_1 HMenuItem ctl00_HMenu_3"
-                                                    href="page.aspx?pg=7&amp;si=2&amp;md=news"
-                                                    style="border-style:none;font-size:1em;">نبض الوطن</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="width:3px;"></td>
-                                <td><img src="Theme/HMenuItemSeperator.jpg" alt="" /></td>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_HMenun2">
-                                    <table class="HMenuItem ctl00_HMenu_4" cellpadding="0" cellspacing="0" border="0"
-                                        width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_HMenu_1 HMenuItem ctl00_HMenu_3"
-                                                    href="page.aspx?pg=7&amp;si=3&amp;md=news"
-                                                    style="border-style:none;font-size:1em;">برلمانيات</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="width:3px;"></td>
-                                <td><img src="Theme/HMenuItemSeperator.jpg" alt="" /></td>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_HMenun3">
-                                    <table class="HMenuItem ctl00_HMenu_4" cellpadding="0" cellspacing="0" border="0"
-                                        width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_HMenu_1 HMenuItem ctl00_HMenu_3"
-                                                    href="page.aspx?pg=7&amp;si=5&amp;md=news"
-                                                    style="border-style:none;font-size:1em;">رجال الوطن</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="width:3px;"></td>
-                                <td><img src="Theme/HMenuItemSeperator.jpg" alt="" /></td>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_HMenun4">
-                                    <table class="HMenuItem ctl00_HMenu_4" cellpadding="0" cellspacing="0" border="0"
-                                        width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_HMenu_1 HMenuItem ctl00_HMenu_3"
-                                                    href="page.aspx?pg=7&amp;si=7&amp;md=news"
-                                                    style="border-style:none;font-size:1em;">اخبار المجتمع</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="width:3px;"></td>
-                                <td><img src="Theme/HMenuItemSeperator.jpg" alt="" /></td>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_HMenun5">
-                                    <table class="HMenuItem ctl00_HMenu_4" cellpadding="0" cellspacing="0" border="0"
-                                        width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_HMenu_1 HMenuItem ctl00_HMenu_3"
-                                                    href="page.aspx?pg=7&amp;si=8&amp;md=news"
-                                                    style="border-style:none;font-size:1em;">عربي دولي</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="width:3px;"></td>
-                                <td><img src="Theme/HMenuItemSeperator.jpg" alt="" /></td>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_HMenun6">
-                                    <table class="HMenuItem ctl00_HMenu_4" cellpadding="0" cellspacing="0" border="0"
-                                        width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_HMenu_1 HMenuItem ctl00_HMenu_3"
-                                                    href="page.aspx?pg=7&amp;si=9&amp;md=news"
-                                                    style="border-style:none;font-size:1em;">اخبار الرياضة</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="width:3px;"></td>
-                                <td><img src="Theme/HMenuItemSeperator.jpg" alt="" /></td>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_HMenun7">
-                                    <table class="HMenuItem ctl00_HMenu_4" cellpadding="0" cellspacing="0" border="0"
-                                        width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_HMenu_1 HMenuItem ctl00_HMenu_3"
-                                                    href="page.aspx?pg=7&amp;si=10&amp;md=news"
-                                                    style="border-style:none;font-size:1em;">منوعات وفنون</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="width:3px;"></td>
-                                <td><img src="Theme/HMenuItemSeperator.jpg" alt="" /></td>
-                                <td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)"
-                                    onkeyup="Menu_Key(event)" id="ctl00_HMenun8">
-                                    <table class="HMenuItem ctl00_HMenu_4" cellpadding="0" cellspacing="0" border="0"
-                                        width="100%">
-                                        <tr>
-                                            <td style="white-space:nowrap;"><a
-                                                    class="ctl00_HMenu_1 HMenuItem ctl00_HMenu_3"
-                                                    href="page.aspx?pg=7&amp;si=14&amp;md=news"
-                                                    style="border-style:none;font-size:1em;">واحة الايمان</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table><a id="ctl00_HMenu_SkipLink"></a>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="Banner">
-                        <iframe src="loadcontrol.aspx?md=bannernews" frameborder="0" scrolling="no" width="100%"
-                            height="20px"></iframe>
-                    </td>
                 </tr>
             </table>
+            </div>
 
-            <script type="text/javascript">
-                //<![CDATA[
-                Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', ['tctl00$ContentPlaceHolder1$ctl00$UpdatePanel1', ''], [], [], 90, 'ctl00');
-                //]]>
-            </script>
-
-            <div class="Container">
-
-                <div class="InnerBodySide">
-                    <div class="PageTitle">
-                        <span id="ctl00_ContentPlaceHolder1_lblTitle">الصفحة الرئيسية</span>
+            <div class="footer">
+                <div style="max-width:982px;margin:0 auto 0 auto;">
+                    <div style="height: 30px; line-height: 30px;">
+                        <a href="https://yemennownews.com">اخبار اليمن الان</a><span
+                            style="color:red; margin: 0px 7px;"> | </span><a href="https://yemennownews.com/today">اهم
+                            اخبار اليمن اليوم</a><span style="color:red; margin: 0px 7px;"> | </span><a
+                            href="https://yemennownews.com/yemeniriyal">الريال اليمني اليوم</a><span
+                            style="color:red; margin: 0px 7px;"> | </span><a
+                            href="https://yemennownews.com/contact">اتصل بنا</a>
                     </div>
-                    <div style="padding: 10px">
-                        <div id="ctl00_ContentPlaceHolder1_pPage">
-
-
-                            <div class="Block4">
-                                <div id="ctl00_ContentPlaceHolder1_ctl00_UpdatePanel1">
-
-                                    <div>
-                                        <table cellspacing="0" border="0" id="ctl00_ContentPlaceHolder1_ctl00_grvItems"
-                                            style="width:100%;border-collapse:collapse;">
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl02_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 4:53 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl02_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=7&amp;ni=69686&amp;md=newsdetail">الف
-                                                            مبروووك لعطوفة الاستاذ الدكتور ظافر الصرايرة</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl03_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 2:09 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl03_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=2&amp;ni=69685&amp;md=newsdetail">الأردن
-                                                            .. العثور على جثة سبعيني في الطريق العام</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl04_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 1:31 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl04_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=2&amp;ni=69684&amp;md=newsdetail">الأردن..
-                                                            تفاصيل صادمة بجريمة (البيادر) الأسرية</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl05_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 1:10 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl05_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=8&amp;ni=69683&amp;md=newsdetail">إعلام
-                                                            عبري يزعم تلقيه تأكيدات باغتيال محمد الضيف قائد القسام</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl06_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 1:00 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl06_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=9&amp;ni=69682&amp;md=newsdetail">ريال
-                                                            مدريد أقوى علامة تجارية في العالم</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl07_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 12:59 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl07_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=10&amp;ni=69681&amp;md=newsdetail">السجن
-                                                            للبلوغر المصرية نادين طارق</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl08_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 12:55 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl08_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=2&amp;ni=69680&amp;md=newsdetail">10
-                                                            جرائم قتل أسرية في الأردن خلال 6 أشهر .. وغالبية الضحايا
-                                                            نساء</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl09_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 12:53 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl09_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=2&amp;ni=69679&amp;md=newsdetail">دراجات
-                                                            دفع رباعي لتعزيز الأمن البيئي والسياحي في الاردن - صور</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl10_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 12:41 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl10_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=9&amp;ni=69678&amp;md=newsdetail">منتخب
-                                                            الكرة يجري تعديلا على برنامج مبارياته الودية في تركيا</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl11_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 12:40 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl11_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=2&amp;ni=69677&amp;md=newsdetail">ارتفاع
-                                                            موجودات صندوق استثمار أموال الضمان الاجتماعي الى 15.5 مليار
-                                                            دينار</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl12_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 12:17 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl12_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=12&amp;ni=69676&amp;md=newsdetail">""المقاومه
-                                                            هي من تقرر اليوم التالي بعد الحرب "" ...... منور احمد
-                                                            الدباس</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl13_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 12:02 م</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl13_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=2&amp;ni=69675&amp;md=newsdetail">أقدم
-                                                            كنيسة في العالم .. هل تضررت كنيسة العقبة بسقوط الرافعة؟</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl14_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 11:05 ص</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl14_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=1&amp;ni=69674&amp;md=newsdetail">عمان
-                                                            الأهلية تشارك بحفل إطلاق أولمبياد اللغة الإنجليزية العالمي
-                                                            للجامعات 2024</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl15_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 11:00 ص</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl15_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=2&amp;ni=69673&amp;md=newsdetail">ايها
-                                                            الاردنيون .. احذروا بعوضة الكيولكس</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="WebPart2">
-                                                        <img src="Theme/Calendar.gif" />
-                                                        <span
-                                                            id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl16_lblPostDate"
-                                                            class="DateTime">الأحد , 21 تموز , 2024 :: 10:59 ص</span>
-                                                        <br />
-                                                        <br />
-                                                        <a id="ctl00_ContentPlaceHolder1_ctl00_grvItems_ctl16_hlkNewsTitle"
-                                                            class="Item"
-                                                            href="page.aspx?pg=1&amp;si=8&amp;ni=69672&amp;md=newsdetail">بلينكن:
-                                                            إيران تستطيع إنتاج سلاح نووي خلال أسبوع أو اثنين</a>
-                                                    </div>
-                                                    <div class="HDottedLine"></div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <table border="0">
-                                                        <tr>
-                                                            <td><span>1</span></td>
-                                                            <td><a
-                                                                    href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$ctl00$grvItems&#39;,&#39;Page$2&#39;)">2</a>
-                                                            </td>
-                                                            <td><a
-                                                                    href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$ctl00$grvItems&#39;,&#39;Page$3&#39;)">3</a>
-                                                            </td>
-                                                            <td><a
-                                                                    href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$ctl00$grvItems&#39;,&#39;Page$4&#39;)">4</a>
-                                                            </td>
-                                                            <td><a
-                                                                    href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$ctl00$grvItems&#39;,&#39;Page$5&#39;)">5</a>
-                                                            </td>
-                                                            <td><a
-                                                                    href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$ctl00$grvItems&#39;,&#39;Page$6&#39;)">6</a>
-                                                            </td>
-                                                            <td><a
-                                                                    href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$ctl00$grvItems&#39;,&#39;Page$7&#39;)">7</a>
-                                                            </td>
-                                                            <td><a
-                                                                    href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$ctl00$grvItems&#39;,&#39;Page$8&#39;)">8</a>
-                                                            </td>
-                                                            <td><a
-                                                                    href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$ctl00$grvItems&#39;,&#39;Page$9&#39;)">9</a>
-                                                            </td>
-                                                            <td><a
-                                                                    href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$ctl00$grvItems&#39;,&#39;Page$10&#39;)">10</a>
-                                                            </td>
-                                                            <td><a
-                                                                    href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$ctl00$grvItems&#39;,&#39;Page$11&#39;)">...</a>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
+                    <br />
+                    <div style="display: contents;height: 30px; line-height: 30px;">
+                        <a href="https://yemennownews.com/tag/فيروس-كورونا">اخبار فيروس كورونا</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/sanaa">صنعاء</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/aden">عدن</a><span style="color:red; margin: 0px 7px;"> |
+                        </span>
+                        <a href="https://yemennownews.com/city/taiz">تعز</a><span style="color:red; margin: 0px 7px;"> |
+                        </span>
+                        <a href="https://yemennownews.com/city/marib">مأرب</a><span style="color:red; margin: 0px 7px;">
+                            | </span>
+                        <a href="https://yemennownews.com/city/hodeidah">الحديدة</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/hadhramaut">حضرموت</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/abyan">ابين</a><span style="color:red; margin: 0px 7px;">
+                            | </span>
+                        <a href="https://yemennownews.com/city/saada">صعدة</a><span style="color:red; margin: 0px 7px;">
+                            | </span>
+                        <a href="https://yemennownews.com/city/hajjah">حجة</a><span style="color:red; margin: 0px 7px;">
+                            | </span>
+                        <a href="https://yemennownews.com/city/mahweet">المحويت</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/amran">عمران</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/bayda">البيضاء</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/dhale">الضالع</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/dhamar">ذمار</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/ibb">إب</a><span style="color:red; margin: 0px 7px;"> |
+                        </span>
+                        <a href="https://yemennownews.com/city/lahj">لحج</a><span style="color:red; margin: 0px 7px;"> |
+                        </span>
+                        <a href="https://yemennownews.com/city/mahrah">المهرة</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/raymah">ريمة</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/socotra">جزيرة سقطرى</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/shabwah">شبوة</a><span
+                            style="color:red; margin: 0px 7px;"> | </span>
+                        <a href="https://yemennownews.com/city/jawf">الجوف</a><span style="color:red; margin: 0px 7px;">
+                            | </span>
                     </div>
-                </div>
-                <div class="InnerRightSide">
+                    <br />
+                    <link rel="stylesheet" type="text/css"
+                        href="https://yemennownews.com/public/assets/css/style_3.css">
+                    <!-- Global site tag (gtag.js) - Google Analytics -->
+                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118269647-1"></script>
+                    <script>
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag() { dataLayer.push(arguments); }
+                        gtag('js', new Date());
 
-                    <div class="Block">
-                        <div class="BlockTitle3">
-                            تواصل معنا
-                        </div>
-                        <iframe
-                            src="https://www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/jebalalbalqa&amp;width=240&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=220"
-                            scrolling="no" frameborder="0"
-                            style="border: none; overflow: hidden; width: 100%; height: 100%;"
-                            allowtransparency="true"></iframe>
-                    </div>
-                    <div class="HSpaceLine1"></div>
+                        gtag('config', 'UA-118269647-1');
+                    </script>
+
+                    <meta name="msvalidate.01" content="168C0B003F6BFB0C07078FF2EB9B5627" />
+
+                    جميع الحقوق محفوظه لموقع اخبار اليمن الان
+
+                    <br /> اخبار اليمن الان عبارة عن محرك بحث فقط ولا يتحمل المسؤولية عن إي محتوى
+                    <p> تصميم وبرمجه <a href="https://ahmedtaher.info"> ATA Development </a></p> <br />
 
                 </div>
-
             </div>
-            <div class="HDottedLine">
-            </div>
-            <div class="CopyRights">
-                <span id="ctl00_lblCopyRights">2023 © جميع الحقوق محفوظة - موقع جبال البلقاء الاخباري</span>
-                <br />
-                <br />
-                الموقع مرخص بموجب احكام قانون المطبوعات والنشر يمنع الاقتباس او اعادة النشر دون ذكر المصدر (جبال البلقاء
-                الاخباري)،الاراء والتعليقات المنشورة تعبر عن رأي اصحابها فقط.
-                <br />
-                <br />
-                <a id="ctl00_hlkPoeredBy" href="http://www.designtechno.net" target="_blank"><img
-                        src="http://www.designtechno.net/theme/poweredby.png" alt="" style="border-width:0px;" /></a>
-            </div>
-        </div>
 
-
-        <script type="text/javascript">
-            //<![CDATA[
-            var ctl00_TopHMenu_Data = new Object();
-            ctl00_TopHMenu_Data.disappearAfter = 500;
-            ctl00_TopHMenu_Data.horizontalOffset = 0;
-            ctl00_TopHMenu_Data.verticalOffset = 0;
-            ctl00_TopHMenu_Data.staticHoverClass = 'ctl00_TopHMenu_10 TopHMenuItemHover';
-            ctl00_TopHMenu_Data.staticHoverHyperLinkClass = 'ctl00_TopHMenu_9 TopHMenuItemHover';
-            ctl00_TopHMenu_Data.iframeUrl = '/WebResource.axd?d=y7mQpDd_K_7tN8IfHa6kbJiRis7c44VnSapNJ5Reo0TAaIiXwrdY2jwvRDjqhhhYF94yo3vJvbrZ1K8VHi34SuzX41J9S5hBCNZucteBifw1&t=638460058960000000';
-            var ctl00_HMenu_Data = new Object();
-            ctl00_HMenu_Data.disappearAfter = 500;
-            ctl00_HMenu_Data.horizontalOffset = 0;
-            ctl00_HMenu_Data.verticalOffset = 0;
-            ctl00_HMenu_Data.staticHoverClass = 'ctl00_HMenu_10 HMenuItemHover';
-            ctl00_HMenu_Data.staticHoverHyperLinkClass = 'ctl00_HMenu_9 HMenuItemHover';
-            ctl00_HMenu_Data.iframeUrl = '/WebResource.axd?d=y7mQpDd_K_7tN8IfHa6kbJiRis7c44VnSapNJ5Reo0TAaIiXwrdY2jwvRDjqhhhYF94yo3vJvbrZ1K8VHi34SuzX41J9S5hBCNZucteBifw1&t=638460058960000000';
-            //]]>
-        </script>
-    </form>
+        </td>
+    </tr>
+    </table>
+    </div>
 </body>
 
 </html>
