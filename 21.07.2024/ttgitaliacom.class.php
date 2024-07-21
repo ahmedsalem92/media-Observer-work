@@ -1,6 +1,7 @@
 <?php
 
-class ttgitaliacom extends plugin_base {
+class ttgitaliacom extends plugin_base
+{
 	// ANT settings
 	protected $ant_precision = 2;
 	protected $agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36';
@@ -34,6 +35,12 @@ class ttgitaliacom extends plugin_base {
 	protected $logic = array(
 		'list1' => array(
 			0 => array(
+				'type' => 'list1',
+				'regexp' => '/<div class="paged noticias.*>(.*?)<\/div>/Uis',
+				'append_domain' => true,
+				'process_link' => 'process_article_link'
+			),
+			1 => array(
 				'type' => 'article',
 				'regexp' => '/class=" article element.*<a href="(.*)"/Uis',
 				'append_domain' => true,
