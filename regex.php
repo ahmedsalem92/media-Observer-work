@@ -45,3 +45,24 @@ return date('Y-m-d H:i:s');
 // getting article page... (https://swiftnewz.com/archives/463757)
 // using proxy = 77.247.115.157:8800
 
+
+
+ // واللوجيك دي بنجيب لينك المقال لوحده والتاريخ لوحده
+
+protected function process_article_link($link, $referer_link, $logic) {
+
+    if(
+        preg_match('/<a class="image" href="([^"]*)"/Uis',$link,$article_link) &&
+        preg_match('/<span class="fa fa-clock-o">(.*)<a href="#">/Uis',$link,$matche) 
+        
+        
+    ){
+        $link = $article_link[1];
+        $this->date_article = $matche[1];
+    }
+
+    return $link;  
+    
+
+}
+

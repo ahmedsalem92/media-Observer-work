@@ -235,7 +235,14 @@ $this->page+=30   // increse 30 page in one step
 	}
   
 
+	// This process_article_link function is a protected function that 
+	// takes three parameters: $link, $referer_link, and $logic. 
 
+	// ℹ️ It checks if the $link parameter is an empty string. If it is empty,
+	// the function returns false. Otherwise, it returns the value of the $link parameter.
+	
+	// In summary, this function simply checks if the link passed to it is empty
+	// and returns either the non-empty link or false depending on the condition.
 
 	protected function process_article_link($link, $referer_link, $logic) { //remove link
 		if ($link == '') return false;
@@ -267,6 +274,17 @@ $this->page+=30   // increse 30 page in one step
 		'http://elhiwarpress.com/index.php?option=com_content&view=article&id=8467'
 	);
 
+
+// 	🤖 This protected function process_article_link takes in a link, a referer link, and a logic parameter. 
+
+// 🔍 It first checks if the trimmed version of the link is present in the array $this->exclude_articles. 
+
+// 🚫 If the trimmed link is found in the exclude list, it returns false, 
+//  indicating that the link should not be processed further.
+
+// ✅ Otherwise, if the link is not in the exclude list, it returns the original link. 
+
+// ℹ️ This function seems to provide a mechanism to filter out certain articles based on a predefined list ($this->exclude_articles).
 
 	protected function process_article_link($link, $referer_link, $logic) {
 		if (in_array(rtrim($link), $this->exclude_articles)){
