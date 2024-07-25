@@ -1658,5 +1658,53 @@ protected function filter_sections($section_link, &$section_name, $referer_link,
 	}
     
 
+	protected function process_date($article_date)
+	{
+		if (preg_match('/\p{Arabic}+ (\d{1,2}) (\D+) (\d{4}) \| (\d{1,2}):(\d{2}) (م|ص)/u', $article_date, $matches)) {
+			// Matches: الخميس 25 يوليو 2024 | 06:16 مساءً
+			$day = (int)$matches[1];
+			$arabic_month = trim($matches[2]);
+			$year = (int)$matches[3];
+			$hour = (int)$matches[4];
+			$minute = (int)$matches[5];
+			$period = $matches[6];
+
+			$arabic_months = [
+				'يناير' => 1,
+				'فبراير' => 2,
+				'مارس' => 3,
+				'أبريل' => 4,
+				'مايو' => 5,
+				'يونيو' => 6,
+				'يوليو' => 7,
+				'أغسطس' => 8,
+				'سبتمبر' => 9,
+				'أكتوبر' => 10,
+				'نوفمبر' => 11,
+				'ديسمبر' => 12
+			];
+
+			// Convert month name to number
+			if (isset($arabic_months[$arabic_month])) {
+				$month = $arabic_months[$arabic_month];
+			} else {
+				$month = null;
+				error_log("Undefined month: $arabic_month");
+			}
+
+			// Adjust hour for AM/PM
+			if ($period === 'م' && $hour != 12) {
+				$hour += 12; // Convert to 24-hour format
+			} elseif ($period === 'ص' && $hour === 12) {
+				$hour = 0; // Midnight case
+			}
+
+			// Format the date to Y-m-d H:i:s
+			$article_date = sprintf('%04d-%02d-%02d %02d:%02d:%02d', $year, $month, $day, $hour, $minute, 0);
+		}
+
+		return $article_date;
+	}
+
 
 	
