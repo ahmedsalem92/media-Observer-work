@@ -115,11 +115,17 @@ class jebalalbalqacom extends plugin_base
 				'أيلول' => 9,
 				'تشرين الأول' => 10,
 				'تشرين الثاني' => 11,
-				'كانون الأول' => 12
+				'كانون الأول' => 12,
 			];
 
 			// Convert month name to number
-			$month = $arabic_months[$arabic_month];
+			if (isset($arabic_months[$arabic_month])) {
+				$month = $arabic_months[$arabic_month];
+			} else {
+				$month = null;
+				error_log("Undefined month: $arabic_month");
+			}
+
 
 			// Adjust hour for AM/PM
 			if ($period === 'م' && $hour != 12) {
