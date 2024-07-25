@@ -66,3 +66,68 @@ protected function process_article_link($link, $referer_link, $logic) {
 
 }
 
+/// empty headline
+protected function process_headline($headline, $article_data)
+{
+
+    if (empty($headline)) {
+        return 'no headline';
+    } else {
+        return $headline;
+    }
+}
+
+// empty content
+if (empty($content)) {
+    return 'no content';
+} else {
+    return $content;
+}
+
+// empty article_date
+if (empty($article_date)) {
+    return date('Y-m-d H:i:s');
+} else {
+
+    //2018-05-21T08:20:26+00:00
+    if (preg_match('/(.*)T/Uis', $article_date, $matches)) {
+        $article_date_obj = DateTime::createFromFormat(
+            'Y-m-d H:i:s',
+            $matches[1] . ' 16:00:00',
+            new DateTimeZone($this->site_timezone)
+        );
+        $article_date = $article_date_obj->format('Y-m-d H:i:s');
+    }
+
+    return $article_date;
+}
+
+
+// select all the data first in the page then loop in links
+1 => array(
+    'type' => 'article',
+    'regexp' => [
+        '/<div class="col-md-12">\s*<\/div>\s*<\/div>(.*)<\/section>/Uis',
+        '/<a href="(.*)"/Uis',
+    ],
+    'append_domain' => true,
+)
+
+// loop on the next page
+
+'list1' => array(
+    0 => array(
+        'type' => 'list1',
+        'regexp' => '/^(.*)$/Uis',
+        'append_domain' => true,
+        'process_link' => 'process_list1_link',
+    ),
+
+protected $next_page = 2; 
+protected function process_list1_link($link, $referer_link, $logic)
+{
+    return 'https://tech2030.net/?s=&paged=' . $this->next_page++;
+}
+
+
+
