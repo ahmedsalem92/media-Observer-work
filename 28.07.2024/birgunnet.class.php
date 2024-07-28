@@ -98,8 +98,9 @@ class birgunnet extends plugin_base {
 
 	protected function process_content($content, $article_data){
 
-		$content = preg_replace('/<div class="mb-1 mt-3 latest-articles">(.*)<div class=tags>/Uis', '', $content);
+		$content = preg_replace('/<div class="mb-1 mt-3 latest-articles">(.*)<div class=tags>/Uis', 'photo', $content);
 		$content = preg_replace('/(<p>#.*)<\/div>/Uis', '', $content);
+		
 		return $content;
 	}
 
