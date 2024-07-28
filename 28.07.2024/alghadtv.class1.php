@@ -5,8 +5,9 @@ class alghadtv extends plugin_base
 
 	// ANT settings
 	protected $ant_precision = 6;
-	protected $agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/60.0.3112.113 Chrome/60.0.3112.113 Safari/537.36';
+	protected $stop_on_date = true;
 	protected $use_headless = true;
+	protected $agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36';
 
 	// CRAWL settings
 	protected $stop_on_article_found = false;
@@ -18,18 +19,18 @@ class alghadtv extends plugin_base
 	protected $logic = array(
 		'list1' => array(
 			0 => array(
-				'type' => 'list2',
-				'regexp' => '/^(.*)$/Uis',
-				'append_domain' => false,
-				'process_link' => 'process_list1_link',
-			)
-		),
-		'list2' => array(
-			0 => array(
+				'type' => 'list1',
+				'regexp' => '/<a class="next page-numbers" href="(.*)"/Uis',
+				'append_domain' => true,
+				'process_link' => 'process_list1_link'
+			),
+			1 => array(
 				'type' => 'article',
-				'regexp' => '/<loc>(.*)<\/loc>/Uis',
-				'append_domain' => false,
-				'process_link' => 'process_article_link'
+				'regexp' => [
+					'/<div class="listing listing-blog listing-blog-3 clearfix ">(.*)<div class="pagination bs-numbered-pagination"/Uis',
+					'/<a href="(.*)"/Uis',
+				],
+				'append_domain' => true,
 			)
 		),
 		'article' => array(
@@ -42,35 +43,7 @@ class alghadtv extends plugin_base
 
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
-
-		$temp_link = '';  // https://www.alghad.tv/wp-sitemap-posts-post-248.xml
-		if (preg_match_all('/<loc>(https:\/\/www.alghad.tv\/wp-sitemap-posts-post-\d+.xml)<\/loc>/Uis', $link, $matches)) {
-			$temp_link = $matches[0][sizeof($matches[0]) - 1];
-			$temp_link = str_replace('<loc>', '', $temp_link);
-			$temp_link = str_replace('</loc>', '', $temp_link);
-		}
-
-		return $temp_link;
-	}
-
-	private $links = array();
-	private $array_index;
-
-	protected function process_article_link($link, $referer_link, $logic)
-	{
-
-		$temp_link = '';
-		if (empty($this->links)) {
-			$result = $this->ant->get($referer_link);
-			if (preg_match_all('/<loc>(.*)<\/loc>/Uis', $result, $matches)) {
-				$this->links = $matches[0];
-				$this->array_index = sizeof($this->links);
-			}
-		}
-		$this->array_index--;
-		$temp_link = str_replace('<loc>', '', $this->links[$this->array_index]);
-		$temp_link = str_replace('</loc>', '', $temp_link);
-		return $temp_link;
+		return $link;
 	}
 
 	protected function process_content($content, $article_data)
@@ -108,7 +81,6 @@ class alghadtv extends plugin_base
 		}
 		return $article_date;
 	}
-
 
 	public function pre_get_page(&$page)
 	{
