@@ -63,14 +63,40 @@ class birgunnet extends plugin_base {
 		'list1' => array(
 			0 => array(
 				'type' => 'article',
-				'regexp'=> '/<div class="slider-title">.*href="(.*)"/Uis',
+				'regexp' => [
+					'/<div class="swiper home-top-swiper">(.*)<div class=swiper-button-prev>/Uis',
+					'/<div class=swiper-slide>.*<a href=(.*) target/Uis',
+				],
 				'append_domain' => true,
 				'ignore_terminal_stop' => true,
 				'process_link' => 'process_article_link'
 			),
 			1 => array(
 				'type' => 'article',
-				'regexp'=> '/<h6 class="card-title">.*href="(.*)"/Uis',
+				'regexp' => [
+					'/<div class="swiper home-swiper">(.*)<div class=swiper-button-prev>/Uis',
+					'/<div class=swiper-slide>.*<a href=(.*) target/Uis',
+				],
+				'append_domain' => true,
+				'ignore_terminal_stop' => true,
+				'process_link' => 'process_article_link'
+			),
+			2 => array(
+				'type' => 'article',
+				'regexp' => [
+					'/<main class=home>(.*)<div id=DivResmiIlanlar-2>/Uis',
+					'/<div class="col-6 col-lg-3">.*<a href=(.*) target/Uis',
+				],
+				'append_domain' => true,
+				'ignore_terminal_stop' => true,
+				'process_link' => 'process_article_link'
+			),
+			3 => array(
+				'type' => 'article',
+				'regexp' => [
+					'/<main class=home>(.*)<div id=DivResmiIlanlar-2>/Uis',
+					'/<div class="col-6 col-lg-2">.*<a href=(.*) target/Uis',
+				],
 				'append_domain' => true,
 				'ignore_terminal_stop' => true,
 				'process_link' => 'process_article_link'
@@ -78,12 +104,9 @@ class birgunnet extends plugin_base {
 		),
 		'article' => array(
 			'headline' => '/<h1>(.*)<\/h1>/Uis',
-			'content' => array(
-				'/(<p class="lead[^"]*">.*p>|<div class="resize"><p>.*<div class="col-lg-4 sidebar ps-lg-4 mb-3 d-none d-md-block">|<div class="resize"><p>.*<div class="mb-1 mt-3 latest-articles">)/Uis',
-				'/(<p.*p>)/Uis'
-			),
+			'content' => '/<div class=resize>(.*<div class=tags>)/Uis',
 			'author' => false,
-			'article_date' => '/"datePublished": "(.*)"/Uis'
+			'article_date' => '/"datePublished":\s*"([^"]*)"/Uis'
 		)
 	);
 
