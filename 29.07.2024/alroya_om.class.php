@@ -115,6 +115,7 @@ class alroya_om extends plugin_base {
 		$content = preg_replace('/(<div class="short-link mb20">.*<\/div>)/Uis', '', $content);
 		$content = str_replace('مسقط - الرؤية', '', $content);
 		$content = str_replace('مسقط - العمانية', '', $content);
+		$content = preg_replace('/<blockquote class="twitter-tweet".*>(.*)<\/blockquote>/Uis', '', $content);
 		return $content;
 	}
 
