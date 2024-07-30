@@ -35,18 +35,6 @@ class avionewsit__english extends plugin_base {
 		)
 	);
 
-	protected function process_list1_link($link, $referer_link, $logic)
-	{
-
-		$temp_link = ''; // https://theaviationist.com/post-sitemap8.xml
-		if (preg_match_all('/<loc>(https:\/\/theaviationist\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
-			$temp_link = $matches[0][sizeof($matches[0]) - 1];
-			$temp_link = str_replace('<loc>', '', $temp_link);
-			$temp_link = str_replace('</loc>', '', $temp_link);
-		}
-
-		return $temp_link;
-	}
 
 	private $links = array();
 	private $array_index = 0;
@@ -99,10 +87,6 @@ class avionewsit__english extends plugin_base {
 				new DateTimeZone($this->site_timezone)
 			);
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
-		}
-
-		if(strpos($this->settings['site_section_link'], '/columns')){
-			return date('Y-m-d H:i:s', time());
 		}
 
 		return $article_date;

@@ -55,7 +55,7 @@ class ttgmena extends plugin_base
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
 			'content' => '/<div class="node__content clearfix">(.*)<div id="node-single-comment">/Uis',
 			'author' => false,
-			'article_date' => '/<div class="datetime">(.*)<\/div>/Uis'
+			'article_date' => '/<span class="date">(.*)<\/span>/Uis'
 		)
 	);
 	protected $logic_home = array(
@@ -74,7 +74,7 @@ class ttgmena extends plugin_base
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
 			'content' => '/<div class="node__content clearfix">(.*)<div id="node-single-comment">/Uis',
 			'author' => false,
-			'article_date' => '/<div class="datetime">(.*)<\/div>/Uis'
+			'article_date' => '/<span class="date">(.*)<\/span>/Uis'
 		)
 	);
 
@@ -123,19 +123,38 @@ class ttgmena extends plugin_base
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
 	protected function process_date($article_date)
 	{
-		// 30/07/2024
-		if (preg_match('/(\d{2})\/(\d{2})\/(\d{4})/', $article_date, $matches)) {
-			// Create the date object from the matched parts
-			$article_date_obj = DateTime::createFromFormat(
-				'd/m/Y',
-				$article_date,
-				new DateTimeZone($this->site_timezone)
-			);
-
-			// Format the date as 'Y-m-d H:i:s'
+		// Array to map Spanish month names to month numbers
+		$months = [
+			'Enero' => '01',
+			'Febrero' => '02',
+			'Marzo' => '03',
+			'Abril' => '04',
+			'Mayo' => '05',
+			'Junio' => '06',
+			'Julio' => '07',
+			'Agosto' => '08',
+			'Septiembre' => '09',
+			'Octubre' => '10',
+			'Noviembre' => '11',
+			'Diciembre' => '12'
+		];
+	
+		// Match the pattern 'Lunes, 29 Julio 2024 - 01:00'
+		if (preg_match('/\w+,\s+(\d+)\s+(\w+)\s+(\d+)\s+-\s+(\d+):(\d+)/', $article_date, $matches)) {
+			$day = $matches[1];
+			$month = $months[$matches[2]];
+			$year = $matches[3];
+			$hour = $matches[4];
+			$minute = $matches[5];
+	
+			// Create the date string in YYYY-mm-dd HH:ii:ss format
+			$formatted_date = sprintf('%04d-%02d-%02d %02d:%02d:00', $year, $month, $day, $hour, $minute);
+			
+			// Convert to DateTime object
+			$article_date_obj = DateTime::createFromFormat('Y-m-d H:i:s', $formatted_date, new DateTimeZone($this->site_timezone));
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
-
+	
 		return $article_date;
 	}
 }
