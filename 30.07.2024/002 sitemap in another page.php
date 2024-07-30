@@ -34,18 +34,18 @@ class thegulfheraldcom extends plugin_base
 			)
 		),
 		'article' => array(
-			'headline' => '/<title>(.*)-/Uis',
-			'content' => '/<article class="single-content">(.*)Comentário/Uis',
+			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
+			'content' => '/(<div class="tds-button td-fix-index">.*)(?:<div class="td-post-sharing-visible">|<ul class="tdb-tags">)/Uis',
 			'author' => false,
-			'article_date' => '/dateModified":"(.*)"/Uis'
+			'article_date' => '/datePublished":"(.*)"/Uis'
 		)
 	);
 
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
 
-		$temp_link = ''; // https://passageirodeprimeira.com/post-sitemap27.xml
-		if (preg_match_all('/<loc>(https:\/\/passageirodeprimeira\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = ''; // https://aviaciondigital.com/post-sitemap21.xml
+		if (preg_match_all('/<loc>(https:\/\/aviaciondigital\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>', '', $temp_link);
 			$temp_link = str_replace('</loc>', '', $temp_link);
