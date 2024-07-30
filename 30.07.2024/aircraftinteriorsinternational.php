@@ -35,17 +35,17 @@ class thegulfheraldcom extends plugin_base
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/(<div class="tds-button td-fix-index">.*)(?:<div class="td-post-sharing-visible">|<ul class="tdb-tags">)/Uis',
+			'content' => '/(?:<div class="post-content cf entry-content content-spacious">|<div class="post-content-wrap">|<div class="the-post s-post-modern">)(.*)<\/article>/Uis',
 			'author' => false,
-			'article_date' => '/datePublished":"(.*)"/Uis'
+			'article_date' => '/dateModified":"(.*)"/Uis'
 		)
 	);
 
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
 
-		$temp_link = ''; // https://aviaciondigital.com/post-sitemap21.xml
-		if (preg_match_all('/<loc>(https:\/\/aviaciondigital\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = ''; // https://www.aircraftinteriorsinternational.com/wp-sitemap-posts-post-3.xml
+		if (preg_match_all('/<loc>(https:\/\/www\.aircraftinteriorsinternational\.com\/wp-sitemap-posts-post-\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>', '', $temp_link);
 			$temp_link = str_replace('</loc>', '', $temp_link);
@@ -74,20 +74,14 @@ class thegulfheraldcom extends plugin_base
 			$temp_link = str_replace('</loc>', '', $temp_link);
 			return $temp_link;
 		}
+		
+		if($link === 'https://www.aircraftinteriorsinternational.com/features/rights-on-flights-the-next-big-step-in-safe-air-travel-for-disabled-passengers.html'){
+			return false;
+		}
 
 		return '';
 	}
 
-	protected function process_content($content, $article_data)
-	{
-		$content = preg_replace('/<div class="wp-block-image">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="wp-block-embed__wrapper">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tds-button td-fix-index">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div style="display: inline-block">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tdb-next-post tdb-next-post-bg tdb-post-prev">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<blockquote class="twitter-tweet">(.*)<\/blockquote>/Uis', '', $content);
-		return $content;
-	}
 
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
 	protected function process_date($article_date) {
@@ -102,10 +96,7 @@ class thegulfheraldcom extends plugin_base
 			);
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
-        
-		if(strpos($this->settings['site_section_link'], '/columns')){
-			return date('Y-m-d H:i:s', time());
-		}
+
 
 		return $article_date;
 
