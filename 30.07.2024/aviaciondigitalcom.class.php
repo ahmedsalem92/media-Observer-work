@@ -4,7 +4,7 @@ class aviaciondigitalcom extends plugin_base {
 
 	// ANT settings
 	protected $ant_precision = 6;
-	protected $agent = 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)';
+	protected $agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/64.0.3282.167 Chrome/64.0.3282.167 Safari/537.36';
 	protected $use_proxies = true;
 
 
@@ -34,7 +34,7 @@ class aviaciondigitalcom extends plugin_base {
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/(<div class="tds-button td-fix-index">.*)(?:<div class="td-post-sharing-visible">|<ul class="tdb-tags">)/Uis',
+			'content' => '/(?:(<div class="td_block_wrap tdb_single_subtitle.*>.*)|(<div class="tds-button td-fix-index">.*))(?:<div class="td-post-sharing-visible">|<ul class="tdb-tags">)/Uis',
 			'author' => false,
 			'article_date' => '/datePublished":"(.*)"/Uis'
 		)
@@ -83,6 +83,8 @@ class aviaciondigitalcom extends plugin_base {
 		$content = preg_replace('/<div class="wp-block-embed__wrapper">(.*)<\/div>/Uis', '', $content);
 		$content = preg_replace('/<div class="tds-button td-fix-index">(.*)<\/div>/Uis', '', $content);
 		$content = preg_replace('/<div style="display: inline-block">(.*)<\/div>/Uis', '', $content);
+		$content = preg_replace('/<h1[^<]*>(.*)<\/h1>/Uis', '', $content);
+		$content = preg_replace('/(<time.*>.*<\/time>)/Uis', '', $content);
 		$content = preg_replace('/<div class="tdb-next-post tdb-next-post-bg tdb-post-prev">(.*)<\/div>/Uis', '', $content);
 		$content = preg_replace('/<blockquote class="twitter-tweet">(.*)<\/blockquote>/Uis', '', $content);
 		return $content;
