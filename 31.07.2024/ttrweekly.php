@@ -33,17 +33,17 @@ class thegulfheraldcom extends plugin_base
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/(<div class="tds-button td-fix-index">.*)(?:<div class="td-post-sharing-visible">|<ul class="tdb-tags">)/Uis',
+			'content' => '/(?:<div class="vc_row tdi_129  wpb_row td-pb-row">|<div class="td-post-content tagdiv-type">)(.*)(?:<div class="vc_row tdi_135  wpb_row td-pb-row">|<footer>)/Uis',
 			'author' => false,
-			'article_date' => '/datePublished":"(.*)"/Uis'
+			'article_date' => '/dateModified":"(.*)"/Uis'
 		)
 	);
 
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
 
-		$temp_link = ''; // https://aviaciondigital.com/post-sitemap21.xml
-		if (preg_match_all('/<loc>(https:\/\/aviaciondigital\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = ''; // https://www.ttrweekly.com/site/post-sitemap9.xml
+		if (preg_match_all('/<loc>(https:\/\/www\.ttrweekly\.com\/site\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>', '', $temp_link);
 			$temp_link = str_replace('</loc>', '', $temp_link);
@@ -74,17 +74,6 @@ class thegulfheraldcom extends plugin_base
 		}
 
 		return '';
-	}
-
-	protected function process_content($content, $article_data)
-	{
-		$content = preg_replace('/<div class="wp-block-image">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="wp-block-embed__wrapper">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tds-button td-fix-index">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div style="display: inline-block">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tdb-next-post tdb-next-post-bg tdb-post-prev">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<blockquote class="twitter-tweet">(.*)<\/blockquote>/Uis', '', $content);
-		return $content;
 	}
 
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
