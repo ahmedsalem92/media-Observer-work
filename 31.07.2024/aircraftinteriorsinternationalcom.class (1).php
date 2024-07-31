@@ -1,12 +1,12 @@
 <?php
 
-class thegulfheraldcom extends plugin_base
-{
+class aircraftinteriorsinternationalcom extends plugin_base {
 
 	// ANT settings
 	protected $ant_precision = 6;
 	protected $agent = 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)';
 	protected $use_proxies = true;
+
 
 
 	// CRAWL settings
@@ -35,7 +35,7 @@ class thegulfheraldcom extends plugin_base
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/<div class="entry-content mb-0 position-relative">(.*)<!-- .entry-content -->/Uis',
+			'content' => '/(?:<div class="post-content cf entry-content content-spacious">|<div class="post-content-wrap">|<div class="the-post s-post-modern">)(.*)<\/article>/Uis',
 			'author' => false,
 			'article_date' => '/dateModified":"(.*)"/Uis'
 		)
@@ -44,8 +44,8 @@ class thegulfheraldcom extends plugin_base
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
 
-		$temp_link = ''; //https://onemileatatime.com/post-sitemap19.xml
-		if (preg_match_all('/<loc>(https:\/\/onemileatatime\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = ''; // https://www.aircraftinteriorsinternational.com/wp-sitemap-posts-post-3.xml
+		if (preg_match_all('/<loc>(https:\/\/www\.aircraftinteriorsinternational\.com\/wp-sitemap-posts-post-\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>', '', $temp_link);
 			$temp_link = str_replace('</loc>', '', $temp_link);
@@ -75,22 +75,19 @@ class thegulfheraldcom extends plugin_base
 			return $temp_link;
 		}
 
+		if ($link === 'https://www.aircraftinteriorsinternational.com/features/rights-on-flights-the-next-big-step-in-safe-air-travel-for-disabled-passengers.html') {
+			return false;
+		}
+
 		return '';
 	}
 
 
-	protected function process_content($content, $article_data)
-	{
-		$content = preg_replace('/(Share)/Uis', '', $content);
-		$content = preg_replace('/(Tweet)/Uis', '', $content);
-		return $content;
-	}
-
-
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
-	protected function process_date($article_date) {
+	protected function process_date($article_date)
+	{
 
-		//2024-07-30T06:29:14+00:00 
+		//2024-07-30T06:29:14+00:00
 		if (preg_match('/(.*)T(.*)\+/Uis', $article_date, $matches)) {
 
 			$article_date_obj = DateTime::createFromFormat(
@@ -100,9 +97,9 @@ class thegulfheraldcom extends plugin_base
 			);
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
-        
-		return $article_date;
 
+
+		return $article_date;
 	}
 
 }
