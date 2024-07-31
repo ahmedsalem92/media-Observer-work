@@ -2,7 +2,6 @@
 
 class thegulfheraldcom extends plugin_base
 {
-
 	// ANT settings
 	protected $ant_precision = 6;
 	protected $stop_on_date = false;
@@ -33,17 +32,17 @@ class thegulfheraldcom extends plugin_base
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/(<div class="tds-button td-fix-index">.*)(?:<div class="td-post-sharing-visible">|<ul class="tdb-tags">)/Uis',
+			'content' => '/<article.*>(.*)<\/article>/Uis',
 			'author' => false,
-			'article_date' => '/datePublished":"(.*)"/Uis'
+			'article_date' => '/dateModified":.*"(.*)"/Uis'
 		)
 	);
 
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
 
-		$temp_link = ''; // https://aviaciondigital.com/post-sitemap21.xml
-		if (preg_match_all('/<loc>(https:\/\/aviaciondigital\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = ''; // https://www.signatureluxurytravel.com.au/post-sitemap3.xml
+		if (preg_match_all('/<loc>(https:\/\/www\.signatureluxurytravel\.com\.au\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>', '', $temp_link);
 			$temp_link = str_replace('</loc>', '', $temp_link);
@@ -78,19 +77,14 @@ class thegulfheraldcom extends plugin_base
 
 	protected function process_content($content, $article_data)
 	{
-		$content = preg_replace('/<div class="wp-block-image">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="wp-block-embed__wrapper">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tds-button td-fix-index">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div style="display: inline-block">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tdb-next-post tdb-next-post-bg tdb-post-prev">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<blockquote class="twitter-tweet">(.*)<\/blockquote>/Uis', '', $content);
+		$content = preg_replace('/(Subscribe)/Uis', '', $content);
+		$content = preg_replace('/<h1[^<]*>(.*)<\/h1>/Uis', '', $content);
 		return $content;
 	}
 
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
 	protected function process_date($article_date) {
-
-		//2024-07-30T06:29:14+00:00 
+		//2024-07-31T07:28:13+00:00  
 		if (preg_match('/(.*)T(.*)\+/Uis', $article_date, $matches)) {
 
 			$article_date_obj = DateTime::createFromFormat(
@@ -101,9 +95,9 @@ class thegulfheraldcom extends plugin_base
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
         
-
 		return $article_date;
 
 	}
+
 
 }
