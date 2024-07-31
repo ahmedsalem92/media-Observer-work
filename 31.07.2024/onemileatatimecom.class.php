@@ -1,6 +1,6 @@
 <?php
 
-class airlineratingscom extends plugin_base {
+class onemileatatimecom extends plugin_base {
 
 	// ANT settings
 	protected $ant_precision = 6;
@@ -34,17 +34,17 @@ class airlineratingscom extends plugin_base {
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/(?:<div class="td-pb-span8 td-main-content">|<div class=td-post-content>)(.*)(?:<div class="td-pb-span4 td-main-sidebar">|<footer>)/Uis',
+			'content' => '/<div class="entry-content mb-0 position-relative">(.*)<!-- .entry-content -->/Uis',
 			'author' => false,
-			'article_date' => '/datePublished":"(.*)"/Uis'
+			'article_date' => '/dateModified":"(.*)"/Uis'
 		)
 	);
 
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
 
-		$temp_link = ''; // https://www.airlineratings.com/post-sitemap7.xml
-		if (preg_match_all('/<loc>(https:\/\/www\.airlineratings\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = ''; //https://onemileatatime.com/post-sitemap19.xml
+		if (preg_match_all('/<loc>(https:\/\/onemileatatime\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>', '', $temp_link);
 			$temp_link = str_replace('</loc>', '', $temp_link);
@@ -74,18 +74,14 @@ class airlineratingscom extends plugin_base {
 			return $temp_link;
 		}
 
-		if($link=='https://www.airlineratings.com/news/81780/'){
-			return false;
-		}
-
 		return '';
 	}
 
+
 	protected function process_content($content, $article_data)
 	{
-
-		$content = preg_replace('/(READ:.*<\/a>)/Uis', '', $content);
-		$content = preg_replace('/(READ:.*)\"\}<\/script>/Uis', '', $content);
+		$content = preg_replace('/(Share)/Uis', '', $content);
+		$content = preg_replace('/(Tweet)/Uis', '', $content);
 		return $content;
 	}
 
