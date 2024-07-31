@@ -13,6 +13,13 @@ $r1 = '<div class="card">\s*<!--.*?-->\s*<a href="([^"]*)"';
 // <br \/>\s*<a\s*id="ctl00_ContentPlaceHolder.*href="(.*)"
 
 $h1 = '<h1[^<]*>(.*)<\/h1>';
+
+// regex لازالة
+/(<button[^>]*>Subscribe<\/button>)/Uis
+
+
+
+
 // select headline
 
 // 'regexp'=> '/<\/div>\s*<div>\s*<div class="pagination-card">\s*<a href="([^"]*)" title=/Uis',
