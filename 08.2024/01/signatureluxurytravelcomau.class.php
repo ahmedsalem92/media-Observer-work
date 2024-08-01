@@ -1,7 +1,6 @@
 <?php
 
-class ttrweeklycom extends plugin_base {
-
+class signatureluxurytravelcomau extends plugin_base {
 	// ANT settings
 	protected $ant_precision = 6;
 	protected $stop_on_date = false;
@@ -32,17 +31,17 @@ class ttrweeklycom extends plugin_base {
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/(?:<div id="tdi_128" class="tdc-row stretch_row_1200 td-stretch-content">|<div class="vc_row tdi_129  wpb_row td-pb-row">|<div class="td-post-content tagdiv-type">)(.*)(?:<div id="tdi_134" class="tdc-row">|<div class="vc_row tdi_135  wpb_row td-pb-row">|<footer>)/Uis',
+			'content' => '/<div class="eltdf-post-content">(.*)(?:<div id="block-\d+?" class="widget widget_block">|<p><strong>Read more:|<div class="eltdf-single-tags-share-holder">|<p class="eltdf-pt-three-title">|<\/article>)/Uis',
 			'author' => false,
-			'article_date' => '/dateModified":"(.*)"/Uis'
+			'article_date' => '/dateModified":.*"(.*)"/Uis'
 		)
 	);
 
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
 
-		$temp_link = ''; // https://www.ttrweekly.com/site/post-sitemap9.xml
-		if (preg_match_all('/<loc>(https:\/\/www\.ttrweekly\.com\/site\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = ''; // https://www.signatureluxurytravel.com.au/post-sitemap3.xml
+		if (preg_match_all('/<loc>(https:\/\/www\.signatureluxurytravel\.com\.au\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>', '', $temp_link);
 			$temp_link = str_replace('</loc>', '', $temp_link);
@@ -75,10 +74,27 @@ class ttrweeklycom extends plugin_base {
 		return '';
 	}
 
+	protected function process_content($content, $article_data)
+	{
+		$content = preg_replace('/(<button[^>]*>Subscribe<\/button>)/Uis', '', $content);
+		$content = preg_replace('/(<strong>Read more:<\/strong>.*)<\/div>/Uis', '', $content);
+		$content = preg_replace('/(<form id="wpforms-form-58331".*<\/form>)/Uis', '', $content);
+		$content = preg_replace('/target="_self">( Safari of a lifetime at andBeyond&#8217;s Phinda Private.*Game Reserve )<\/a><\/h4>/Uis', '', $content);
+		$content = preg_replace('/(<span class="eltdf-btn-text">uniworld.com<\/span>)/Uis', '', $content);
+		$content = preg_replace('/>(Win an opulent 12-day Egyptian cruise for two)<\/a><\/h3>/Uis', '', $content);
+		$content = preg_replace('/>(Win an opulent 12-day Egyptian cruise for two)<\/a><\/h3>/Uis', '', $content);
+		$content = preg_replace('/target="_self">( Save on your French Polynesia cruise with Aranui )<\/a><\/h4>/Uis', '', $content);
+		$content = preg_replace('/target="_self">(11 places to visit in Sri Lanka)<\/a><\/h4>/Uis', '', $content);
+		$content = preg_replace('/<p>(This article is a <em>Signature Luxury Travel.*)<div class="eltdf-single-tags-share-holder">/Uis', '', $content);
+		$content = preg_replace('/>(Please enable JavaScript in your browser to complete.*form\.)</Uis', '', $content);
+		$content = preg_replace('/target="_self">(Safari of a lifetime at and.*Phinda Private Game Reserve)<\/a>/Uis', '', $content);
+		$content = preg_replace('/target="_self">(Save on your French Polynesia cruise with Aranui)<\/a><\/h4>/Uis', '', $content);
+		return $content;
+	}
+
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
 	protected function process_date($article_date) {
-
-		//2024-07-30T06:29:14+00:00
+		//2024-07-31T07:28:13+00:00
 		if (preg_match('/(.*)T(.*)\+/Uis', $article_date, $matches)) {
 
 			$article_date_obj = DateTime::createFromFormat(
@@ -89,9 +105,9 @@ class ttrweeklycom extends plugin_base {
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
 
-
 		return $article_date;
 
 	}
+
 
 }
