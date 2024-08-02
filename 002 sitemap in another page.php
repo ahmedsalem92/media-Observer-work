@@ -42,8 +42,8 @@ class thegulfheraldcom extends plugin_base
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
 
-		$temp_link = ''; // https://aviaciondigital.com/post-sitemap21.xml
-		if (preg_match_all('/<loc>(https:\/\/aviaciondigital\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = ''; // https://news.artnet.com/post-sitemap38.xml
+		if (preg_match_all('/<loc>(https:\/\/news\.artnet\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>', '', $temp_link);
 			$temp_link = str_replace('</loc>', '', $temp_link);
