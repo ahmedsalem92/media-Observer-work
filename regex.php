@@ -138,3 +138,15 @@ protected function process_list1_link($link, $referer_link, $logic)
 
 
 
+protected $use_proxies = true;
+protected $use_headless = true;
+
+
+public function pre_get_page(&$page)
+{
+
+    $this->ant->set_wait_for_load(true);
+}
+
+
+
