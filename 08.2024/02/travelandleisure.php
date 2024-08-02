@@ -19,21 +19,21 @@ class ttgmena extends plugin_base
 		'list1' => array(
 			0 => array(
 				'type' => 'list1',
-				'regexp' => '/<div class="col-md-6 col-sm-12 next"><a href="(.*)"/Uis',
+				'regexp' => '/<li class="mntl-pagination__next">.*<a href="(.*)"/Uis',
 				'append_domain' => false
 			),
 			1 => array(
 				'type' => 'article',
 				'regexp' => [
-					'/<div class="row main-category-row">(.*)<div class="category-post-pagination">/Uis',
-					'/(?:<div class="col-md-6 category-thumb content-grid-thumb">|<div class="col-md-12 category-thumb">).*<a href="(.*)"/Uis',
+					'/<div id="mntl-search-results__list_1-0"(.*)<ol id="mntl-pagination_1-0"/Uis',
+					'/<a id="mntl-card-list-items_21-0".*href="(.*)"/Uis',
 				],
 				'append_domain' => false
 			)
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/<div id="AdsOnArticle" class="entry-content">(.*)<div id="freeMembershipOverlay"/Uis',
+			'content' => '/<\/h1>(.*)<div class="loc article-right-rail">/Uis',
 			'author' => false,
 			'article_date' => '/dateModified": "(.*)"/Uis'
 		)
@@ -43,29 +43,23 @@ class ttgmena extends plugin_base
 	protected function process_content($content, $article_data)
 	{
 
-		$content = preg_replace('/<figure.*>(.*)<\/figure>/Uis', '', $content);
-		$content = preg_replace('/<div id="freeMembershipOverlay"(.*)<\/script>/Uis', '', $content);
-		$content = preg_replace('/<section>(.*)<\/section>/Uis', '', $content);
+		$content = preg_replace('/(<div id="travelandleisure-bylines_1-0".*)<div class="loc article-content">/Uis', '', $content);
 
 		return $content;
 	}
 
 
 
-	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
 	protected function process_date($article_date)
 	{
-
-		//2024-07-30 09:24:22
-		if (preg_match('/(.*?)(?:\s*\+.*)?$/', $article_date, $matches)) {
-			$article_date_obj = DateTime::createFromFormat(
-				'Y-m-d H:i:s',
-				trim($matches[1]),
-				new DateTimeZone($this->site_timezone)
-			);
+		$article_date_obj = DateTime::createFromFormat(
+			'Y-m-d\TH:i:s.uP', 
+			$article_date,
+			new DateTimeZone($this->site_timezone)
+		);
+		if ($article_date_obj) {
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
-
 		return $article_date;
 	}
 }
