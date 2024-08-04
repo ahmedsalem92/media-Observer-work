@@ -32,7 +32,7 @@ class newsartnetcom extends plugin_base {
 		),
 		'article' => array(
 			'headline' => '/<h1 class="article-title h1">(.*)<\/h1>/Uis',
-			'content' => '/<p class="article-blurb">(.*)(?:<br><em>Follow|<div class="social-share-container">)/Uis',
+			'content' => '/<p class="article-blurb">(.*)(?:<br><em>Follow|<div class="social-share-container">|More Trending Stories:)/Uis',
 			'author' => false,
 			'article_date' => '/dateModified":"(.*)"/Uis'
 		)
@@ -79,6 +79,9 @@ class newsartnetcom extends plugin_base {
 	{
 		$content = preg_replace('/<p class="article-byline">(.*)<\/p>/Uis', '', $content);
 		$content = preg_replace('/<div class="teaser-info">(.*)<\/div>/Uis', '', $content);
+		$content = preg_replace('/(View this post on Instagram)/Uis', '', $content);
+		$content = preg_replace('/(A post shared by.*)<\/a>/Uis', '', $content);
+
 		return $content;
 	}
 
