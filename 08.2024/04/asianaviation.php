@@ -33,17 +33,17 @@ class thegulfheraldcom extends plugin_base
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/(<div class="tds-button td-fix-index">.*)(?:<div class="td-post-sharing-visible">|<ul class="tdb-tags">)/Uis',
+			'content' => '/<\/h1>(.*)For Editorial Inquiries Contact:/Uis',
 			'author' => false,
-			'article_date' => '/datePublished":"(.*)"/Uis'
+			'article_date' => '/dateModified":"(.*)"/Uis'
 		)
 	);
 
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
 
-		$temp_link = ''; // https://news.artnet.com/post-sitemap38.xml
-		if (preg_match_all('/<loc>(https:\/\/news\.artnet\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = ''; // https://asianaviation.com/post-sitemap7.xml
+		if (preg_match_all('/<loc>(https:\/\/asianaviation\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>', '', $temp_link);
 			$temp_link = str_replace('</loc>', '', $temp_link);
@@ -78,17 +78,14 @@ class thegulfheraldcom extends plugin_base
 
 	protected function process_content($content, $article_data)
 	{
-		$content = preg_replace('/<div class="wp-block-image">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="wp-block-embed__wrapper">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tds-button td-fix-index">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div style="display: inline-block">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tdb-next-post tdb-next-post-bg tdb-post-prev">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<blockquote class="twitter-tweet">(.*)<\/blockquote>/Uis', '', $content);
+		$content = preg_replace('/<div class="td-module-meta-info">(.*)<\/header>/Uis', '', $content);
+		$content = preg_replace('/<figure>(.*)<\/figure>/Uis', '', $content);
 		return $content;
 	}
 
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
-	protected function process_date($article_date) {
+	protected function process_date($article_date)
+	{
 
 		//2024-07-30T06:29:14+00:00 
 		if (preg_match('/(.*)T(.*)\+/Uis', $article_date, $matches)) {
@@ -100,10 +97,8 @@ class thegulfheraldcom extends plugin_base
 			);
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
-        
+
 
 		return $article_date;
-
 	}
-
 }
