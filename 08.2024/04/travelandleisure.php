@@ -22,14 +22,14 @@ class ttgmena extends plugin_base
 			0 => array(
 				'type' => 'section',
 				'regexp' => array(
-					'/<ul class="NavigationGroup_navigation-group__AQhAD">(.*)<\/ul>/Uis',
-					'/<div class="NavigationItem_navigation-item__UKzM4">(.*)<\/div>/Uis'
+					'/<ul class="mntl-fullscreen-nav__list">(.*)<\/ul>/Uis',
+					'/<li class="mntl-fullscreen-nav__sublist-item type--rabbit">(.*)<\/li>/Uis'
 				),
 				'append_domain' => true
 			)
 		),
 		'section' => array(
-			'link' => '/href="(.*)"/Uis',
+			'link' => '/<a href="(.*)"/Uis',
 			'name' => '/<a.*>(.*)<\/a>/Uis',
 			'append_domain' => true,
 			'process_link' => 'filter_sections'
