@@ -11,21 +11,24 @@ protected $allow_failed_date_override = true;
 protected $stop_on_date = true;
 protected $stop_on_date = false;
 protected $private_cookie = false;     
-protected $disable_cache_buster = true;
-	protected $use_headless = true;
+protected $disable_cache_buster = true; // DISable for browser cashe cashe
+	protected $use_headless = true; // when issue in the site // by testing on site
+	
+	
+	public function pre_get_page(&$page) {   
+   
+		$this->ant->set_wait_for_load(true);
+
+	}  // with use less
+	
 	protected $agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:46.0) Gecko/20100101 Firefox/46.0';
 	protected $agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/64.0.3282.167 Chrome/64.0.3282.167 Safari/537.36';
 	protected $agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/60.0.3112.113 Chrome/60.0.3112.113 Safari/537.36';
 	protected $agent = 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)';
 	protected $agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'; 
 
+	// all agent user browser interface
 
-
-	public function pre_get_page(&$page) {   
-   
-		$this->ant->set_wait_for_load(true);
-
-	}
 
 'regexp' => '/^(.*)$/Uis', ---> //catch all of the source code 
 
@@ -33,52 +36,85 @@ date("Y") . '-' . date("m") . '-' . date("d") . ' 16:00:00', // speical date
 
 date("d",  strtotime('-1 Day'))  // yesterday date 
 
+
 'process_link' => 'process_next_link'   // process link 
- 
-'ignore_terminal_stop' => true   // date will not stop if i add this line
 
-elseif($this->settings['site_section_link'] == 'https://al-lahtha.com/Articles/articles_list'){  //return this link
 
+'ignore_terminal_stop' => true   // date will not stop if i add this line // with home page
+
+// 
+//return this link with no date
+
+elseif($this->settings['site_section_link'] == 'https://al-lahtha.com/Articles/articles_list'){  
 	$article_date = date('Y-m-d H:i:s');
-}                                                // is i need to return today date in only one section 
+} 
+
+
+// is i need to return today date in only one section 
 
 "20".$matches[3] . '-' . $matches[2] . '-' . $matches[1] . ' 16:00:00', //24 2024
 
-/?s= // secrch section 
-    
-define("cat1", $link);
+
+ // secrch section 
+/?s=
 
 
-\s+? <---------  delete all spaces with regex
+  // delete all spaces with regex
+\s+?
     
 // --------------------------------------------------------------------------------------------------------------------------------//
+// 07 skiping zero in date
+// make number 2 digits by adding 0 to left
+
 $day = str_pad($matches[3], 2, '0', STR_PAD_LEFT);
-$day = str_pad($matches[3], 2, '0', STR_PAD_LEFT); // make number 2 digits by adding 0 to left
-$month = $this->arabic_month_to_number(trim($matches[2])); // delete space  in arbic month 
 
-				$matches[3] . '-' . $month . '-' . $matches[1] . ' 16:00:00',  // 3 part date 
-				$matches[3] . '-' . $matches[1] . '-' . $matches[1] . ' 16:00:00', 
+// delete space  in arbic month 
+$month = $this->arabic_month_to_number(trim($matches[2])); 
 
+// 3 part date 
+$matches[3] . '-' . $month . '-' . $matches[1] . ' 16:00:00',  
+$matches[3] . '-' . $matches[1] . '-' . $matches[1] . ' 16:00:00', 
 
-$month = date("m", strtotime($matches[1])); // convert month from english alphabetic to number
-$article_date = date('Y-m-d H:i:s', time()); // Current date     today date
-$month = $this->arabic_month_to_number($matches[1]); // convert month from arabic alphabetic to number
-$article_date_today = new DateTime();  $article_date_today->format('H:i:s') // for time H:i:s
-$article_date = $this->arabic_date_to_gregorian_date('Y-m-d', $year, $month, $day); // hajri date
-$month = $this->arabic_hijri_month_to_number($matches[2]); // hjri month date 
+// convert month from english alphabetic to number
+$month = date("m", strtotime($matches[1])); 
 
+ // Current date     today date
+$article_date = date('Y-m-d H:i:s', time());
 
+// convert month from arabic alphabetic to number
+$month = $this->arabic_month_to_number($matches[1]); 
+
+// for time H:i:s
+$article_date_today = new DateTime();  $article_date_today->format('H:i:s') 
+
+ // hajri date
+$article_date = $this->arabic_date_to_gregorian_date('Y-m-d', $year, $month, $day);
+
+// hjri month date 
+$month = $this->arabic_hijri_month_to_number($matches[2]); 
+
+// hidden sections
 private $force_hidden_sections = array(
 	'http://www.albayan.ae/sports/horses' => 'فروسية',
 	'http://www.albayan.ae/health/editorial' => 'كلمة العدد'
 );
                 
- //------------------------------------------------------------------------------------------------------------------------------------------------//   
- protected function process_headline($headline, $article_data){
+
+// empty headline 
+protected function process_headline($headline, $article_data){
 	if(strlen(trim(strip_tags($headline)))==0)
-		return 'no headline';                                // empty headline 
+		return 'no headline';                                
 	return $headline;
 }
+protected function process_headline($headline, $article_data) {
+
+	if (empty($headline)) {
+		return 'no headline';
+	}
+	else{ return $headline ;}
+
+}
+
 // process the date of the article, return in YYYY-MM-DD HH:ii:ss format
 	protected function process_date($article_date) {
 
@@ -101,31 +137,23 @@ private $force_hidden_sections = array(
 
 	}
 
-}
 
 
-protected function process_next_link($link, $referer_link, $logic) { // json link 
+
+	// json link 
 	// site section with catch link
 
+protected function process_next_link($link, $referer_link, $logic) { 
 	$next_link = $this->settings['site_section_link'] . 'ds_'.  $link .'.json' ;
 	$next_link =  str_replace('index.htm', '', $next_link);
 	return $next_link ;
-
-
 }  
 
 
-protected function process_headline($headline, $article_data) {
-
-	if (empty($headline)) {
-		return 'no headline';
-	}
-	else{ return $headline ;}
-
-}
-
-protected function process_list1_link($link, $referer_link, $logic) {    //add section name in next page link
+ //add section name in next page link 
 	// site section with catch link 
+// when the next page link had nothing except the page number
+protected function process_list1_link($link, $referer_link, $logic) {   
 
 return $this->settings['site_section_link'] . $link ;
 	
@@ -170,14 +198,7 @@ protected function process_date($article_date) {
 	return $article_date;
 }
 
-}
-/*********************************************************************************** */
-private $force_hidden_sections = array(
-	'http://www.albayan.ae/sports/horses' => 'فروسية',
-	'http://www.albayan.ae/health/editorial' => 'كلمة العدد'
-);
-/************************************************************************************/ 
-
+// fix the define name in impeded it into the link
 protected $paged = 1 ;
 	protected function process_list1_link($link, $referer_link, $logic) {
 		if(preg_match('/var category\s*= \'(.*)\'/Uis',$link,$article_link) ){
@@ -200,21 +221,25 @@ protected $paged = 1 ;
 
 /////////////////////////////////////////////////////////////////////////
 
+/// fixed section link
 protected function section_link($link) {
-
 	return 'https://www.aljazeera.net/sitemap.xml?yyyy=' . date('Y') .  '&mm=' . date('m') . '&dd=' . date('d');
 }
 
 
+// normarl next page
 protected function next_link($link) {
 
 	return 'https://www.aljazeera.net/sitemap.xml?yyyy=' . date('Y') .  '&mm=' . date('m') . '&dd=' . date("d", strtotime("yesterday")) ;
 }
 
-$this->page+=30   // increse 30 page in one step 
+// increse 30 page in one step 
 
-/////////////////////////////////////////////////
+$this->page+=30   
 
+
+
+// no stoping in date
 	public function prepare_home_page($section_id) {
 
 		$this->stop_on_date = false;
@@ -223,46 +248,14 @@ $this->page+=30   // increse 30 page in one step
 	}
 
 
-
-	protected function pre_get_page(&$link) {              //  stealth_proxy
-
-		if (in_array($link, $this->article_links_only)) {
-			$link = 'https://app.scrapingbee.com/api/v1/?api_key=E4BW8I0UGGZMX1CLD4LJL9KRE1PE0MVTTN2HOH58FO55O0KO53F2AIF8IFJANAKACGG3QSVQCC57XBAJ&url=' . $link . '&stealth_proxy=True';
-		}
-		else {
-			$link = 'https://app.scrapingbee.com/api/v1/?api_key=E4BW8I0UGGZMX1CLD4LJL9KRE1PE0MVTTN2HOH58FO55O0KO53F2AIF8IFJANAKACGG3QSVQCC57XBAJ&url=' . $link  . '&stealth_proxy=True';
-		}
-	}
-  
-
-	// This process_article_link function is a protected function that 
-	// takes three parameters: $link, $referer_link, and $logic. 
-
-	// ℹ️ It checks if the $link parameter is an empty string. If it is empty,
-	// the function returns false. Otherwise, it returns the value of the $link parameter.
-	
-	// In summary, this function simply checks if the link passed to it is empty
-	// and returns either the non-empty link or false depending on the condition.
-
-	protected function process_article_link($link, $referer_link, $logic) { //remove link
+ //remove link
+	protected function process_article_link($link, $referer_link, $logic) {
 		if ($link == '') return false;
 		return $link;
 	}
 
 
-
-
-
-	//............................................................................................................//
-
-
-	protected function pre_get_page(&$link) {
-
-		$link = 'https://app.zenscrape.com/api/v1/get?apikey=1851f450-3664-11eb-907e-8fd23c2d5ace&url=' . $link;
-	}
-
-/******************************************************************************************************************************** */
-
+// skiping articles in array
 	private $exclude_articles = array(
 		'http://elhiwarpress.com/index.php?option=com_content&view=article&id=9098',
 		'http://elhiwarpress.com/index.php?option=com_content&view=article&id=9067',
@@ -273,19 +266,6 @@ $this->page+=30   // increse 30 page in one step
 		'http://elhiwarpress.com/index.php?option=com_content&view=article&id=9221',
 		'http://elhiwarpress.com/index.php?option=com_content&view=article&id=8467'
 	);
-
-
-// 	🤖 This protected function process_article_link takes in a link, a referer link, and a logic parameter. 
-
-// 🔍 It first checks if the trimmed version of the link is present in the array $this->exclude_articles. 
-
-// 🚫 If the trimmed link is found in the exclude list, it returns false, 
-//  indicating that the link should not be processed further.
-
-// ✅ Otherwise, if the link is not in the exclude list, it returns the original link. 
-
-// ℹ️ This function seems to provide a mechanism to filter out certain articles based on a predefined list ($this->exclude_articles).
-
 	protected function process_article_link($link, $referer_link, $logic) {
 		if (in_array(rtrim($link), $this->exclude_articles)){
 			return false;
@@ -294,8 +274,7 @@ $this->page+=30   // increse 30 page in one step
 	}
 
 
-/******************************************************************************* */
-
+// change ing the arabic number to english and calling in date function
 	protected function convert2English($string){
 
 		$newNumbers = range(0, 9);
@@ -305,8 +284,6 @@ $this->page+=30   // increse 30 page in one step
 
 
 
-
-	/********************************************************************* */
  //homepage 
 
 
@@ -345,16 +322,9 @@ public function prepare_home($section_id) {
 	$this->logic = $this->logic_home;
 
 }
-// to make contnet and headline  return in some websites  /3/
-websites 
-protected function pre_get_page(&$link) {
-
-	$link = 'https://app.zenscrape.com/api/v1/get?apikey=1851f450-3664-11eb-907e-8fd23c2d5ace&url=' . $link;
-}
 
 
-//--------------------------------------------------------------------------------------------------------------------------------//
-
+// exclude_sections
 	protected $exclude_sections = array( ); // excluded sections array
 	
 	//Function to filter exclude_sections
@@ -368,20 +338,11 @@ protected function pre_get_page(&$link) {
 	// Function if you want to change startup link to get sections
 	protected function detect_section_link($link) {
 	
-		return '';
-	}
-
-//----------------------------------------------------------------------------------------------------------------------------------//
-
-	protected function process_list1_link($link, $referer_link, $logic) {   // catch real next page link
-		// site section with catch link 
-
-	return $this->settings['site_section_link'] . $link ;
-        
+		return ''; // put the link of section that you want to redirect here
 	}
 
 
-//-------------------------------------------------------------------------------------------------------------------------------//
+// remove amp; if found in a link
 
 protected function process_list1_link($link, $referer_link, $logic) {
 
@@ -391,9 +352,7 @@ protected function process_list1_link($link, $referer_link, $logic) {
 	
 }
 
-// remove amp; if found in a link
 
-//-----------------------------------------------------------------------------------------------------------------------------------//
 
 	// if link of section contain video
 	protected function process_content($content, $article_data) {
@@ -404,7 +363,6 @@ protected function process_list1_link($link, $referer_link, $logic) {
 		
 		return $content;
 	}
-//------------------------------------------------------------------------------------------------------//
  
 // if the $content have   youtube 
 protected function process_content($content, $article_data) {
@@ -430,16 +388,9 @@ protected function process_content($content, $article_data) {
 	}
 
 
-
-	protected function detect_section_link($link) {
-
-		return 'https://emarat-news.ae/';
-
-	}
-
-
+//stop next page on 40
 	protected $page_count = 1;
-	protected function process_list_press_link($link, $referer_link, $logic) { //stop next page on 40
+	protected function process_list_press_link($link, $referer_link, $logic) { 
 		$this->page_count = $this->page_count +1;
 		if($this->page_count < 40){
 			return '' . $this->page_count;
@@ -451,6 +402,7 @@ protected function process_content($content, $article_data) {
 	}
 	
 
+	// process_content
 
 protected function process_content($content, $article_data){
 		
@@ -469,7 +421,7 @@ protected function process_content($content, $article_data){
 
 
 
-
+// editng content that contain video
 
 	protected function process_content($content, $article_data) {
 
@@ -483,15 +435,7 @@ protected function process_content($content, $article_data){
 		return $content;
 	}
 
-//--------------------------------------------------------------------------------------------------------------------//
-// to procces and delete amp  from link 
-protected function process_list1_link($link, $referer_link, $logic) {
 
-		return str_replace('amp;', '', $this->settings['site_section_link'] . $link);
-	}
-
-
-// ------------------------------------------------------------------------------------------------------------------//
  // logic for next page 
 	
 	protected $logic_no_next = array(
@@ -515,30 +459,9 @@ protected function process_list1_link($link, $referer_link, $logic) {
 		$this->logic = $this->logic_no_next;
 
 	}
-//*********************************************************************************************************************///
-//exclude articles 
-private $exclude_articles = array(
-		'http://elhiwarpress.com/index.php?option=com_content&view=article&id=9098',
-		'http://elhiwarpress.com/index.php?option=com_content&view=article&id=9067',
-		'http://elhiwarpress.com/index.php?option=com_content&view=article&id=9063',
-		'http://elhiwarpress.com/index.php?option=com_content&view=article&id=9016',
-		'http://elhiwarpress.com/index.php?option=com_content&view=article&id=8875'
-	);
 
 
 
-
-
-protected function process_article_link($link, $referer_link, $logic) {
-		if (in_array(rtrim($link), $this->exclude_articles)){
-			return false;
-		}
-		return $link;
-	}
-
-
-
-/*********************************************************************************************************************************************/
 // side map 
 // date and artilce link
 
@@ -557,59 +480,7 @@ protected function process_list2_link($link, $referer_link, $logic) {
 	return $temp_link;
 }
 
-////
 
-// logic for homepage 
-protected $logic_home = array(
-		'list1' => array(
-			0 => array(
-				'type' => 'article',
-				'regexp' => '/<div class="post-thumbnail">\s*<a href="(.*)"/Uis',
-				'append_domain' => true,
-				'ignore_terminal_stop' => true
-			),
-			1 => array(
-				'type' => 'article',
-				'regexp' => '/<div class="post-thumbnail">\s*<a href="(.*)"/Uis',
-				'append_domain' => true,
-				'ignore_terminal_stop' => true
-			)
-		),
-		'article' => array(
-			'headline' => '/<h1 class="entry-title">(.*)<\/h1>/Uis',
-			'content' => '/<div class="td-post-content">(.*)<div class="td-post-source-tags">/Uis',
-			'author' => '/<h1 class="entry-title">(.*)<\/h1>/Uis',
-			'article_date' => '/<meta property="article:published_time" content="([^"]*)"/Uis'
-		)
-	);
-
-	
-	public function prepare_home($section_id) {
-
-		$this->logic = $this->logic_home;
-
-	}
-
-
-
-
-
-
-
-
-//---------------------------------------------------------------------------------------------------------------------------------------//
-
-// current date
-	protected function process_date($article_date) {
-
-		// Mercredi 27 février 2019 - 12:45 
-		$article_date = date('Y-m-d H:i:s', time());
-		return $article_date;
-		
-	}
-	
-}
-//---------------------------------------------------------------//
  // using defin to make it constant 
 protected $page = 1;
 	
@@ -628,7 +499,7 @@ protected $page = 1;
 	}
 
 
-// ********************* encode the sections
+// encode the sections // skiping the arabic langauge
 
 protected function section_link($link) {
 
@@ -644,8 +515,7 @@ protected function section_link($link) {
 
 	}
 
-//
-
+	// 
 
 protected function section_link($link) {
 
@@ -655,23 +525,7 @@ protected function section_link($link) {
 
 
 
-
-	/******************************************************************/
-	// encoding sections
-	protected function url_econding($link){
-		
-		$parts = parse_url($link);
-		$path = explode('/', $parts['path']);
-
-		foreach($path as &$param) {
-			$param = urlencode($param);
-		}
-		$parts['path'] = implode('/', $path);
-
-		$link = strtolower (unparse_url($parts));
-		
-		return $link;
-	}
+// return incoding
 
 	protected function section_link($link) {
 		if($link == 'http://www.dbmena.com'){
@@ -728,7 +582,6 @@ protected function process_article_link($link, $referer_link, $logic) {
 
 	}
 
--------------------------------------------------------------------------------------------------------------------------------------------------
  // encode article link
     protected function article_link($link) {
 
@@ -807,7 +660,7 @@ protected function process_article_link($link, $referer_link, $logic) {
 		return $article_date;
 	}
 
-}
+
 
 
 
@@ -830,7 +683,7 @@ protected function process_article_link($link, $referer_link, $logic) {
 
 	}
 
-}
+
 
 
 
@@ -972,109 +825,7 @@ if (preg_match('/(\d+) (\W+) (\d+?).*(\d+):(\d+?)/Uis', $article_date, $matches)
 		}
 		
 //=============================================================================================================================//
-protected function process_list1_link($regexp_result, $referer_link, $logic_type) {
 
-		$result = '';
-		$params = array();
-
-		foreach($this->ajax_params_ids as $name => $id) {
-			if (preg_match('/<input[^>]*id="' . $id . '"[^>]*value="([^"]*)"[^>]*>/Uis', $regexp_result, $matches) ||
-					preg_match('/\$\("#' . $id . '"\)\.val\("([^"]*)"\);/Uis', $regexp_result, $matches)) {
-				$params[$name] = $matches[1];
-				$this->ajax_params[$name] = $matches[1];
-			}
-			elseif ($name === 'StartIndex' && isset($this->ajax_params['EndIndex'])) {
-				$params[$name] = $this->ajax_params['EndIndex'] + 1;
-			}
-			elseif ($name === 'EndIndex' && isset($params['StartIndex'])) {
-				$params[$name] = $params['StartIndex'] + 4;
-			}
-			elseif (isset($this->ajax_params[$name])) {
-				$params[$name] = $this->ajax_params[$name];
-			}
-			else {
-				break;
-			}
-		}
-
-		if (!empty($params) && $this->current_page < $this->max_page) {
-			// adding dummy GET param to trick crawler
-			$result = $this->combine_link($this->ajax_url . '?p=' . $this->current_page++);
-			$this->ajax_params[$result] = $params;
-		}
-
-		return $result;
-
-	}
-	
-	protected function process_sections_list1_result($regexp_result, $referer_link) {
-
-		$result = '';
-
-		if (preg_match('/<a[^>]*>(.*)<\//Uis', $regexp_result, $name_matches) &&
-				preg_match('/href="([^"#]*)"/Uis', $regexp_result, $link_matches)) {
-			$section_name = trim($name_matches[1]);
-			
-			$parts = parse_url($link_matches[1]);
-			if (isset($parts['path']) && trim($parts['path'], '/') != '') {
-				$path = explode('/', rtrim($parts['path'], '/') . '/');
-				while(($path_crumb = array_shift($path)) !== null) {
-					if (strlen(trim($path_crumb))) {
-						$link_path[] = urlencode($path_crumb);
-					}
-				}
-				$parts['path'] = '/' . implode('/', $link_path);
-			}
-
-			if (isset($parts['path'])) {
-				$link = $this->combine_link($parts['path']);
-				$result = '<a href="' . $link . '">' . $section_name . '</a>';
-			}
-		}
-
-		return $result;
-
-	}
-            --------------------------------------------------------------------------------------------------------------
-                //speical date
-                 
-                // process the date of the article, return in YYYY-MM-DD HH:ii:ss format
-	protected function process_date($article_date) {
-
-		//نشر بتاريخ: السبت، 10 تشرين2/نوفمبر 2018 22:56
-		if (preg_match('/(\d+?).*\/(\W+?) (\d{4}) (\d+?):(\d+?)/Uis', $article_date, $matches)) {
-			$month = $this->arabic_month_to_number($matches[2]);
-			$day = str_pad($matches[1], 2, '0', STR_PAD_LEFT);
-			$article_date_obj = DateTime::createFromFormat(
-				'Y-m-d H:i:s',
-				$matches[3] . '-'. $month . '-' . $day . ' ' . $matches[4] . ':' . $matches[5] . ':00',
-				new DateTimeZone($this->site_timezone)
-			);
-			$article_date = $article_date_obj->format('Y-m-d H:i:s');
-		}
-		//نشر بتاريخ: الإثنين، 30 تشرين2/نوفمبر -0001 00:00
-		else if (preg_match('/(\d+?).*\/(\W+?) -(\d{4}) (\d+?):(\d+?)/Uis', $article_date, $matches)) {
-			$month = $this->arabic_month_to_number($matches[2]);
-			$day = str_pad($matches[1], 2, '0', STR_PAD_LEFT);
-			$article_date_obj = DateTime::createFromFormat(
-				'Y-m-d H:i:s',
-				$matches[3] . '-'. $month . '-' . $day . ' ' . $matches[4] . ':' . $matches[5] . ':00',
-				new DateTimeZone($this->site_timezone)
-			);
-			$article_date = $article_date_obj->format('Y-m-d H:i:s');
-		}
-		elseif($this->settings['site_section_link'] == 'https://www.annasronline.com/index.php/2014-09-30-11-05-07/2014-08-24-14-17-03'){
-
-			$article_date = date('Y-m-d H:i:s');
-		}
-
-		return $article_date;
-
-	}
-
-}
-
---------------------------------------------------------------------------------------------------------------------------------------------
     //to catch something from source_code
     
     if(
@@ -1257,6 +1008,8 @@ protected function process_list1_link($regexp_result, $referer_link, $logic_type
 
 
 // process the date of the article, return in YYYY-MM-DD HH:ii:ss format
+
+/// if the date of articale are same and have a unnormal arabic word or regualer
 	protected function process_date($article_date) {
 
 
@@ -1407,104 +1160,6 @@ protected function process_list1_link($regexp_result, $referer_link, $logic_type
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// for perpar some languages setting
-
-
-
-
-protected function pre_get_page(&$page) {
-
-		$this->ant->set_custom_headers(
-			array(
-				'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-				'accept-encoding: gzip, deflate',
-				'accept-language: en-US,en;q=0.9',
-				'upgrade-insecure-requests: 1',
-				'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
-			)
-		);
-
-	}
-
-	protected function post_get_page(&$result) {
-
-		$res = gzdecode($result);
-		$result = $res !== false ? $res : $result;
-
-		$this->ant->unset_custom_headers();
-	}
-
-
-
-
-
-protected function pre_get_page(&$page) {
-
-		$this->ant->set_custom_headers(
-	array(
-		'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
-		'accept-encoding: gzip, deflate, br',
-		'accept-language: en-US,en;q=0.9,ar;q=0.8',
-		'cache-control: no-cache',
-		'cookie: ga=GA1.2.1176823378.1557990079; gid=GA1.2.503830596.1557990079; mrf-client-id=174dc54a-47e6-4046-bec7-a827cae430b2; __gads=ID=3eae2f039a6cbb68:T=1557990083:S=ALNI_MZoYwhZmh9JtGm5r-a7aTVdaMhNlg',
-		'pragma: no-cache',
-		'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36',
-		'upgrade-insecure-requests: 1'
-				)
-			);
-
-		}
-
-protected function post_get_page(&$result) {
-
-		$res = gzdecode($result);
-		$result = $res !== false ? $res : $result;
-
-		$this->ant->unset_custom_headers();
-		}
-
-
-
-
-		protected function pre_get_page(&$page) {
-
-			$this->ant->set_custom_headers(
-				array(
-					'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-					'Accept-Encoding: gzip, deflate, br',
-					'Accept-Language: en-US,en;q=0.9',
-					'Cache-Control: max-age=0',
-					'Cookie: _ga=GA1.2.1026581099.1602308921; _gid=GA1.2.721530852.1602308921; __gads=ID=c37b817f1e5bd376:T=1602308924:S=ALNI_MZlv08aK3KDmLo1JEV1pyVE2jhwlA',
-					'referer: https://www.google.com/',
-					'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
-				)
-			);
-	
-		}
-	
-		protected function post_get_page(&$result) {
-	
-			if($result <> null){
-				$res = gzdecode($result);
-				$result = $res !== false ? $res : $result;
-			}
-	
-			$this->ant->unset_custom_headers();
-	
-		}
-
-
-// transform  WINDOWS-1256 to utf8 to all website 
-		protected function post_get_page(&$result) {
-
-			$this->ant->unset_post();
-			$res = iconv('WINDOWS-1256', 'UTF-8//TRANSLIT//IGNORE', $result);
-			$result = $res !== false ? $res : $result;
-		}
-	
-
-
-/*----------------------------------------------------------------------------------------------------------------------*/
 // arbic date 
 
 // process the date of the article, return in YYYY-MM-DD HH:ii:ss format
@@ -1533,9 +1188,6 @@ protected function post_get_page(&$result) {
 		return str_replace($arabic_eastern, $arabic_western, $str);
         
 	}
-}
-
-
 
 // franch date 
 
@@ -1563,13 +1215,13 @@ protected function post_get_page(&$result) {
 		$english_month = str_replace($franch, $english, $string);
 		return $english_month;
 	}
-}
+
 
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/
 
 
-
+// sites the UTF-8 if it not found
 protected function filter_sections($section_link, &$section_name, $referer_link, $logic) {
 
 		// exclude these sections
@@ -1613,98 +1265,83 @@ protected function filter_sections($section_link, &$section_name, $referer_link,
 
 	}
 
-	protected function post_get_page(&$result) {
+//     
 
-		$this->ant->unset_custom_headers();
-		if ($result <> null) {
 
-			// setting to null and then restoring the current error handler in order to prevent the ...
-			// ... SYSTEM from opening new tasks for each warning thrown by gzdecode.
-			set_error_handler(null);
-			$result = @gzdecode($result);
-			restore_error_handler();
+
+// ajex converter link
+	protected function process_list1_link($regexp_result, $referer_link, $logic_type) {
+
+		$result = '';
+		$params = array();
+
+		foreach($this->ajax_params_ids as $name => $id) {
+			if (preg_match('/<input[^>]*id="' . $id . '"[^>]*value="([^"]*)"[^>]*>/Uis', $regexp_result, $matches) ||
+					preg_match('/\$\("#' . $id . '"\)\.val\("([^"]*)"\);/Uis', $regexp_result, $matches)) {
+				$params[$name] = $matches[1];
+				$this->ajax_params[$name] = $matches[1];
+			}
+			elseif ($name === 'StartIndex' && isset($this->ajax_params['EndIndex'])) {
+				$params[$name] = $this->ajax_params['EndIndex'] + 1;
+			}
+			elseif ($name === 'EndIndex' && isset($params['StartIndex'])) {
+				$params[$name] = $params['StartIndex'] + 4;
+			}
+			elseif (isset($this->ajax_params[$name])) {
+				$params[$name] = $this->ajax_params[$name];
+			}
+			else {
+				break;
+			}
 		}
-		if ($result === false) {
-			$result = '';
+
+		if (!empty($params) && $this->current_page < $this->max_page) {
+			// adding dummy GET param to trick crawler
+			$result = $this->combine_link($this->ajax_url . '?p=' . $this->current_page++);
+			$this->ajax_params[$result] = $params;
 		}
+
+		return $result;
 
 	}
 
-	private $page_count = 0;
 
-	protected function process_article_link($result_link, $referer_link, $logic) {
+                 
+                // process the date of the article, return in YYYY-MM-DD HH:ii:ss format
+	protected function process_date($article_date) {
 
-		if(preg_match('/<news:publication_date>(.*)<\/news:publication_date>/Uis', $result_link, $matches)){
-			$matches[0] = str_replace('<news:publication_date>','',$matches[0]);
-			$matches[0] = str_replace('</news:publication_date>','',$matches[0]);
-			if(strtotime($matches[0]) >=  strtotime('-5 days')){
-
-				if(preg_match('/<loc>(.*)<\/loc>/Uis', $result_link, $matches)){
-					$matches[0] = str_replace('<loc>','',$matches[0]);
-					$matches[0] = str_replace('</loc>','',$matches[0]);
-					$matches[0] = $this->url_encoding($matches[0]);
-					return $matches[0];
-
-				}
-
-			}
-
+		//نشر بتاريخ: السبت، 10 تشرين2/نوفمبر 2018 22:56
+		if (preg_match('/(\d+?).*\/(\W+?) (\d{4}) (\d+?):(\d+?)/Uis', $article_date, $matches)) {
+			$month = $this->arabic_month_to_number($matches[2]);
+			$day = str_pad($matches[1], 2, '0', STR_PAD_LEFT);
+			$article_date_obj = DateTime::createFromFormat(
+				'Y-m-d H:i:s',
+				$matches[3] . '-'. $month . '-' . $day . ' ' . $matches[4] . ':' . $matches[5] . ':00',
+				new DateTimeZone($this->site_timezone)
+			);
+			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
+		//نشر بتاريخ: الإثنين، 30 تشرين2/نوفمبر -0001 00:00
+		else if (preg_match('/(\d+?).*\/(\W+?) -(\d{4}) (\d+?):(\d+?)/Uis', $article_date, $matches)) {
+			$month = $this->arabic_month_to_number($matches[2]);
+			$day = str_pad($matches[1], 2, '0', STR_PAD_LEFT);
+			$article_date_obj = DateTime::createFromFormat(
+				'Y-m-d H:i:s',
+				$matches[3] . '-'. $month . '-' . $day . ' ' . $matches[4] . ':' . $matches[5] . ':00',
+				new DateTimeZone($this->site_timezone)
+			);
+			$article_date = $article_date_obj->format('Y-m-d H:i:s');
+		}
+		elseif($this->settings['site_section_link'] == 'https://www.annasronline.com/index.php/2014-09-30-11-05-07/2014-08-24-14-17-03'){
 
-	//	https://www.aa.com.tr/fr/rss/default?cat=live rss link
-
-
-		return '';
-	}
-    
-
-	protected function process_date($article_date)
-	{
-		if (preg_match('/\p{Arabic}+ (\d{1,2}) (\D+) (\d{4}) \| (\d{1,2}):(\d{2}) (م|ص)/u', $article_date, $matches)) {
-			// Matches: الخميس 25 يوليو 2024 | 06:16 مساءً
-			$day = (int)$matches[1];
-			$arabic_month = trim($matches[2]);
-			$year = (int)$matches[3];
-			$hour = (int)$matches[4];
-			$minute = (int)$matches[5];
-			$period = $matches[6];
-
-			$arabic_months = [
-				'يناير' => 1,
-				'فبراير' => 2,
-				'مارس' => 3,
-				'أبريل' => 4,
-				'مايو' => 5,
-				'يونيو' => 6,
-				'يوليو' => 7,
-				'أغسطس' => 8,
-				'سبتمبر' => 9,
-				'أكتوبر' => 10,
-				'نوفمبر' => 11,
-				'ديسمبر' => 12
-			];
-
-			// Convert month name to number
-			if (isset($arabic_months[$arabic_month])) {
-				$month = $arabic_months[$arabic_month];
-			} else {
-				$month = null;
-				error_log("Undefined month: $arabic_month");
-			}
-
-			// Adjust hour for AM/PM
-			if ($period === 'م' && $hour != 12) {
-				$hour += 12; // Convert to 24-hour format
-			} elseif ($period === 'ص' && $hour === 12) {
-				$hour = 0; // Midnight case
-			}
-
-			// Format the date to Y-m-d H:i:s
-			$article_date = sprintf('%04d-%02d-%02d %02d:%02d:%02d', $year, $month, $day, $hour, $minute, 0);
+			$article_date = date('Y-m-d H:i:s');
 		}
 
 		return $article_date;
+
 	}
+
+
 
 
 	
