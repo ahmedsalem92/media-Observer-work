@@ -42,7 +42,8 @@ class alroya_om extends plugin_base {
 			1 => array(
 				'type' => 'article',
 				'regexp' => '/<h3 class="entry-title font-size-18 mb-0"><a href="([^"]*)"/Uis',
-				'append_domain' => false
+				'append_domain' => false,
+				'process_link' => 'process_article_link'
 			)
 		),
 		'article' => array(
@@ -57,7 +58,8 @@ class alroya_om extends plugin_base {
 			0 => array(
 				'type' => 'article',
 				'regexp' => '/<div class="item">\s*<a href="([^"]*)"/Uis',
-				'append_domain' => false
+				'append_domain' => false,
+				'process_link' => 'process_article_link'
 			)
 		),
 		'article' => array(
@@ -73,7 +75,8 @@ class alroya_om extends plugin_base {
 				'type' => 'article',
 				'regexp' => '/<h3 class="entry-title[^>]*>\s*<a[^>]*href="([^"]*)"/Uis',
 				'append_domain' => false,
-				'ignore_terminal_stop' => true
+				'ignore_terminal_stop' => true,
+				'process_link' => 'process_article_link'
 			)
 		),
 		'article' => array(
@@ -107,6 +110,16 @@ class alroya_om extends plugin_base {
 
 		return $section_link;
 
+	}
+
+	private $exclude_articles = array(
+		'https://alroya.om/video/2652/حاتم-الطائي-جمعية-الصحفيين-الع-مانية-تحو-لت-إلى-ناد-اجتماعي'
+	);
+	protected function process_article_link($link, $referer_link, $logic) {
+		if (in_array(rtrim($link), $this->exclude_articles)){
+			return false;
+		}
+		return $link;
 	}
 
 	protected function process_content($content, $article_data){
