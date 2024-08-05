@@ -128,6 +128,8 @@ class amacnewscom extends plugin_base {
 		$content = preg_replace('/(<div class="newsletter.*<\/div>)/Uis', '', $content);
 		$content = preg_replace('/(<div class="newsletter-subscribe">.*<\/div>)/Uis', '', $content);
 		$content = preg_replace('/(<iframe.*<\/iframe>)/Uis', 'VIDEO', $content);
+		$content = preg_replace('/<a href=\'\/tag\/Fertiglobe\'>(.*)<\/a>/Uis', '', $content);
+		$content = preg_replace('/<div id=\'feedback_form_parent1\'.*>(.*<\/form>)/Uis', '', $content);
 		if (empty($content)) {
 			$content = 'no content';
 		}
