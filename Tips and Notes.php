@@ -6,20 +6,21 @@
 //https://moc.mediaobserver-me.com/tasks/
 //! @author <abdullah fayad/a.fayad@mediaobserver-me.com>
 protected $use_proxies = true; // Proxy 
+protected $use_headless = true; // when issue in the site // by testing on site
+	
+	
+public function pre_get_page(&$page) {   
+
+	$this->ant->set_wait_for_load(true);
+
+}  // with use less
 protected $cloudflare_bypass = true; // to pass from browser checker
 protected $allow_failed_date_override = true;
 protected $stop_on_date = true;
 protected $stop_on_date = false;
 protected $private_cookie = false;     
 protected $disable_cache_buster = true; // DISable for browser cashe cashe
-	protected $use_headless = true; // when issue in the site // by testing on site
-	
-	
-	public function pre_get_page(&$page) {   
-   
-		$this->ant->set_wait_for_load(true);
 
-	}  // with use less
 	
 	protected $agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:46.0) Gecko/20100101 Firefox/46.0';
 	protected $agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/64.0.3282.167 Chrome/64.0.3282.167 Safari/537.36';
@@ -1398,4 +1399,25 @@ protected function filter_sections($section_link, &$section_name, $referer_link,
 		return $section_link;
 	}
 
-	
+
+	/// prosses date by format  August 6, 2024
+
+	protected function process_date($article_date) {
+		// August 6, 2024
+		if (preg_match('/(\w+) (\d+), (\d+)/', $article_date, $matches)) {
+			$month = date('m', strtotime($matches[1]));
+			$day = str_pad($matches[2], 2, '0', STR_PAD_LEFT);
+			$year = $matches[3];
+			
+			$article_date_obj = DateTime::createFromFormat(
+				'Y-m-d H:i:s',
+				"$year-$month-$day 00:00:00"
+			);
+			
+			if ($article_date_obj) {
+				$article_date = $article_date_obj->format('Y-m-d H:i:s');
+			}
+		}
+		
+		return $article_date;
+	}
