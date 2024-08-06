@@ -1,8 +1,9 @@
 <?php
 
-class almasryalyoum extends plugin_base {
+class almasryalyoum extends plugin_base
+{
 	// ANT settings
-	protected $ant_precision = 7;
+	protected $ant_precision = 8;
 	protected $agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/64.0.3282.167 Chrome/64.0.3282.167 Safari/537.36';
 	protected $use_proxies = true;
 	protected $use_headless = true;
@@ -85,6 +86,68 @@ class almasryalyoum extends plugin_base {
 		$content = preg_replace('/(<strong>.*<\/strong>)/Uis', '', $content);
 		$content = preg_replace('/(<div class="min_related">.*<\/div>)/Uis', '', $content);
 		$content = preg_replace('/(<div id="ad-container">.*<\/div>)/Uis', '', $content);
+		$content = preg_replace('/(<div class=\'innerimg_mid\'>.*<\/div>)/Uis', '', $content);
+		$content = preg_replace('/(<div id="ad-container">.*<\/div>)/Uis', '', $content);
+		$content = str_replace('Error loading media', '', $content);
+		$content = str_replace('Error loading media', '', $content);
+		$content = str_replace('Nigeria the most popular African football team from 90s', '', $content);
+		$content = str_replace('unstick', '', $content);
+		$content = str_replace('Share this video', '', $content);
+		$content = str_replace('Copy', '', $content);
+		$content = str_replace('Pause Play', '', $content);
+		$content = str_replace('00:00', '', $content);
+		$content = str_replace('% Buffered 2.318901847661204', '', $content);
+		$content = str_replace('Previous Pause Play Next', '', $content);
+		$content = str_replace('Live', '', $content);
+		$content = str_replace('00:00 / 01:20', '', $content);
+		$content = str_replace('Unmute Mute', '', $content);
+		$content = str_replace('Settings Exit fullscreen Fullscreen', '', $content);
+		$content = str_replace('Copy video url', '', $content);
+		$content = str_replace('Play / Pause', '', $content);
+		$content = str_replace('Mute / Unmute', '', $content);
+		$content = str_replace('Report a problem', '', $content);
+		$content = str_replace('Language', '', $content);
+		$content = str_replace('Back', '', $content);
+		$content = str_replace('Default', '', $content);
+		$content = str_replace('English', '', $content);
+		$content = str_replace('Español', '', $content);
+		$content = str_replace('Українська', '', $content);
+		$content = str_replace('Русский', '', $content);
+		$content = str_replace('Share', '', $content);
+		$content = str_replace('Back', '', $content);
+		$content = str_replace('Facebook', '', $content);
+		$content = str_replace('Twitter', '', $content);
+		$content = str_replace('Linkedin', '', $content);
+		$content = str_replace('Email', '', $content);
+		$content = str_replace('Vidverto Player', '', $content);
+		$content = str_replace('Pause Play', '', $content);
+		$content = str_replace('% Buffered 1.5057319772212967', '', $content);
+		$content = str_replace('Previous Pause Play Next', '', $content);
+		$content = str_replace('/ 01:20', '', $content);
+		$content = str_replace('Unmute Mute', '', $content);
+		$content = str_replace('Settings Exit fullscreen Fullscreen', '', $content);
+		$content = str_replace('video url', '', $content);
+		$content = str_replace('Pause Play', '', $content);
+		$content = str_replace('% Buffered 1.5057319772212967', '', $content);
+		$content = str_replace('Previous Pause Play Next', '', $content);
+		$content = str_replace('Unmute Mute', '', $content);
+		$content = str_replace('Settings Exit fullscreen Fullscreen', '', $content);
+		$content = preg_replace('/(\d+?\.\d+?)/Uis', '', $content);
+		$content = str_replace('Pause', '', $content);
+		$content = str_replace('Play', '', $content);
+		$content = str_replace('%', '', $content);
+		$content = str_replace('Buffered', '', $content);
+		$content = str_replace('1.5057319772212967', '', $content);
+		$content = str_replace('Previous', '', $content);
+		$content = str_replace('Pause', '', $content);
+		$content = str_replace('Play', '', $content);
+		$content = str_replace('Next', '', $content);
+		$content = str_replace('Unmute', '', $content);
+		$content = str_replace('Mute', '', $content);
+		$content = str_replace('Settings', '', $content);
+		$content = str_replace('Exit', '', $content);
+		$content = str_replace('fullscreen', '', $content);
+		$content = str_replace('Fullscreen', '', $content);
 
 		return $content;
 	}
