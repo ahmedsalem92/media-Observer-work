@@ -1421,3 +1421,27 @@ protected function filter_sections($section_link, &$section_name, $referer_link,
 		
 		return $article_date;
 	}
+
+
+	/// to make loop for link number 
+
+	'list1' => array(
+		0 => array(
+			'type' => 'list1',
+			'regexp' => '/^(.*)$/Uis',
+			'append_domain' => false,
+			'process_link' => 'process_list_press_link'
+		),
+	)
+
+	protected $date;
+	protected $page_count = 1;
+	protected function process_list_press_link($link, $referer_link, $logic)
+	{
+		if ($this->page_count) { // http://www.ccaonline.cn/page/2?s&amp;type
+			$this->page_count++;
+			return 'http://www.ccaonline.cn/page/' . $this->page_count . '?s&amp;type';
+		} else {
+			return false;
+		}
+	}
