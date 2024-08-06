@@ -1343,5 +1343,59 @@ protected function filter_sections($section_link, &$section_name, $referer_link,
 
 
 
+	// start from the first link not from the last link 
+
+	protected function process_article_link($link, $referer_link, $logic)
+	{
+		$temp_link = '';
+		
+		if (empty($this->links)) {
+			$result = $this->ant->get($referer_link);
+			if (preg_match_all('/<loc>(.*)<\/loc>/Uis', $result, $matches)) {
+				$this->links = $matches[0];
+				$this->array_index = 0; // Start from the first link
+			}
+		}
+	
+		// Check if the current index is within bounds
+		if ($this->array_index < sizeof($this->links)) {
+			$temp_link = str_replace('<loc>', '', $this->links[$this->array_index]);
+			$temp_link = str_replace('</loc>', '', $temp_link);
+			
+			// Increment array_index for the next call
+			$this->array_index++;
+			
+			return $temp_link;
+		}
+	
+		return '';
+	}
+
+
+// Returned date format :  2024-08-05T15:42:19.697-04:00
+	protected function process_date($article_date) {
+		// Example input: 2024-08-05T15:42:19.697-04:00
+		if (preg_match('/^(.*)T(.*)\-(\d{2}:\d{2})$/', $article_date, $matches)) {
+			// Convert the timezone offset into a DateTimeZone object
+			$date_time = DateTime::createFromFormat(
+				'Y-m-d\TH:i:s.uP', // 'u' for microseconds and 'P' for timezone with offset
+				$article_date
+			);
+	
+			if ($date_time) {
+				$article_date = $date_time->format('Y-m-d H:i:s');
+			}
+		}
+		return $article_date;
+	}
+
+	// skip section by link
+	protected function filter_sections($section_link, $section_name, $referer_link, $logic)
+	{
+		if (in_array(trim($section_link), $this->exclude_sections)) {
+			return '';
+		}
+		return $section_link;
+	}
 
 	
