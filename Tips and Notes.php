@@ -1445,3 +1445,19 @@ protected function filter_sections($section_link, &$section_name, $referer_link,
 			return false;
 		}
 	}
+
+
+	/// new prosses_date 2024-08-06T10:49:27.589Z
+	protected function process_date($article_date) {
+		if (preg_match('/(.*)T(.*)\.(\d+)(Z)/i', $article_date, $matches)) {
+			$formatted_date = $matches[1] . ' ' . $matches[2];
+			$article_date_obj = DateTime::createFromFormat(
+				'Y-m-d H:i:s',
+				$formatted_date,
+				new DateTimeZone($this->site_timezone)
+			);
+			$article_date = $article_date_obj->format('Y-m-d H:i:s');
+		}
+	
+		return $article_date;
+	}
