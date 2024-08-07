@@ -1,76 +1,86 @@
 <?php
 
-class q8dailynews_ar extends plugin_base
+class ttgmena extends plugin_base
 {
 
 	// ANT settings
-	protected $stop_date_override = true;
 	protected $ant_precision = 10;
-	protected $use_proxies = true;
-	protected $use_headless = true; // when issue in the site // by testing on site
-	protected $agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:46.0) Gecko/20100101 Firefox/46.0';
+	protected $stop_on_date = false;
+	protected $agent = 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)';
+	protected $use_headless = true;
 
 	// CRAWL settings
-
 	protected $stop_on_article_found = false;
+	protected $stop_date_override = true;
 
 	// DEFINITIONS
 	protected $site_timezone = 'Asia/Amman';
+	private $exclude_sections = array(
+		'All Categories', 'News Archive', 'Newsletter Archive', 'Print Archives', 'Expert Opinion', 'In-Depth Reports', 'Videos', 'Webinars', 'Airshows &amp; Conventions', 'Aviation Events', 'Whitepapers', 'About AIN', 'Our Writers', 'History', 'Advertise', 'Contact Us', 'Airshows & Conventions'
+	);
 	protected $sections = array(
 		'list1' => array(
 			0 => array(
 				'type' => 'section',
 				'regexp' => array(
-					'/<div class="footer-bottom-section section " style=\'background:#fff;\'>(.*)<div class="footer-bottom-section section bg-dark">/Uis',
-					'/<li>\s*(<a.*<\/a>)/Uis'
-				)
+					'/<ul class="menu main-menu sf-arrows">(.*)<\/ul>/Uis',
+					'/<li>(.*)<\/li>/Uis'
+				),
+				'append_domain' => true
 			)
 		),
 		'section' => array(
-			'link' => '/href="([^"]*)"/Uis',
-			'name' => '/">(.*)<\/a>/Uis',
-			'append_domain' => false,
+			'link' => '/href="(.*)"/Uis',
+			'name' => '/<a.*>(.*)<\/a>/Uis',
+			'append_domain' => true,
 			'process_link' => 'filter_sections'
 		)
 	);
 
 	protected $logic = array(
 		'list1' => array(
-			1 => array(
+			0 => array(
 				'type' => 'article',
-				'regexp' => '/<a class="readmore" href="([^<]*)"/Uis',
+				'regexp' => array(
+					'/<div class="blog-posts">(.*)<button class="button-arounder load-more">/Uis',
+					'/<div class="post-image">.*<a href="(.*)"/Uis'
+				),
 				'append_domain' => true
 			)
 		),
 		'article' => array(
-			'headline' => '/<h2 class="title">(.*)<\/h2>/Uis',
-			'content' => '/<h2 class="title">.*<div class="head feature-head">(.*)<div class=\'col-md-4\'>/Uis',
+			'headline' => '/<h2>(.*)<\/h2>/Uis',
+			'content' => '/<p>(.*)<\/article>/Uis',
 			'author' => false,
-			'article_date' => '/<span class="body-story2-date time">(.*)<\/span>/Uis'
+			'article_date' => '/<div class="post-date ms-0">(.*)<\/div>/Uis'
 		)
 	);
 	protected $logic_home = array(
 		'list1' => array(
 			0 => array(
 				'type' => 'article',
-				'regexp' => '/<a class="reding-btn" href="(.*)"/Uis',
+				'regexp' => array(
+					'/<div class="CardGrid_card-item__S_kjv">(.*)<\/a><\/div>/Uis',
+					'/href="(.*)"/Uis'
+				),
 				'append_domain' => true,
-				'ignore_terminal_stop' => true,
-				'process_link' => 'process_article_link'
+				'ignore_terminal_stop' => true
 			),
 			1 => array(
 				'type' => 'article',
-				'regexp' => '/<a class=\'reding-btn\'[^<]* href= "([^<]*)"/Uis',
+				'regexp' => array(
+					'/<div class="CardGrid_card-item--block__Eowmn">(.*)<\/a><\/div>/Uis',
+					'/href="(.*)"/Uis'
+				),
 				'append_domain' => true,
-				'ignore_terminal_stop' => true,
-				'process_link' => 'process_article_link'
-			)
+				'ignore_terminal_stop' => true
+			),
 		),
 		'article' => array(
-			'headline' => '/<h2 class="title">(.*)<\/h2>/Uis',
-			'content' => '/<h2 class="title">.*<div class="head feature-head">(.*)<div class=\'col-md-4\'>/Uis',
+			'headline' => '/(?:"headline": "|<h1[^<]*>)(.*)(?:"|<\/h1>)/Uis',
+			'content' => '/(?:<div class="TextOnImage_text__3kBn5">|fieldText)(.*)(?:<\/div>|FieldParagraphAinTextFieldText)/Uis',
 			'author' => false,
-			'article_date' => '/<span class="body-story2-date time">(.*)<\/span>/Uis'
+			'article_date' => '/updated_time" content="(.*)"/Uis'
 		)
 	);
 
@@ -82,52 +92,45 @@ class q8dailynews_ar extends plugin_base
 
 	protected function filter_sections($section_link, $section_name, $referer_link, $logic)
 	{
-
-
-		return $section_link . '?lang=ar';
-	}
-
-	protected function detect_section_link($link)
-	{
-
-		return 'http://q8dailynews.com/?lang=ar';
-	}
-
-	protected function process_content($content, $article_data)
-	{
-
-		$content = preg_replace('/(>alanba<\/p>)/Uis', '', $content);
-		$content = preg_replace('/(إن نص اللغة الأصلية لهذا البيان.*<\/p>)/Uis', '', $content);
-		return $content;
-	}
-
-	protected function process_article_link($link, $referer_link, $logic)
-	{
-		return str_replace('storyad', 'story', $link);
-	}
-
-	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
-	protected function process_date($article_date)
-	{
-
-		//12 سبتمبر 2021
-		if (preg_match('/(\d+?) (\W+?) (\d+?)/Uis', $article_date, $matches)) {
-
-			$day = str_pad($matches[1], 2, '0', STR_PAD_LEFT);
-			$month = $this->arabic_month_to_number($matches[2]);
-			$article_date_obj = DateTime::createFromFormat(
-				'Y-m-d H:i:s',
-				$matches[3] . '-' . $month . '-' . $day  . ' 16:00:00',
-				new DateTimeZone($this->site_timezone)
-			);
-
-			$article_date = $article_date_obj->format('Y-m-d H:i:s');
+		if (in_array(trim($section_name), $this->exclude_sections)) {
+			return '';
 		}
 
-		return $article_date;
+		return $section_link;
 	}
 
-
+	protected function process_date($article_date) {
+		// Example: <span class="day">6</span><span class="month">Aug</span>
+		if (preg_match('/<span class="day">(\d+)<\/span><span class="month">(\w+)<\/span>/', $article_date, $matches)) {
+			$day = $matches[1];
+			$month = $matches[2];
+	
+			// List of month names to convert to numeric representation
+			$months = [
+				'Jan' => 1, 'Feb' => 2, 'Mar' => 3, 'Apr' => 4,
+				'May' => 5, 'Jun' => 6, 'Jul' => 7, 'Aug' => 8,
+				'Sep' => 9, 'Oct' => 10, 'Nov' => 11, 'Dec' => 12
+			];
+	
+			// Get the current year
+			$year = date('Y');
+	
+			// Convert month name to number
+			$month_number = $months[$month];
+	
+			// Create a date object
+			$article_date_obj = DateTime::createFromFormat(
+				'Y-m-d H:i:s',
+				sprintf('%04d-%02d-%02d 00:00:00', $year, $month_number, $day),
+				new DateTimeZone($this->site_timezone)
+			);
+	
+			// Format the date as required
+			$article_date = $article_date_obj->format('Y-m-d H:i:s');
+		}
+		
+		return $article_date;
+	}
 
 	public function pre_get_page(&$page)
 	{
