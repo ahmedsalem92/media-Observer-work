@@ -1,6 +1,7 @@
 <?php
 
-class signatureluxurytravelcomau extends plugin_base {
+class signatureluxurytravelcomau extends plugin_base
+{
 	// ANT settings
 	protected $ant_precision = 6;
 	protected $stop_on_date = false;
@@ -31,7 +32,7 @@ class signatureluxurytravelcomau extends plugin_base {
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/<div class="eltdf-post-content">(.*)(?:<div class="eltdf-bnl-holder eltdf-pl-eight-holder|<div id="block-\d+?" class="widget widget_block">|<p><strong>Read more:|<div class="eltdf-single-tags-share-holder">|<p class="eltdf-pt-three-title">|<\/article>)/Uis',
+			'content' => '/<div class="eltdf-post-content">(.*)(?:placeholder="Subscribe to our newsletter"|<div class="eltdf-bnl-holder eltdf-pl-eight-holder|<div id="block-\d+?" class="widget widget_block">|<p><strong>Read more:|<div class="eltdf-single-tags-share-holder">|<p class="eltdf-pt-three-title">|<\/article>)/Uis',
 			'author' => false,
 			'article_date' => '/dateModified":.*"(.*)"/Uis'
 		)
@@ -91,13 +92,19 @@ class signatureluxurytravelcomau extends plugin_base {
 		$content = preg_replace('/target="_self">(Save on your French Polynesia cruise with Aranui)<\/a><\/h4>/Uis', '', $content);
 		$content = preg_replace('/(<div class="wpb_text_column wpb_content_element " >.*)<div class="eltdf-single-tags-share-holder">/Uis', '', $content);
 		$content = preg_replace('/(<div class="wpb_text_column wpb_content_element " >.*)<div class="wpforms-container wpforms-container-full".*>/Uis', '', $content);
-		$content = preg_replace('/(<p>This article is a <em>Signature Luxury Travel &amp; Style<\/em> digital exclusive. <a href="https:\/\/eepurl.com\/bdR_BT" target="_blank" rel="noopener noreferrer">Be the first to see more exclusive online content by subscribing to the enewsletter<\/a>.<\/p>)/Uis', '', $content);
-		
+		$content = preg_replace('/(<div class="wpb_text_column wpb_content_element " >.*)<div class="wpforms-container wpforms-container-full".*>/Uis', '', $content);
+		$content = preg_replace('/<div class="wpb_text_column wpb_content_element " ><div class="wpb_wrapper">(<p>This article is a <em>.*<\/em>.*<a.*>.*<\/a>.*<\/p>)<\/div><\/div><\/div>/Uis', '', $content);
+		$content = preg_replace('/<label class="wpforms-field-label" for="wpforms-58331-field_2">(Want more travel inspiration delivered directly to your inbox\?)<\/label>/Uis', '', $content);
+		$content = preg_replace('/<div class="m_-8269437048825882457gmail-wpb_wrapper">(<p><em>This article is a <\/em>.*<a.*<\/a>.*<\/em><\/p>)<\/div>/Uis', '', $content);
+		$content = preg_replace('/<span.*>(VISIT WEBSITE)<\/span>/Uis', '', $content);
+		$content = preg_replace('/>(Subscribe to the latest issue today)<\/a>(\.)</Uis', '', $content);
+		$content = str_replace('click here', '', $content);
 		return $content;
 	}
 
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
-	protected function process_date($article_date) {
+	protected function process_date($article_date)
+	{
 		//2024-07-31T07:28:13+00:00
 		if (preg_match('/(.*)T(.*)\+/Uis', $article_date, $matches)) {
 
@@ -110,8 +117,5 @@ class signatureluxurytravelcomau extends plugin_base {
 		}
 
 		return $article_date;
-
 	}
-
-
 }
