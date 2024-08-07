@@ -72,6 +72,8 @@ class dealtown extends plugin_base {
 		$content = str_replace('SHOP NOW', '', $content);
 		$content = str_replace('Button Text', '', $content);
 		$content = str_replace('Custom', '', $content);
+		$content = preg_replace('/overflow:hidden;">(.*)<\/div>/Uis', '', $content);
+		$content = preg_replace('/<div class="preheader".*>(.*)<\/div>/Uis', '', $content);
 
 		return $content;
 	}
