@@ -1461,3 +1461,66 @@ protected function filter_sections($section_link, &$section_name, $referer_link,
 	
 		return $article_date;
 	}
+
+
+	/// select the time from the link of sitemap
+
+	protected function process_article_link($link, $referer_link, $logic) {
+
+		if(
+			preg_match('/<loc>(.*)<\/loc>/Uis',$link,$article_link) &&
+			preg_match('/<lastmod>(.*)<\/lastmod>/Uis',$link,$matches)
+
+		){
+
+			$link = $article_link[1];
+			
+			$this->date_article = $matches[1];
+		}
+
+		
+		
+		return $link;
+
+	}
+
+	protected function process_article_date($article_date,$article_data){
+		return $this->date_article;
+	}
+
+
+
+	// another process_date 
+
+	protected function process_date($article_date) {
+
+
+		if (preg_match('/(.*)T/Uis', $article_date, $matches)) {
+			$article_date_obj = DateTime::createFromFormat(
+				'Y-m-d H:i:s',
+				$matches[1]. ' 16:00:00',
+				new DateTimeZone($this->site_timezone)
+			);
+			$article_date = $article_date_obj->format('Y-m-d H:i:s');
+		}
+		return $article_date;
+	}
+
+
+	// another process_date 
+
+	protected function process_date($article_date) {
+
+		if (preg_match('/\s*(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})(?:\.|Z)/Uis', $article_date, $matches)) {
+
+			$article_date_obj = DateTime::createFromFormat(
+				'Y-m-d H:i:s',
+				$matches[1] . ' ' . $matches[2],
+				new DateTimeZone($this->site_timezone)
+			);
+			$article_date = $article_date_obj->format('Y-m-d H:i:s');
+		}
+
+		return $article_date;
+
+	}

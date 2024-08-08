@@ -410,7 +410,7 @@ class themanualcom extends plugin_base
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/(?:<div class="EventDetailItem-article-copy">|<div class="MediaGallery_imageDescription">|<div class="MediaImage_description">|<div class="PageArticle_main">|<div class="PageArticle_body">)(.*)(?:<a href="\/events\/" class="ButtonMoreContent">|<div class="MediaGallery_imageNumberMobile">|<div class="PageArticle_content sticky-container">|<div class="ArticleComment">|<div class="Paywall_wrapper">)/Uis',
+			'content' => '/(?:<div class="ArticleCopy">|<div class="EventDetailItem-article-copy">|<div class="MediaGallery_imageDescription">|<div class="MediaImage_description">|<div class="PageArticle_main">|<div class="PageArticle_body">)(.*)(?:<footer class="SiteFooter">|<a href="\/events\/" class="ButtonMoreContent">|<div class="MediaGallery_imageNumberMobile">|<div class="PageArticle_content sticky-container">|<div class="ArticleComment">|<div class="Paywall_wrapper">)/Uis',
 			'author' => false,
 			'article_date' => '/modified_time" content="(.*)"/Uis'
 		)
@@ -445,9 +445,25 @@ class themanualcom extends plugin_base
 		),
 		'list2' => array(
 			0 => array(
-				'type' => 'article',
+				'type' => 'list3',
 				'regexp' => '/<loc>(.*)<\/loc>/Uis',
 				'append_domain' => false,
+				'process_link' => 'process_article_link'
+			)
+		),
+		'list3' => array(
+			0 => array(
+				'type' => 'list3',
+				'regexp' => '/<li class="NavigationPagination_item NavigationPagination_item-right"><a.*href="(.*)"/Uis',
+				'append_domain' => false
+			),
+			1 => array(
+				'type' => 'article',
+				'regexp' => [
+					'/<div class="PageIndexArticles_list">(.*)<footer class="SiteFooter">/Uis',
+					'/<div class="ArticleTeaserSearchResultItem_content">.*<a href="(.*)"/Uis',
+				],
+				'append_domain' => true,
 				'process_link' => 'process_article_link'
 			)
 		),
@@ -479,10 +495,12 @@ class themanualcom extends plugin_base
 
 	private $links = array();
 	private $array_index = 0;
+	protected $date_article;
 
 	protected function process_article_link($link, $referer_link, $logic)
 	{
 		$temp_link = '';
+
 		if (empty($this->links)) {
 			$result = $this->ant->get($referer_link);
 			if (preg_match_all('/<loc>(.*)<\/loc>/Uis', $result, $matches)) {
@@ -490,14 +508,30 @@ class themanualcom extends plugin_base
 				$this->array_index = 0;
 			}
 		}
+
 		if ($this->array_index < sizeof($this->links) && isset($this->links[$this->array_index])) {
+
+			if (
+				preg_match('/<loc>(.*)<\/loc>/Uis', $this->links[$this->array_index], $article_link) &&
+				preg_match('/<lastmod>(.*)<\/lastmod>/Uis', $this->links[$this->array_index], $matches)
+			) {
+				$this->date_article = $matches[1];
+			}
+
 			$temp_link = str_replace('<loc>', '', $this->links[$this->array_index]);
 			$temp_link = str_replace('</loc>', '', $temp_link);
+
 			$this->array_index++;
 			return $temp_link;
 		}
 
 		return '';
+	}
+
+	protected function process_article_date($article_date, $article_data)
+	{
+		$article_date = $this->date_article;
+		return $this->process_date($article_date);
 	}
 
 	protected function process_date($article_date)
@@ -512,6 +546,16 @@ class themanualcom extends plugin_base
 			if ($article_date_obj !== false) {
 				$article_date = $article_date_obj->format('Y-m-d H:i:s');
 			}
+		} // 2024-08-07T10:19:06+02:00
+
+		elseif (preg_match('/(.*)T(.*)\+(.*)/Uis', $article_date, $matches)) {
+			$article_date_obj = new DateTime($article_date);
+
+			if ($this->site_timezone) {
+				$article_date_obj->setTimezone(new DateTimeZone($this->site_timezone));
+			}
+
+			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		} elseif (preg_match('/(\d+.\d+.\d+) \| (\d+:\d+) Uhr - (\d+.\d+.\d+) \| (\d+:\d+) Uhr/', $article_date, $matches)) {
 
 			$start_date_obj = DateTime::createFromFormat(
@@ -536,9 +580,6 @@ class themanualcom extends plugin_base
 				return $article_date;
 			}
 		} elseif (preg_match('/(\d{2}\.\d{2}\.\d{4}) \| (\d{2}:\d{2}) - (\d{2}:\d{2}) Uhr/', $article_date, $matches)) {
-			// Matches[1]: Date
-			// Matches[2]: Start time
-			// Matches[3]: End time
 
 			$date = $matches[1]; // 04.07.2024
 			$start_time = $matches[2]; // 11:00
@@ -553,6 +594,14 @@ class themanualcom extends plugin_base
 			if ($date_obj !== false) {
 				$article_date = $date_obj->format('Y-m-d H:i:s');
 			}
+		} elseif (preg_match('/\s*(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})(?:\.|Z)/Uis', $article_date, $matches)) {
+
+			$article_date_obj = DateTime::createFromFormat(
+				'Y-m-d H:i:s',
+				$matches[1] . ' ' . $matches[2],
+				new DateTimeZone($this->site_timezone)
+			);
+			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
 
 		return $article_date;
