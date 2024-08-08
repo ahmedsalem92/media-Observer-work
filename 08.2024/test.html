@@ -1,41 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-protected $logic_news = array(
-	'list1' => array(
-		0 => array(
-			'type' => 'list2',
-			'regexp' => '/^(.*)$/Uis',
-			'append_domain' => false,
-			'process_link' => 'process_list1_link_news',
-		)
-	),
-	'list2' => array(
-		0 => array(
-			'type' => 'article',
-			'regexp' => '/<loc>(.*)<\/loc>/Uis',
-			'append_domain' => false,
-			'process_link' => 'process_article_link'
-		)
-	),
-	'article' => array(
-		'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-		'content' => '/(?:<div class="MediaImage_description">|<div class="PageArticle_main">|<div class="PageArticle_body">)(.*)(?:<div class="PageArticle_content sticky-container">|<div class="ArticleComment">|<div class="Paywall_wrapper">)/Uis',
-		'author' => false,
-		'article_date' => '/modified_time" content="(.*)"/Uis'
-	)
-);
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="title"
+		content="Weekend-Fly : deux nouveaux pays disponibles - Actualité aéronautique  - AeroWeb-fr.net" />
+	<meta name="description"
+		content="AeroWeb-fr.net est un magazine aéronautique en ligne disponible gratuitement et fournissant des contenus divers et variés (actualités, fiches techniques, dossiers, biographies, histoire de l&#039;aéronautique, etc.) ainsi qu&#039;un espace communautaire." />
+	<meta name="keywords"
+		content="aeroweb, aeroweb-fr.net, aéronautique, aviation, magazine, avions, compagnies aériennes, constructeurs aéronautiques, actualité, forum, fiches techniques, dossiers, histoire de l&#039;aéronautique, histoire de l&#039;aviation, emploi, cv" />
+	<meta name="language" content="fr" />
+	<meta name="robots" content="index, follow, nocache" />
+	<title>Weekend-Fly : deux nouveaux pays disponibles - Actualité aéronautique - AeroWeb-fr.net</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+	<meta name="verify-v1" content="IIhG7nlG4uDEG71W1w9kczrC4J96ewmNdLWrtuHenwM=" />
+	<meta name="google-site-verification" content="4X4pnaKo7vbviQx8DzhYFa2-f8SkCO1sjcHRVJQcE-g" />
+	<meta property="fb:page_id" content="66309270034" />
+	<link rel="publisher" href="https://plus.google.com/117998007958521369612" />
+	<meta name="msvalidate.01" content="F4D57C67961D7DF141AF28C63F389168" />
+	<meta name="y_key" content="4d22b2358cfaf3c0" />
+	<meta name="DC.format" content="text/html" />
+	<meta name="DC.language" content="fr" />
+	<meta name="DC.publisher" content="AeroWeb-fr.net" />
+	<meta name="DC.identifier" content="ISSN 1951-6517" />
+	<meta property="og:url"
+		content="https://www.aeroweb-fr.net/actualites/2024/08/weekend-fly-deux-nouveaux-pays-disponibles" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Weekend-Fly : deux nouveaux pays disponibles" />
+	<meta property="og:description"
+		content="la Belgique et la Suisse maintenant disponibles en plus de la France, le Luxembourg, l'Allemagne, les Pays-Bas et le Danemark." />
+	<meta property="og:image" content />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="alternate" type="application/rss+xml" title="Toutes les publications"
+		href="https://www.aeroweb-fr.net/rss/tout.xml" />
+	<link rel="alternate" type="application/rss+xml"
+		title="Condensé de toute l'actualité aéronautique (actualités, brèves et chroniques)"
+		href="https://www.aeroweb-fr.net/rss/actualites.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les dernières actualités"
+		href="https://www.aeroweb-fr.net/rss/actualites-actualites.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les dernières brèves"
+		href="https://www.aeroweb-fr.net/rss/actualites-breves.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les dernières chroniques"
+		href="https://www.aeroweb-fr.net/rss/actualites-chroniques.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les dernières interviews"
+		href="https://www.aeroweb-fr.net/rss/actualites-interviews.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les dernières dépêches"
+		href="https://www.aeroweb-fr.net/rss/depeches.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les derniers podcasts"
+		href="https://www.aeroweb-fr.net/rss/podcasts.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les derniers évènements"
+		href="https://www.aeroweb-fr.net/rss/evenements.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les derniers rendez-vous dans l'agenda"
+		href="https://www.aeroweb-fr.net/rss/agenda.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les derniers médias"
+		href="https://www.aeroweb-fr.net/rss/medias.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les derniers médias images"
+		href="https://www.aeroweb-fr.net/rss/medias-images.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les derniers médias vidéos"
+		href="https://www.aeroweb-fr.net/rss/medias-videos.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les derniers médias audios"
+		href="https://www.aeroweb-fr.net/rss/medias-audios.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les derniers documents"
+		href="https://www.aeroweb-fr.net/rss/medias-documents.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les derniers sujets du forum"
+		href="https://www.aeroweb-fr.net/rss/forum.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les dernières biographies"
+		href="https://www.aeroweb-fr.net/rss/biographies.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les derniers dossiers"
+		href="https://www.aeroweb-fr.net/rss/dossiers.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les dernières fiches techniques"
+		href="https://www.aeroweb-fr.net/rss/fiches.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Les derniers sondages"
+		href="https://www.aeroweb-fr.net/rss/sondages.xml" />
+	<script type="text/javascript">
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+		(function () {
+			var gads = document.createElement('script');
+			gads.async = true;
+			gads.type = 'text/javascript';
+			var useSSL = 'https:' == document.location.protocol;
+			gads.src = (useSSL ? 'https:' : 'http:') +
+				'//www.googletagservices.com/tag/js/gpt.js';
+			var node = document.getElementsByTagName('script')[0];
+			node.parentNode.insertBefore(gads, node);
+		})();
+	</script>
+	<script type="text/javascript">
+		googletag.cmd.push(function () {
+			googletag.defineSlot('/1014968/aerowebfrnet_header_728x90', [728, 90], 'div-gpt-ad-1454407304413-0').addService(googletag.pubads());
+			googletag.defineSlot('/1014968/aerowebfrnet_menu_300x250', [[300, 250], [300, 600], [250, 250]], 'div-gpt-ad-1454407304413-1').addService(googletag.pubads());
+			googletag.defineSlot('/1014968/aerowebfrnet_context_300x250', [[250, 250], [300, 250]], 'div-gpt-ad-1454407304413-2').addService(googletag.pubads());
+			googletag.pubads().enableSingleRequest();
+			googletag.enableServices();
+		});
+	</script>
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/jquery.ui.js?v4.1.1"></script>
+	<!--[if lt IE 7]><script type="text/javascript" src="/js/jquery.ifixpng.js?v4.1.1"></script><![endif]-->
+	<script type="text/javascript" src="/js/jquery.facebox.js?v4.1.1"></script>
+	<script type="text/javascript" src="/js/global.min.js?v4.1.1"></script>
+	<script type="text/javascript" src="/js/jquery.markitup.js"></script>
+	<script type="text/javascript" src="/js/jquery.markitup.set.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/yui-grids.min.css?v4.1.1" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.min.css?v4.1.1" />
+	<!--[if IE 6]><link rel="stylesheet" type="text/css" media="screen" href="/css/ie6.min.css?v4.1.1" /><![endif]-->
+</head>
 
-protected function process_list1_link_news($link, $referer_link, $logic)
-{
-	$temp_link = ''; // Example: https://www.themanual.com/sitemap-news-sitemap_2024_07.xml
-	if (preg_match_all('/<loc>(https:\/\/www\.fvw\.de\/international\/sitemap(?:|\.\d+?)\.xml)<\/loc>/Uis', $link, $matches)) {
-		$temp_link = $matches[1][0];
-	}
+<body>
+	<div id="header-container-airliner">
+		<div id="header">
+			<a id="logo" href="/"><img src="/images/spacer.gif" alt="AeroWeb-fr.net" title="AeroWeb-fr.net" height="76"
+					width="480" /></a>
+			<div id="desk">
+				<form action="/membres/connexion" method="post">
+					<input type="hidden" name="signin[_csrf_token]" value="bc91b3fb7a0308c9060fe4123ba5d88d"
+						id="signin__csrf_token" />
+					<table class="no-authenticated">
+						<tr>
+							<td class="username"><input type="text" name="signin[username]"
+									value="Nom d&#039;utilisateur" id="signin_username" /></td>
+							<td class="password"><input type="password" name="signin[password]" value="Mot de passe"
+									id="signin_password" /></td>
+							<td class="submit"><input type="image" name="submit" src="/images/button_red_ok.png"
+									alt="Ok" title="Ok" width="26" height="19" /></td>
+						</tr>
+						<tr>
+							<td><a href="/membres/rappel">Mot de passe perdu ?</a></td>
+							<td class="remember" colspan="2"><input type="checkbox" name="signin[remember]"
+									id="signin_remember" /> <label for="signin_remember">Rester connecté</label></td>
+						</tr>
+						<tr>
+							<td class="subscribe" colspan="3"><a href="/membres/inscription">Devenez membre d'AeroWeb,
+									votre webmag aéro</a></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		<div id="ads">
+			<div id="div-gpt-ad-1454407304413-0" style="width:728px; height:90px;">
+				<script type="text/javascript">
+					googletag.cmd.push(function () { googletag.display('div-gpt-ad-1454407304413-0'); });
+				</script>
+			</div>
+		</div>
+	</div>
+	<div id="menu-container">
+		<div id="menu">
+			<ul class="tab">
+				<li id="accueil"><a onclick="window.location=&quot;/&quot;" href="/#tab-accueil">Accueil</a></li>
+				<li id="actualite" class="stab-selected"><a onclick="window.location=&quot;/actualites&quot;"
+						href="/actualites#tab-actualite">Actualité</a></li>
+				<li id="media"><a onclick="window.location=&quot;/medias&quot;" href="/medias#tab-media">Médias</a></li>
+				<li id="forum"><a onclick="window.location=&quot;/forum&quot;" href="/forum#tab-forum">Forum</a></li>
+				<li id="ressources"><a onclick="window.location=&quot;/page/ressources&quot;"
+						href="/page/ressources#tab-ressources">Ressources</a></li>
+				<li id="outils"><a onclick="window.location=&quot;/page/outils&quot;"
+						href="/page/outils#tab-outils">Outils</a></li>
+				<li id="histoire"><a onclick="window.location=&quot;/histoire&quot;"
+						href="/histoire#tab-histoire">Histoire</a></li>
+			</ul>
+			<div id="search">
+				<form method="get" action="/recherche">
+					<input type="hidden" name="cx" id="cx" value="partner-pub-0314345742620143:edj1b8r24ls" /><input
+						type="hidden" name="cof" id="cof" value="FORID:11" /><input type="hidden" name="ie" id="ie"
+						value="UTF-8" />
+					<table>
+						<tr>
+							<td><input type="text" name="q" id="q" value="Votre recherche" class="text" /></td>
+							<td><input type="image" name="commit" src="/images/button_red_ok.png" alt="Ok" title="Ok"
+									width="26" height="19" class="submit" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<div id="tab-accueil" class="stab stab-hide">
+				<ul>
+					<li><a href="/">Accueil</a></li>
+					<li>|</li>
+					<li><a href="/contact">Contact</a></li>
+					<li>|</li>
+					<li><a href="/page/a-propos-daeroweb-fr-net">A propos d'AeroWeb-fr.net</a></li>
+					<li>|</li>
+					<li><a href="/page/publicite-sur-aeroweb-fr-net">Publicité sur AeroWeb-fr.net</a></li>
+					<li>|</li>
+					<li><a href="/page/partenaires">Partenaires</a></li>
+				</ul>
+			</div>
+			<div id="tab-actualite" class="stab">
+				<ul>
+					<li><a href="/actualites">Toute l'actualité aéronautique</a></li>
+					<li>|</li>
+					<li><a href="/actualites/actualites">Actualités</a></li>
+					<li>|</li>
+					<li><a href="/actualites/breves">Brèves</a></li>
+					<li>|</li>
+					<li><a href="/depeches">Dépêches</a></li>
+					<li>|</li>
+					<li><a href="/actualites/interviews">Interviews</a></li>
+					<li>|</li>
+					<li><a href="/actualites/chroniques">Chroniques</a></li>
+					<li>|</li>
+					<li><a href="/agenda">Agenda</a></li>
+					<li>|</li>
+					<li><a href="/evenements">Evénements</a></li>
+				</ul>
+			</div>
+			<div id="tab-media" class="stab stab-hide">
+				<ul>
+					<li><a href="/medias">Tous les médias</a></li>
+					<li>|</li>
+					<li><a href="/medias/images">Images</a></li>
+					<li>|</li>
+					<li><a href="/medias/videos">Vidéos</a></li>
+					<li>|</li>
+					<li><a href="/medias/audios">Audios</a></li>
+					<li>|</li>
+					<li><a href="/medias/documents">Documents</a></li>
+				</ul>
+			</div>
+			<div id="tab-forum" class="stab stab-hide">
+				<ul>
+					<li><a href="/forum">Liste des catégories</a></li>
+					<li>|</li>
+					<li><a href="/forum/vos-commentaires-sur-lactualite">Actualité</a></li>
+					<li>|</li>
+					<li><a href="/forum/debats">Débats</a></li>
+					<li>|</li>
+					<li><a href="/forum/aviation-civile">Aviation civile</a></li>
+					<li>|</li>
+					<li><a href="/forum/aviation-militaire">Aviation militaire</a></li>
+					<li>|</li>
+					<li><a href="/forum/etudes-et-metiers">Etudes</a></li>
+					<li>|</li>
+					<li><a href="/forum/construction">Construction</a></li>
+					<li>|</li>
+					<li><a href="/forum/pilotage">Pilotage</a></li>
+					<li>|</li>
+					<li><a href="/forum/tout-et-rien">Tout et rien</a></li>
+				</ul>
+			</div>
+			<div id="tab-ressources" class="stab stab-hide">
+				<ul>
+					<li><a href="/aeroclubs">Aéroclubs</a></li>
+					<li>|</li>
+					<li><a href="/constructeurs">Constructeurs aéronautiques</a></li>
+					<li>|</li>
+					<li><a href="/compagnies-aeriennes">Compagnies aériennes</a></li>
+					<li>|</li>
+					<li><a href="/fiches">Fiches techniques</a></li>
+					<li>|</li>
+					<li><a href="/lexique">Lexique</a></li>
+					<li>|</li>
+					<li><a href="/biographies">Biographies</a></li>
+					<li>|</li>
+					<li><a href="/dossiers">Dossiers</a></li>
+					<li>|</li>
+					<li><a href="/podcast">Podcast</a></li>
+				</ul>
+			</div>
+			<div id="tab-outils" class="stab stab-hide">
+				<ul>
+					<li><a href="/recherche">Moteur de recherche</a></li>
+					<li>|</li>
+					<li><a href="/agenda">Agenda</a></li>
+					<li>|</li>
+					<li><a href="/newsletter">Newsletter</a></li>
+					<li>|</li>
+					<li><a href="/sondages">Sondages</a></li>
+					<li>|</li>
+					<li><a href="/rss">Flux RSS</a></li>
+				</ul>
+			</div>
+			<div id="tab-histoire" class="stab stab-hide">
+				<ul>
+					<li><a href="/histoire">Toute l'histoire aéronautique</a></li>
+					<li>|</li>
+					<li><a href="/histoire">Frise chronologique</a></li>
+					<li>|</li>
+					<li><a href="/histoire">Ca s'est passé un 8 août</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="content-container">
+		<div id="content">
+			<div id="ariane">
+				<div id="bookmark">
+					<div class="addthis_sharing_toolbox"></div>
+				</div>
+				<ul>
+					<li class="first"><a href="/">Accueil</a></li>
+					<li><a href="/actualites">Actualité aéronautique</a></li>
+					<li><a href="/actualites/2024/08/weekend-fly-deux-nouveaux-pays-disponibles">Weekend-Fly : deux
+							nouveaux pays disponibles</a></li>
+				</ul>
+			</div>
+			<div id="bd">
+				<div class="yui-gc">
+					<div class="yui-u first">
+						<h2><a href="/actualites">Actualité aéronautique</a></h2>
+						<h1><a href="/actualites/2024/08/weekend-fly-deux-nouveaux-pays-disponibles">Weekend-Fly : deux
+								nouveaux pays disponibles</a><img src="/actualites/vu/8816" alt title height="1"
+								width="1" /></h1>
+						<p class="subtitle">Article publié le 6 août 2024 par David Dagouret</p>
+						<h3>la Belgique et la Suisse maintenant disponibles en plus de la France, le Luxembourg,
+							l'Allemagne, les Pays-Bas et le Danemark.</h3>
+						<div class="media-preview">
+							<img class="thumb" src="/uploads/media/small/2024/24/9792.jpg" alt="logo weekendfly"
+								title="logo weekendfly" />
+							<p><a href="/medias/logo-weekendfly">logo weekendfly</a></p>
+							<p class="source">&copy; <a onclick="var w=window.open(this.href);w.focus();return false;"
+									href="https://www.weekend-fly.com/">weekendfly</a></p>
+						</div>
+						<p>Nous vous avons présenté en juin dernier, <a
+								href="https://weekend-fly.com/fr/">Weekend-fly</a>, qui n'est pas une application de
+							planification de vol ou de navigation mais bien un logiciel qui aide les pilotes à
+							déterminer une destination en fonction de différents choix. </p>
+						<p>Lors de son lancement <a href="https://weekend-fly.com/fr/">Weekend-fly</a> était disponible
+							en français et en anglais et couvrait 5 pays; la France, le Luxembourg, l'Allemagne, les
+							Pays-Bas et le Danemark. Depuis quelques jours, deux nouveaux pays son désormais disponible,
+							il s'agit de la Belgique et de la Suisse. </p>
+						<p><img src="/uploads/media/large/2024/24/9792.jpg" alt="weekend" width="600" height="399"
+								style="border:0px solid;" /></p>
+						<ul class="tags">
+							<li><strong>Mots-clés :</strong></li>
+							<li><a rel="tag" href="/recherche/s/allemagne">allemagne</a>, </li>
+							<li><a rel="tag" href="/recherche/s/attentes">attentes</a>, </li>
+							<li><a rel="tag" href="/recherche/s/belgique">belgique</a>, </li>
+							<li><a rel="tag" href="/recherche/s/danemark">danemark</a>, </li>
+							<li><a rel="tag" href="/recherche/s/destination">destination</a>, </li>
+							<li><a rel="tag" href="/recherche/s/france">france</a>, </li>
+							<li><a rel="tag" href="/recherche/s/luxembourg">luxembourg</a>, </li>
+							<li><a rel="tag" href="/recherche/s/pays-bas">pays-bas</a>, </li>
+							<li><a rel="tag" href="/recherche/s/pilote">pilote</a>, </li>
+							<li><a rel="tag" href="/recherche/s/pr%C3%A9f%C3%A9rences">préférences</a>, </li>
+							<li><a rel="tag" href="/recherche/s/suisse">suisse</a>, </li>
+							<li><a rel="tag" href="/recherche/s/voyage">voyage</a>, </li>
+							<li><a rel="tag" href="/recherche/s/week+end+fly">week end fly</a>, </li>
+							<li><a rel="tag" href="/recherche/s/weekend-fly">weekend-fly</a></li>
+						</ul>
+						<div class="space separator"></div>
+						<div id="div-gpt-ad-1454407304413-2" style="width:300px; height:250px;">
+							<script type="text/javascript">
+								googletag.cmd.push(function () { googletag.display('div-gpt-ad-1454407304413-2'); });
+							</script>
+						</div>
+						<div class="space separator"></div>
+					</div>
+					<div class="yui-u">
+						<div class="release">
+							<ul class="tab">
+								<li class="actualites stab-selected"><a href="#news-tab-actualites">Actualités</a></li>
+							</ul>
+							<div class="content">
+								<div id="news-tab-actualites" class="stab">
+									<ul>
+										<li>06/08 <a
+												href="/actualites/2024/08/weekend-fly-deux-nouveaux-pays-disponibles">Weekend-Fly
+												: deux nouveaux pays disponibles</a> </li>
+										<li>06/08 <a
+												href="/actualites/2024/08/integration-des-gramet-directement-sur-mach-7-pilot">Intégration
+												des Gramet directement sur Mach 7 Pilot</a> </li>
+										<li>05/08<strong><a
+													href="/actualites/2024/08/a-lire-prototypes-experimentaux-dassault-1960-1988">A
+													lire : Prototypes expérimentaux Dassault, 1960-1988</a></strong>
+										</li>
+										<li>05/08 <a
+												href="/actualites/2024/08/elixir-aircraft-a-annonce-avoir-signe-80-lettres-dintention-pour-110-avions-lors-du-salon-airventure">Elixir
+												Aircraft a annoncé avoir signé 80 lettres d’intention pour 110 avions
+												lors du salon AirVenture.</a> </li>
+										<li>03/08 <a
+												href="/actualites/2024/08/lot-polish-airlines-recoit-son-premier-embraer-e195-e2">Lot
+												Polish Airlines reçoit son premier Embraer E195-E2 </a> </li>
+										<li>03/08 <a
+												href="/actualites/2024/08/easyjet-annonce-deux-lignes-depuis-bordeaux">easyJet
+												annonce deux lignes depuis Bordeaux</a> </li>
+										<li>03/08 <a
+												href="/actualites/2024/08/ryanair-signe-un-partenariat-avec-travelfusion">Ryanair
+												signe un partenariat avec Travelfusion</a> </li>
+										<li>03/08 <a
+												href="/actualites/2024/08/cathay-pacific-devoile-sa-nouvelle-video-de-securite">Cathay
+												Pacific dévoile sa nouvelle vidéo de sécurité</a> </li>
+										<li>03/08 <a
+												href="/actualites/2024/08/korean-air-introduit-le-boeing-787-10-dans-sa-flotte">Korean
+												Air introduit le Boeing 787-10 dans sa flotte</a> </li>
+										<li>29/07 <a
+												href="/actualites/2024/07/farnborough-2024-boom-devoile-le-cockpit-de-son-futur-avion-supersonique-photos">Farnborough
+												2024 : Boom dévoile le cockpit de son futur avion supersonique
+												(photos)</a> </li>
+										<li>29/07 <a
+												href="/actualites/2024/07/airhaifa-recoit-son-premier-atr-72-600">airHaifa
+												reçoit son premier ATR 72-600</a> </li>
+										<li>29/07 <a
+												href="/actualites/2024/07/farnborough-2024-air-tahiti-a-commande-des-atr">Farnborough
+												2024 : Air Tahiti a commandé des ATR</a> </li>
+										<li>28/07 <a
+												href="/actualites/2024/07/aegean-livree-speciale-pour-les-jeux-olympiques">Aegean
+												: livrée spéciale pour les Jeux Olympiques</a> </li>
+										<li>28/07 <a
+												href="/actualites/2024/07/farnborough-2024-aura-aero-annonce-louverture-de-sa-premiere-usine-aux-etats-unis">Farnborough
+												2024 : AURA AERO annonce l’ouverture de sa première usine aux
+												Etats-Unis</a> </li>
+										<li>28/07 <a
+												href="/actualites/2024/07/farnborough-2024-flynas-commande-des-airbus-supplementaires">Farnborough
+												2024 : flynas commande des Airbus supplémentaires</a> </li>
+										<li>28/07 <a
+												href="/actualites/2024/07/farnborough-2024-atr-signe-une-lettre-dintention-avec-avation-plc-pour-la-compagnie-jcas-airways">Farnborough
+												2024 : ATR signe une lettre d'intention avec Avation PLC pour la
+												compagnie JCAS Airways</a> </li>
+										<li>28/07 <a
+												href="/actualites/2024/07/farnborough-2024-safran-annonce-louverture-dune-nouvelle-usine-a-chihuahua-mexique">Farnborough
+												2024 : Safran annonce l'ouverture d'une nouvelle usine à Chihuahua
+												(Mexique)</a> </li>
+										<li>28/07 <a
+												href="/actualites/2024/07/farnborough-2024-turkish-airlines-presente-sa-nouvelle-suite-crystal-en-business-class">Farnborough
+												2024 : Turkish Airlines présente sa nouvelle suite Crystal en Business
+												Class (photos)</a> </li>
+										<li>28/07 <a
+												href="/actualites/2024/07/manatour-lance-des-visites-de-la-chaine-dassemblage-airbus-a321-a-blagnac">Manatour
+												lance des visites de la chaîne d'assemblage Airbus A321 à Blagnac</a>
+										</li>
+										<li class="end">27/07 <a
+												href="/actualites/2024/07/farnborough-2024-berniq-airways-a-commande-des-airbus-a320neo">Farnborough
+												2024 : Berniq Airways a commandé des Airbus A320neo</a> </li>
+									</ul>
+								</div>
+							</div>
+							<div class="footer"><a href="/actualites">Toute l'actualité aéronautique</a></div>
+						</div>
+						<div class="space"></div>
+						<div id="div-gpt-ad-1454407304413-1" style="width: 300px; height: auto; text-align:center;">
+							<script type="text/javascript">
+								googletag.cmd.push(function () { googletag.display('div-gpt-ad-1454407304413-1'); });
+							</script>
+						</div>
+						<div class="space"></div>
 
-	return $temp_link;
-}
+						<div class="media">
+							<div class="header">Les plus belles photos d'avions</div>
+							<div class="content center">
+								<a onclick="var w=window.open(this.href);w.focus();return false;"
+									href="http://www.pictaero.com/fr/pictures/picture,371184"><img class="thumb"
+										src="https://img1.pictaero.com/2024/08/06/t/371184.jpg"
+										alt="Airbus A320-251N (B-32DX)" title="Airbus A320-251N (B-32DX)" height="60"
+										width="88" /></a> <a
+									onclick="var w=window.open(this.href);w.focus();return false;"
+									href="http://www.pictaero.com/fr/pictures/picture,371185"><img class="thumb"
+										src="https://img1.pictaero.com/2024/08/06/t/371185.jpg"
+										alt="Boeing 777-35E/ER (B-16729)" title="Boeing 777-35E/ER (B-16729)"
+										height="60" width="88" /></a> <a
+									onclick="var w=window.open(this.href);w.focus();return false;"
+									href="http://www.pictaero.com/fr/pictures/picture,371186"><img class="thumb"
+										src="https://img1.pictaero.com/2024/08/06/t/371186.jpg"
+										alt="Airbus A350-941 (B-18905)" title="Airbus A350-941 (B-18905)" height="60"
+										width="88" /></a> <a
+									onclick="var w=window.open(this.href);w.focus();return false;"
+									href="http://www.pictaero.com/fr/pictures/picture,371187"><img class="thumb"
+										src="https://img1.pictaero.com/2024/08/06/t/371187.jpg"
+										alt="Boeing 737-8U3/WL (PK-GMX)" title="Boeing 737-8U3/WL (PK-GMX)" height="60"
+										width="88" /></a> <a
+									onclick="var w=window.open(this.href);w.focus();return false;"
+									href="http://www.pictaero.com/fr/pictures/picture,371188"><img class="thumb"
+										src="https://img1.pictaero.com/2024/08/06/t/371188.jpg"
+										alt="Airbus A320-216 (PK-AXE)" title="Airbus A320-216 (PK-AXE)" height="60"
+										width="88" /></a> <a
+									onclick="var w=window.open(this.href);w.focus();return false;"
+									href="http://www.pictaero.com/fr/pictures/picture,371189"><img class="thumb"
+										src="https://img1.pictaero.com/2024/08/06/t/371189.jpg"
+										alt="Boeing 767-3S2/ERF (N104FE)" title="Boeing 767-3S2/ERF (N104FE)"
+										height="60" width="88" /></a>
+							</div>
+							<div class="footer"><a onclick="var w=window.open(this.href);w.focus();return false;"
+									href="http://www.pictaero.com">Toutes les photos d'avions</a></div>
+						</div>
+						<div class="space"></div>
+						<div class="forum">
+							<div class="header">En direct des forums</div>
+							<div class="content">
+								<ul>
+									<li class="white"><a href="/forum/aviation-civile/10384/1">Morane-Saulnier / Socata
+											/ Daher...</a></li>
+									<li class><a href="/forum/etudes-et-metiers/10428/1">alternance BTS aéronautique</a>
+									</li>
+									<li class="white"><a href="/forum/petites-annonces/10426/1">Siège avion business
+											classe</a></li>
+									<li class><a href="/forum/accidents-et-incidents-aeriens/10422/1">Crash d'un Boeing
+											777 à San Francisco - Vos avis ?</a></li>
+									<li class="white"><a href="/forum/aviation-civile/3445/1">Commandes Fermes</a></li>
+								</ul>
+							</div>
+							<div class="footer"><a href="/forum">Rejoindre le forum</a></div>
+						</div>
+						<div class="space"></div>
 
-public function prepare_news($section_id)
-{
+						<div class="center">
+							<div class="fb-page" data-href="https://www.facebook.com/aerowebfrnet/" data-tabs="timeline"
+								data-height="70" data-small-header="true" data-adapt-container-width="true"
+								data-hide-cover="true" data-show-facepile="false">
+								<blockquote cite="https://www.facebook.com/aerowebfrnet/" class="fb-xfbml-parse-ignore">
+									<a href="https://www.facebook.com/aerowebfrnet/">Page Facebook AeroWeb-fr.net</a>
+								</blockquote>
+							</div>
+							<div class="space"></div>
+							<a href="https://twitter.com/aerowebfrnet" class="twitter-follow-button" data-size="large"
+								data-lang="fr">Follow @aerowebfrnet sur Twitter</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer-airliner">
+		<div class="col first">
+			<form method="get" action="/recherche"> <input type="hidden" name="cx" id="cx"
+					value="partner-pub-0314345742620143:edj1b8r24ls" /><input type="hidden" name="cof" id="cof"
+					value="FORID:11" /><input type="hidden" name="ie" id="ie" value="UTF-8" />
+				<p class="center">
+					<input type="text" name="q" id="q" value class="text" /> <input type="submit" name="commit"
+						value="Trouver" />
+				</p>
+			</form>
+		</div>
+		<div class="col">
+			<p><strong>&copy; 2002 - 2024 <a alt="Editeur de sites internet aéronautique"
+						title="Editeur de sites internet aéronautique" target="popup"
+						href="http://www.agaw.eu">AGAW</a></strong></p>
+			<p><a href="/page/a-propos-daeroweb-fr-net">Mentions légales</a> - <a
+					href="/page/publicite-sur-aeroweb-fr-net">Publicité</a></p>
+			<p>ISSN 1951-6517</p>
+			<p><a href="/contact">Contactez-nous</a> - <a
+					href="/page/rejoindre-la-redaction-daeroweb-fr-net">Rejoignez-nous</a></p>
+		</div>
+		<div class="col">
+			<p><strong>Suivez AeroWeb sur les réseaux :</strong></p>
+			<ul>
+				<li><img src="/images/pict_facebook.png" alt="Facebook" title="Facebook" height="12" width="12" /> <a
+						target="popup" href="http://www.facebook.com/aerowebfrnet">Facebook</a></li>
+				<li><img src="/images/pict_twitter.png" alt="Twitter" title="Twitter" height="12" width="12" /> <a
+						target="popup" href="http://twitter.com/aerowebfrnet">Twitter</a></li>
+				<li><img src="/images/pict_netvibes.png" alt="Netvibes" title="Netvibes" height="12" width="12" /> <a
+						target="popup" href="http://www.netvibes.com/aerowebfrnet">Netvibes</a></li>
+			</ul>
+		</div>
+		<div class="col">
+			<p><strong>Passionné par les <a onclick="var w=window.open(this.href);w.focus();return false;"
+						href="http://www.pictaero.com">photos d'avions</a> ?</strong></p>
+			<p>Découvrez <a onclick="var w=window.open(this.href);w.focus();return false;"
+					href="http://www.pictaero.com">Pictaero.com</a>, le site gratuit de <a
+					onclick="var w=window.open(this.href);w.focus();return false;"
+					href="http://www.pictaero.com">partage de photos d'avions</a> par AGAW, l'éditeur d'AeroWeb-fr.net !
+			</p>
+		</div>
+	</div>
+	<div id="stats">
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYQ2ZRN2SR"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
 
-	$this->logic = $this->logic_news;
-}
+			gtag('config', 'G-GYQ2ZRN2SR');
+		</script>
+		<div id="fb-root"></div>
+		<script>
+			(function (d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.9&appId=73649048252";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			var sc_project = 2143122;
+			var sc_invisible = 1;
+			var sc_security = "2e554680";
+		</script>
+		<script type="text/javascript">
+			//<![CDATA[
+			var sc_project = 2143122;
+			var sc_invisible = 1;
+			var sc_security = "2e554680";
+			var scJsHost = (("https:" == document.location.protocol) ?
+				"https://secure." : "http://www.");
+			document.write("<sc" + "ript type='text/javascript' src='" +
+				scJsHost +
+				"statcounter.com/counter/counter_xhtml.js' async></" + "script>");
+			//]]>
+		</script>
+		<noscript>
+			<div class="statcounter"><img class="statcounter" src="https://c.statcounter.com/2143122/0/2e554680/1/" />
+			</div>
+		</noscript>
+	</div>
+	<script type="text/javascript">
+		//<![CDATA[
+		$(document).ready(function () { $('div#menu > ul').tabs('select', 1); });
+		//]]>
+	</script>
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=mirage" async></script>
+</body>
+
+</html>
