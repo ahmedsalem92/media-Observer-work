@@ -5,7 +5,7 @@ class thegulfheraldcom extends plugin_base
 
 	// ANT settings
 	protected $ant_precision = 2;
-	protected $stop_on_date = false;
+	protected $stop_on_date = true;
 	protected $agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/64.0.3282.167 Chrome/64.0.3282.167 Safari/537.36';
 
 	// CRAWL settings
@@ -33,7 +33,7 @@ class thegulfheraldcom extends plugin_base
 		),
 		'article' => array(
 			'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
-			'content' => '/<div class="entry-content mh-clearfix">(.*)<div class="entry-tags mh-clearfix">/Uis',
+			'content' => '/<div class="entry-content no-share">(.*)<div class="jeg_share_bottom_container">/Uis',
 			'author' => false,
 			'article_date' => '/datePublished":"(.*)"/Uis'
 		)
@@ -42,8 +42,8 @@ class thegulfheraldcom extends plugin_base
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
 
-		$temp_link = ''; // https://news.artnet.com/post-sitemap38.xml
-		if (preg_match_all('/<loc>(https:\/\/news\.artnet\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = ''; // https://actualidadaeroespacial.com/post-sitemap43.xml
+		if (preg_match_all('/<loc>(https:\/\/actualidadaeroespacial\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>', '', $temp_link);
 			$temp_link = str_replace('</loc>', '', $temp_link);
@@ -78,17 +78,13 @@ class thegulfheraldcom extends plugin_base
 
 	protected function process_content($content, $article_data)
 	{
-		$content = preg_replace('/<div class="wp-block-image">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="wp-block-embed__wrapper">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tds-button td-fix-index">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div style="display: inline-block">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tdb-next-post tdb-next-post-bg tdb-post-prev">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<blockquote class="twitter-tweet">(.*)<\/blockquote>/Uis', '', $content);
+		$content = preg_replace('/<div class="jeg_post_tags">(.*)<\/div>/Uis', '', $content);
 		return $content;
 	}
 
 	// process the date of the article, return in YYYY-MM-DD HH:ii:ss format
-	protected function process_date($article_date) {
+	protected function process_date($article_date)
+	{
 
 		//2024-07-30T06:29:14+00:00 
 		if (preg_match('/(.*)T(.*)\+/Uis', $article_date, $matches)) {
@@ -100,10 +96,8 @@ class thegulfheraldcom extends plugin_base
 			);
 			$article_date = $article_date_obj->format('Y-m-d H:i:s');
 		}
-        
+
 
 		return $article_date;
-
 	}
-
 }

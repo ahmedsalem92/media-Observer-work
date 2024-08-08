@@ -5,7 +5,7 @@ class thegulfheraldcom extends plugin_base
 
 	// ANT settings
 	protected $ant_precision = 2;
-	protected $stop_on_date = false;
+	protected $stop_on_date = true;
 	protected $agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/64.0.3282.167 Chrome/64.0.3282.167 Safari/537.36';
 
 	// CRAWL settings
@@ -42,8 +42,8 @@ class thegulfheraldcom extends plugin_base
 	protected function process_list1_link($link, $referer_link, $logic)
 	{
 
-		$temp_link = ''; // https://news.artnet.com/post-sitemap38.xml
-		if (preg_match_all('/<loc>(https:\/\/news\.artnet\.com\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = ''; // https://frankfurtflyer.de/post-sitemap11.xml
+		if (preg_match_all('/<loc>(https:\/\/frankfurtflyer\.de\/post-sitemap\d+?\.xml)<\/loc>/Uis', $link, $matches)) {
 			$temp_link = $matches[0][sizeof($matches[0]) - 1];
 			$temp_link = str_replace('<loc>', '', $temp_link);
 			$temp_link = str_replace('</loc>', '', $temp_link);
@@ -78,12 +78,8 @@ class thegulfheraldcom extends plugin_base
 
 	protected function process_content($content, $article_data)
 	{
-		$content = preg_replace('/<div class="wp-block-image">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="wp-block-embed__wrapper">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tds-button td-fix-index">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div style="display: inline-block">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<div class="tdb-next-post tdb-next-post-bg tdb-post-prev">(.*)<\/div>/Uis', '', $content);
-		$content = preg_replace('/<blockquote class="twitter-tweet">(.*)<\/blockquote>/Uis', '', $content);
+		$content = preg_replace('/<div class="lwptoc_header">(.*)<\/div>/Uis', '', $content);
+		$content = preg_replace('/<figure class="gallery-item">(.*)<\/figure>/Uis', '', $content);
 		return $content;
 	}
 
