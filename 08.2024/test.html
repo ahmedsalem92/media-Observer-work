@@ -1,27 +1,41 @@
-<!DOCTYPE html>
-<html lang="">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" href="/favicon.ico">
-  <title>News</title>
-  <link href="/css/chunk-7f46b938.0046498d.css" rel="prefetch">
-  <link href="/js/chunk-7f46b938.6906d871.js" rel="prefetch">
-  <link href="/css/app.ba54c4c8.css" rel="preload" as="style">
-  <link href="/css/chunk-vendors.64dfdf29.css" rel="preload" as="style">
-  <link href="/js/app.ae589bf9.js" rel="preload" as="script">
-  <link href="/js/chunk-vendors.f8b721d9.js" rel="preload" as="script">
-  <link href="/css/chunk-vendors.64dfdf29.css" rel="stylesheet">
-  <link href="/css/app.ba54c4c8.css" rel="stylesheet">
-</head>
+protected $logic_news = array(
+	'list1' => array(
+		0 => array(
+			'type' => 'list2',
+			'regexp' => '/^(.*)$/Uis',
+			'append_domain' => false,
+			'process_link' => 'process_list1_link_news',
+		)
+	),
+	'list2' => array(
+		0 => array(
+			'type' => 'article',
+			'regexp' => '/<loc>(.*)<\/loc>/Uis',
+			'append_domain' => false,
+			'process_link' => 'process_article_link'
+		)
+	),
+	'article' => array(
+		'headline' => '/<h1[^<]*>(.*)<\/h1>/Uis',
+		'content' => '/(?:<div class="MediaImage_description">|<div class="PageArticle_main">|<div class="PageArticle_body">)(.*)(?:<div class="PageArticle_content sticky-container">|<div class="ArticleComment">|<div class="Paywall_wrapper">)/Uis',
+		'author' => false,
+		'article_date' => '/modified_time" content="(.*)"/Uis'
+	)
+);
 
-<body><noscript><strong>We're sorry but News doesn't work properly without JavaScript enabled. Please enable it to
-      continue.</strong></noscript>
-  <div id="app"></div>
-  <script src="/js/chunk-vendors.f8b721d9.js"></script>
-  <script src="/js/app.ae589bf9.js"></script>
-</body>
+protected function process_list1_link_news($link, $referer_link, $logic)
+{
+	$temp_link = ''; // Example: https://www.themanual.com/sitemap-news-sitemap_2024_07.xml
+	if (preg_match_all('/<loc>(https:\/\/www\.fvw\.de\/international\/sitemap(?:|\.\d+?)\.xml)<\/loc>/Uis', $link, $matches)) {
+		$temp_link = $matches[1][0];
+	}
 
-</html>
+	return $temp_link;
+}
+
+public function prepare_news($section_id)
+{
+
+	$this->logic = $this->logic_news;
+}
